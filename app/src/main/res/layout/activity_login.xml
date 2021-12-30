@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient_dark"
+    tools:context=".activity.SignInActivity">
+
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_app_icon"
+        android:transitionName="logoTransition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+
+    <LinearLayout
+        android:id="@+id/login_holder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_1"
+        android:backgroundTint="@color/color_p_100"
+        android:backgroundTintMode="multiply"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_image">
+
+
+        <TextView
+            android:id="@+id/login_text_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/eight_dp"
+            android:padding="@dimen/eight_dp"
+            android:text="@string/sign_in"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/login_stuff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_1"
+            android:backgroundTint="@color/color_p_200"
+            android:backgroundTintMode="multiply"
+            android:orientation="vertical"
+            android:padding="@dimen/eight_dp">
+
+
+            <EditText
+                android:id="@+id/std_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                android:hint="@string/college_id"
+                android:inputType="textWebEmailAddress" />
+
+            <EditText
+                android:id="@+id/std_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:onClick="onSignInClick"
+                android:id="@+id/signIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                android:background="@drawable/button_background"
+                android:text="@string/sign_in"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+            <TextView
+                android:onClick="onForgotPasswordClick"
+                android:id="@+id/forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/eight_dp"
+                android:text="@string/forgot_password"
+                android:textColor="@color/color_red" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

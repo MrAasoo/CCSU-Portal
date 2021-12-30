@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:orientation="vertical"
+    android:padding="@dimen/sixteen_dp"
+    tools:context=".activity.SettingActivity">
+
+
+    <TextView
+        android:elevation="@dimen/eight_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/eight_dp"
+        android:text="Application theme"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <RadioGroup
+        android:elevation="@dimen/eight_dp"
+        android:id="@+id/radio_group_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/eight_dp"
+        android:checkedButton="@id/radio_default"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radio_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/light_blue_500"
+            android:checked="true"
+            android:text="System default" />
+
+        <RadioButton
+            android:id="@+id/radio_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/light_blue_500"
+            android:checked="false"
+            android:text="Light" />
+
+        <RadioButton
+            android:id="@+id/radio_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/light_blue_500"
+            android:checked="false"
+            android:text="Dark" />
+
+    </RadioGroup>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:layout_marginBottom="@dimen/eight_dp"
+        android:background="@drawable/background_gradient_dark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:elevation="@dimen/eight_dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:padding="@dimen/eight_dp"
+            android:text="Notification"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:textColor="@color/light_blue_500"
+            android:elevation="@dimen/eight_dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:layout_marginBottom="@dimen/eight_dp"
+        android:background="@drawable/background_gradient_dark" />
+
+
+<!--TODO Terms of Uses-->
+    <TextView
+        android:elevation="@dimen/eight_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/eight_dp"
+        android:text="Terms of Uses"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/light_blue_500"
+        android:textStyle="italic" />
+
+<!--TODO Privacy Policy-->
+    <TextView
+        android:elevation="@dimen/eight_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:padding="@dimen/eight_dp"
+        android:text="Privacy Policy"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/light_blue_500"
+        android:textStyle="italic" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:layout_marginBottom="@dimen/eight_dp"
+        android:background="@drawable/background_gradient_dark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <TextView
+            android:elevation="@dimen/eight_dp"
+            android:id="@+id/setting_app_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/eight_dp"
+            android:text="@string/app_info"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_weight="5"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_next"
+            android:backgroundTint="@color/color_p_700"/>
+    </LinearLayout>
+
+
+</LinearLayout>

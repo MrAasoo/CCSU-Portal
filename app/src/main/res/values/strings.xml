@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">College Portal</string>
+
+    <string name="college_name">College Name</string>
+    <string name="college_phrase">College Phrase</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="college_id">College ID</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="signing_failed_title">Signing Failed!</string>
+    <string name="logout_text">Logout</string>
+    <string name="exit_text">Exit</string>
+    <string name="ok_text">OK</string>
+    <string name="no_internet_title">No Internet!</string>
+
+    <string name="not_verified_message">Your account has not been verified yet. Please contact to Administration.</string>
+    <string name="account_blocked">Your account has been temporarily Blocked. Please contact to Administration.</string>
+    <string name="id_not_found_message">You have entered wrong ID. Please check and try again …</string>
+    <string name="wrong_password_message">Either you have inserted wrong ID or wrong Password. Please check and try again …</string>
+    <string name="no_internet_message">Check your Internet connection and try again.</string>
+    <string name="server_response_failed_message">Server response failed!\nPlease try again …</string>
+    <string name="progress_signing_message">Signing in …</string>
+    <string name="copyright_text">© 2021 Himanshu Srivastava\nAndroid Application Development\nAll rights reserved</string>
+    <string name="copyrights_title">Copyrights</string>
+    <string name="app_info">App Info</string>
+</resources>

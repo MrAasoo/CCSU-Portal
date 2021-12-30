@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Dark/Light Theme Colors -->
+    <color name="color_p_50">#FF808080</color>
+    <color name="color_p_100">#FF666666</color>
+    <color name="color_p_200">#FF4D4D4D</color>
+    <color name="color_p_500">#FF333333</color>
+    <color name="color_p_700">#FF191919</color>
+    <color name="color_p_900">#FF000000</color>
+
+
+</resources>
