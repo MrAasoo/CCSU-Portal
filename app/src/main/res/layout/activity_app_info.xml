@@ -15,10 +15,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight_dp"
             android:text="@string/copyrights_title"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="@dimen/eight_dp"
+            android:background="@drawable/background_gradient_dark" />
 
         <TextView
             android:id="@+id/about_copyrights"
@@ -30,19 +35,21 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textColor="@color/color_p_500" />
 
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/thirty_two_dp"
+            android:text="Version"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_margin="@dimen/eight_dp"
             android:background="@drawable/background_gradient_dark" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight_dp"
-            android:text="Version"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
         <TextView
             android:id="@+id/about_version"
