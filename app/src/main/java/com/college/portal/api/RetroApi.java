@@ -9,6 +9,11 @@ import retrofit2.http.Query;
 
 public interface RetroApi {
 
+    // Mobile
+    String BASE_URL = "http://192.168.43.126/collegeportalapi/";
+    // Emulator
+    // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
+
     @GET("login.php")
     Call<LoginResponse> studentLogin(
             @Query("std_id") String stdId,
@@ -22,4 +27,7 @@ public interface RetroApi {
             @Query("std_password") String stdPassword
     );
 
+
+    String TERMS_URL = "termsdoc.html";
+    String PRIVACY_URL = "privacydoc.html";
 }

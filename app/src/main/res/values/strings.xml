@@ -24,4 +24,6 @@
     <string name="copyright_text">© 2021 Himanshu Srivastava\nAndroid Application Development\nAll rights reserved</string>
     <string name="copyrights_title">Copyrights</string>
     <string name="app_info">App Info</string>
+    <string name="terms_of_uses">Terms of Uses</string>
+    <string name="privacy_policy">Privacy Policy</string>
 </resources>

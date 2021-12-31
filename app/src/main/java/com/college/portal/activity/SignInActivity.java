@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,10 +29,14 @@ import retrofit2.Response;
 
 import static com.college.portal.api.AppApi.ACCOUNT_MESSAGE;
 import static com.college.portal.api.AppApi.ACCOUNT_STATUS;
+import static com.college.portal.api.AppApi.PAGE_URL;
 import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_BLOCKED;
 import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_NOT_VERIFIED;
 import static com.college.portal.api.AppApi.STUDENT_ID_NOT_FOUND;
 import static com.college.portal.api.AppApi.STUDENT_PASSWORD_DO_NOT_MATCH;
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.PRIVACY_URL;
+import static com.college.portal.api.RetroApi.TERMS_URL;
 
 
 public class SignInActivity extends AppCompatActivity {
@@ -45,7 +50,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_in);
 
         //Layouts
         LinearLayout loginHolder = findViewById(R.id.login_holder);
@@ -63,6 +68,28 @@ public class SignInActivity extends AppCompatActivity {
         //Set Animation
         loginHolder.setAnimation(bottomAnim);
         loginStuff.setAnimation(bottomAnim);
+
+        //terms and privacy
+        TextView settingTerms = findViewById(R.id.signin_terms);
+        TextView settingPrivacy = findViewById(R.id.signin_policy);
+
+        settingTerms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent webTermsIntent = new Intent(SignInActivity.this, WebViewActivity.class);
+                webTermsIntent.putExtra(PAGE_URL, BASE_URL + TERMS_URL);
+                startActivity(webTermsIntent);
+            }
+        });
+
+        settingPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent webTermsIntent = new Intent(SignInActivity.this, WebViewActivity.class);
+                webTermsIntent.putExtra(PAGE_URL, BASE_URL + PRIVACY_URL);
+                startActivity(webTermsIntent);
+            }
+        });
 
     }
 

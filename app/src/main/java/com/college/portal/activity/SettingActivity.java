@@ -1,8 +1,5 @@
 package com.college.portal.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -11,8 +8,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.college.portal.R;
 import com.college.portal.prefrences.ThemePrefManager;
+
+import static com.college.portal.api.AppApi.PAGE_URL;
+import static com.college.portal.api.RetroApi.PRIVACY_URL;
+import static com.college.portal.api.RetroApi.TERMS_URL;
+import static com.college.portal.api.RetroApi.BASE_URL;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -31,8 +36,8 @@ public class SettingActivity extends AppCompatActivity {
 
         ThemePrefManager prefManager = new ThemePrefManager(SettingActivity.this);
 
-        if(prefManager.getThemeMode() != null){
-            switch(prefManager.getThemeMode()){
+        if (prefManager.getThemeMode() != null) {
+            switch (prefManager.getThemeMode()) {
                 case "dark":
                     darkBtn.setChecked(true);
                     break;
@@ -40,12 +45,12 @@ public class SettingActivity extends AppCompatActivity {
                     lightBtn.setChecked(true);
                     break;
             }
-        }else{
+        } else {
             defaultBtn.setChecked(true);
             int systemUiThemeMode = getApplicationContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-            if(systemUiThemeMode == Configuration.UI_MODE_NIGHT_YES){
+            if (systemUiThemeMode == Configuration.UI_MODE_NIGHT_YES) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }else if(systemUiThemeMode == Configuration.UI_MODE_NIGHT_NO){
+            } else if (systemUiThemeMode == Configuration.UI_MODE_NIGHT_NO) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         }
@@ -53,13 +58,13 @@ public class SettingActivity extends AppCompatActivity {
         themeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(checkedId){
+                switch (checkedId) {
                     case R.id.radio_default:
                         prefManager.setDefault();
                         int systemUiThemeMode = getApplicationContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-                        if(systemUiThemeMode == Configuration.UI_MODE_NIGHT_YES){
+                        if (systemUiThemeMode == Configuration.UI_MODE_NIGHT_YES) {
                             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                        }else if(systemUiThemeMode == Configuration.UI_MODE_NIGHT_NO){
+                        } else if (systemUiThemeMode == Configuration.UI_MODE_NIGHT_NO) {
                             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         }
                         break;
@@ -75,8 +80,30 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+        //terms and privacy
+        TextView settingTerms = findViewById(R.id.setting_terms);
+        TextView settingPrivacy = findViewById(R.id.setting_privacy);
+
+        settingTerms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent webTermsIntent = new Intent(SettingActivity.this, WebViewActivity.class);
+                webTermsIntent.putExtra(PAGE_URL, BASE_URL + TERMS_URL);
+                startActivity(webTermsIntent);
+            }
+        });
+
+        settingPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent webTermsIntent = new Intent(SettingActivity.this, WebViewActivity.class);
+                webTermsIntent.putExtra(PAGE_URL, BASE_URL + PRIVACY_URL);
+                startActivity(webTermsIntent);
+            }
+        });
 
 
+        //App info
         TextView settingAbout = findViewById(R.id.setting_app_info);
         settingAbout.setOnClickListener(new View.OnClickListener() {
             @Override

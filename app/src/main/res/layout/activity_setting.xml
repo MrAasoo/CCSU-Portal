@@ -93,25 +93,25 @@
         android:background="@drawable/background_gradient_dark" />
 
 
-<!--TODO Terms of Uses-->
     <TextView
+        android:id="@+id/setting_terms"
         android:elevation="@dimen/eight_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/eight_dp"
-        android:text="Terms of Uses"
+        android:text="@string/terms_of_uses"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/light_blue_500"
         android:textStyle="italic" />
 
-<!--TODO Privacy Policy-->
     <TextView
+        android:id="@+id/setting_privacy"
         android:elevation="@dimen/eight_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/eight_dp"
         android:padding="@dimen/eight_dp"
-        android:text="Privacy Policy"
+        android:text="@string/privacy_policy"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/light_blue_500"
         android:textStyle="italic" />
