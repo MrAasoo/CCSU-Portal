@@ -317,7 +317,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="Contacts"
+                            android:text="Contact Us"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
