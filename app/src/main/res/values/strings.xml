@@ -26,4 +26,16 @@
     <string name="app_info">App Info</string>
     <string name="terms_of_uses">Terms of Uses</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="student_s_image">Student\'s Image</string>
+    <string name="welcome">Welcome</string>
+    <string name="student_branch">Student Branch</string>
+    <string name="student_id">Student ID</string>
+    <string name="students_profile">Profile</string>
+    <string name="assignment">Assignment</string>
+    <string name="collage_news">Collage News</string>
+    <string name="notification">Notification</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="about_us">About Us</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
 </resources>
