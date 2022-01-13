@@ -106,10 +106,10 @@
             android:weightSum="10">
 
             <TextView
-                android:layout_marginStart="@dimen/sixteen_dp"
                 android:id="@+id/about_history"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sixteen_dp"
                 android:layout_weight="10"
                 android:text="History"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />

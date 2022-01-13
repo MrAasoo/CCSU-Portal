@@ -1,5 +1,6 @@
 package com.college.portal.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -8,6 +9,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.college.portal.R;
+
+import static com.college.portal.api.AppApi.PAGE_URL;
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.HISTORY_URL;
+import static com.college.portal.api.RetroApi.TERMS_URL;
 
 public class AboutUsActivity extends AppCompatActivity {
 
@@ -48,8 +54,9 @@ public class AboutUsActivity extends AppCompatActivity {
         tvHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutUsActivity.this, "History Clicked", Toast.LENGTH_SHORT).show();
-                //TODO : History.
+                Intent webTermsIntent = new Intent(AboutUsActivity.this, WebViewActivity.class);
+                webTermsIntent.putExtra(PAGE_URL, BASE_URL + HISTORY_URL);
+                startActivity(webTermsIntent);
             }
         });
 

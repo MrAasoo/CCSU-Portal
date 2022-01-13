@@ -30,4 +30,5 @@ public interface RetroApi {
 
     String TERMS_URL = "termsdoc.html";
     String PRIVACY_URL = "privacydoc.html";
+    String HISTORY_URL = "history.html";
 }
