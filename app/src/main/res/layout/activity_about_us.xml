@@ -33,7 +33,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
-                android:text="Our Mission"
+                android:text="@string/our_mission"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <ImageView
@@ -69,7 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
-                android:text="Our Vision"
+                android:text="@string/our_vision"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <ImageView
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/sixteen_dp"
                 android:layout_weight="10"
-                android:text="History"
+                android:text="@string/history"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <ImageView
@@ -147,7 +147,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
-                android:text="Photos"
+                android:text="@string/photos"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <ImageView
@@ -182,7 +182,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
-                android:text="Videos"
+                android:text="@string/videos"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <ImageView

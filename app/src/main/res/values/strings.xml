@@ -38,4 +38,9 @@
     <string name="about_us">About Us</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
+    <string name="history">History</string>
+    <string name="our_mission">Our Mission</string>
+    <string name="our_vision">Our Vision</string>
+    <string name="photos">Photos</string>
+    <string name="videos">Videos</string>
 </resources>
