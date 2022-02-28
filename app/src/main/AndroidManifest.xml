@@ -14,7 +14,11 @@
         android:theme="@style/Theme.CollegePortal"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activity.WebViewActivity"></activity>
+        <activity android:name=".LibraryActivity"></activity>
+        <activity android:name=".activity.ContactUsActivity" />
+        <activity android:name=".activity.NotificationActivity" />
+        <activity android:name=".activity.NewsActivity" />
+        <activity android:name=".activity.WebViewActivity" />
         <activity
             android:name=".activity.AboutUsActivity"
             android:screenOrientation="portrait" />

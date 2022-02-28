@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LibraryActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_margin="@dimen/sixteen_dp"
+        android:padding="@dimen/eight_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="E-Books"
+        android:drawableEnd="@drawable/ic_next" />
+
+    <TextView
+        android:layout_margin="@dimen/sixteen_dp"
+        android:padding="@dimen/eight_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="Notes"
+        android:drawableEnd="@drawable/ic_next" />
+
+    <TextView
+        android:layout_margin="@dimen/sixteen_dp"
+        android:padding="@dimen/eight_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="Magazine"
+        android:drawableEnd="@drawable/ic_next" />
+
+    <TextView
+        android:layout_margin="@dimen/sixteen_dp"
+        android:padding="@dimen/eight_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="Lectures"
+        android:drawableEnd="@drawable/ic_next" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="@dimen/eight_dp"
+        android:background="@drawable/background_gradient_dark" />
+
+    <TextView
+        android:layout_margin="@dimen/sixteen_dp"
+        android:padding="@dimen/eight_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="My College Library"
+        android:drawableEnd="@drawable/ic_next" />
+
+
+
+</LinearLayout>

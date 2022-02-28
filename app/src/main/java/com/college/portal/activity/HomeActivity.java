@@ -1,7 +1,5 @@
 package com.college.portal.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +7,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.college.portal.LibraryActivity;
 import com.college.portal.R;
 import com.college.portal.model.StudentPref;
 import com.college.portal.prefrences.SharedPrefManager;
@@ -45,7 +46,6 @@ public class HomeActivity extends AppCompatActivity {
         Toast.makeText(this, "Image : " + studentPref.getStdImage(), Toast.LENGTH_SHORT).show();
 
 
-
     }
 
     private String getTimeOfDay() {
@@ -58,21 +58,25 @@ public class HomeActivity extends AppCompatActivity {
             return "Good evening...";      // After 4pm
         if (hrs > 12)
             return "Good afternoon...";    // After 12pm
-        if (hrs >=  6)
+        if (hrs >= 6)
             return "Good morning...";      // After 6am
-        if (hrs >  4)
+        if (hrs > 4)
             return "Morning's Sunshine!"; // REALLY early
         return "Welcome";
     }
 
     public void cardViewClicked(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.home_profile:
-                startActivity(new Intent(HomeActivity.this,ProfileActivity.class));
+                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
                 break;
 
             case R.id.home_assignment:
                 startActivity(new Intent(HomeActivity.this, AssignmentActivity.class));
+                break;
+
+            case R.id.home_library:
+                startActivity(new Intent(getApplicationContext(), LibraryActivity.class));
                 break;
 
             case R.id.home_news:
