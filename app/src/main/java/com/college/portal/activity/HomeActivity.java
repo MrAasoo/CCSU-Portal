@@ -68,11 +68,11 @@ public class HomeActivity extends AppCompatActivity {
     public void cardViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home_profile:
-                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                 break;
 
             case R.id.home_assignment:
-                startActivity(new Intent(HomeActivity.this, AssignmentActivity.class));
+                startActivity(new Intent(getApplicationContext(), AssignmentActivity.class));
                 break;
 
             case R.id.home_library:
@@ -80,30 +80,27 @@ public class HomeActivity extends AppCompatActivity {
                 break;
 
             case R.id.home_news:
-                Toast.makeText(this, "News Clicked!", Toast.LENGTH_SHORT).show();
-                //TODO : News work ...
+                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
                 break;
 
             case R.id.home_notifications:
-                Toast.makeText(this, "Notification Clicked!", Toast.LENGTH_SHORT).show();
-                //TODO : Notification work ...
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
                 break;
 
             case R.id.home_settings:
-                startActivity(new Intent(HomeActivity.this, SettingActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingActivity.class));
                 break;
 
             case R.id.home_logout:
-                SharedPrefManager.getInstance(HomeActivity.this).clearStudent();
+                SharedPrefManager.getInstance(getApplicationContext()).clearStudent();
                 toLoginActivity();
                 break;
 
             case R.id.home_contact:
-                Toast.makeText(this, "Contact Clicked!", Toast.LENGTH_SHORT).show();
-                //TODO : Contact work ...
+                startActivity(new Intent(getApplicationContext(), ContactUsActivity.class));
                 break;
             case R.id.home_about_us:
-                startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
+                startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
                 break;
 
         }
