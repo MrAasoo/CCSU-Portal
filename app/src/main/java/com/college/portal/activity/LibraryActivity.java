@@ -1,8 +1,10 @@
-package com.college.portal;
+package com.college.portal.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.college.portal.R;
 
 public class LibraryActivity extends AppCompatActivity {
 

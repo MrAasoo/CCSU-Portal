@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 import static com.college.portal.api.RetroApi.BASE_URL;
 
@@ -25,6 +26,7 @@ public class RetrofitClient {
                 .create();
         retrofit =  new Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }

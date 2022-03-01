@@ -14,25 +14,29 @@
         android:padding="@dimen/eight_dp">
 
         <TextView
+            android:id="@+id/news_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="News Title"
             android:textAlignment="viewStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
+            android:id="@+id/news_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Here show assignment on etc."
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
+            android:id="@+id/news_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Date : ../../...."
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
         <TextView
+            android:id="@+id/news_click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

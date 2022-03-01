@@ -157,7 +157,9 @@ public class SignInActivity extends AppCompatActivity {
     private void apiCallLogin(String std_id, String std_password) {
 
         //Show progress dialog
-        final ProgressDialogInterface progressDialog = new ProgressDialogInterface(SignInActivity.this,getString(R.string.progress_signing_message));
+        final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
+                SignInActivity.this,
+                getString(R.string.progress_signing_message));
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         progressDialog.setCancelable(false);
         progressDialog.create();

@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
                 android:text="@string/our_mission"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <ImageView
                 android:layout_width="40dp"
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
                 android:text="@string/our_vision"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <ImageView
                 android:layout_width="40dp"
@@ -112,7 +112,7 @@
                 android:layout_marginStart="@dimen/sixteen_dp"
                 android:layout_weight="10"
                 android:text="@string/history"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <ImageView
                 android:layout_width="40dp"
@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
                 android:text="@string/photos"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <ImageView
                 android:layout_width="40dp"
@@ -177,13 +177,13 @@
             android:weightSum="10">
 
             <TextView
-                android:layout_marginStart="@dimen/sixteen_dp"
                 android:id="@+id/about_video"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sixteen_dp"
                 android:layout_weight="10"
                 android:text="@string/videos"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <ImageView
                 android:layout_width="40dp"

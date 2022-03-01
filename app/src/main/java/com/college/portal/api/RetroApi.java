@@ -1,7 +1,9 @@
 package com.college.portal.api;
 
+import com.college.portal.model.ContactUs;
 import com.college.portal.model.InfoResponse;
 import com.college.portal.model.LoginResponse;
+import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -26,6 +28,16 @@ public interface RetroApi {
             @Query("std_id") String stdId,
             @Query("std_password") String stdPassword
     );
+
+
+    @GET("collegecontacts.php")
+    Call<JsonObject> getCollegeContactUs();
+
+    @GET("collegeevents.php")
+    Call<JsonObject> getNewsList();
+
+    @GET("assignment.php")
+    Call<JsonObject> getAssignmentList();
 
 
     String TERMS_URL = "termsdoc.html";

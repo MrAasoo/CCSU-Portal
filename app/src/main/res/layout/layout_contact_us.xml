@@ -14,6 +14,7 @@
         android:padding="@dimen/eight_dp">
 
         <TextView
+            android:id="@+id/contact_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name/Website Name"
@@ -31,22 +32,23 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="@dimen/eight_dp"
-                android:layout_marginBottom="@dimen/eight_dp"
+                android:layout_marginTop="@dimen/four_dp"
+                android:layout_marginBottom="@dimen/four_dp"
                 android:background="@drawable/background_gradient_dark" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Contact Number"
+                android:text="@string/contact_number_hint"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <TextView
+                android:id="@+id/contact_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/contact_number_dummydata"
                 android:padding="@dimen/eight_dp"
-                android:text="+91 1234567890"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </LinearLayout>
@@ -58,25 +60,27 @@
             android:orientation="vertical"
             android:visibility="gone">
 
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="@dimen/eight_dp"
-                android:layout_marginBottom="@dimen/eight_dp"
+                android:layout_marginTop="@dimen/four_dp"
+                android:layout_marginBottom="@dimen/four_dp"
                 android:background="@drawable/background_gradient_dark" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="@string/email_hint"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <TextView
+                android:id="@+id/contact_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/email_dummydata"
                 android:padding="@dimen/eight_dp"
-                android:text="example@domain.com"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </LinearLayout>
@@ -88,25 +92,27 @@
             android:orientation="vertical"
             android:visibility="gone">
 
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="@dimen/eight_dp"
-                android:layout_marginBottom="@dimen/eight_dp"
+                android:layout_marginTop="@dimen/four_dp"
+                android:layout_marginBottom="@dimen/four_dp"
                 android:background="@drawable/background_gradient_dark" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Link"
+                android:text="@string/link_hint"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <TextView
+                android:id="@+id/contact_web"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/link_dummydata"
                 android:padding="@dimen/eight_dp"
-                android:text="https://www.example.com"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 

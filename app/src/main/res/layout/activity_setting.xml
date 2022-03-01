@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,20 +11,20 @@
 
 
     <TextView
-        android:elevation="@dimen/eight_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="@dimen/eight_dp"
         android:padding="@dimen/eight_dp"
         android:text="Application theme"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <RadioGroup
-        android:elevation="@dimen/eight_dp"
         android:id="@+id/radio_group_theme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/eight_dp"
         android:checkedButton="@id/radio_default"
+        android:elevation="@dimen/eight_dp"
         android:orientation="vertical">
 
         <RadioButton
@@ -68,20 +69,20 @@
         android:weightSum="4">
 
         <TextView
-            android:elevation="@dimen/eight_dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:elevation="@dimen/eight_dp"
             android:padding="@dimen/eight_dp"
             android:text="Notification"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:textColor="@color/light_blue_500"
-            android:elevation="@dimen/eight_dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:elevation="@dimen/eight_dp"
+            android:textColor="@color/light_blue_500" />
     </LinearLayout>
 
 
@@ -95,9 +96,9 @@
 
     <TextView
         android:id="@+id/setting_terms"
-        android:elevation="@dimen/eight_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="@dimen/eight_dp"
         android:padding="@dimen/eight_dp"
         android:text="@string/terms_of_uses"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -106,10 +107,10 @@
 
     <TextView
         android:id="@+id/setting_privacy"
-        android:elevation="@dimen/eight_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/eight_dp"
+        android:elevation="@dimen/eight_dp"
         android:padding="@dimen/eight_dp"
         android:text="@string/privacy_policy"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -123,27 +124,27 @@
         android:layout_marginBottom="@dimen/eight_dp"
         android:background="@drawable/background_gradient_dark" />
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/setting_app_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="5">
+        android:layout_margin="@dimen/four_dp"
+        android:padding="@dimen/eight_dp"
+        android:text="@string/app_info"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:drawableEndCompat="@drawable/ic_next" />
 
-        <TextView
-            android:elevation="@dimen/eight_dp"
-            android:id="@+id/setting_app_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/eight_dp"
-            android:text="@string/app_info"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_weight="5"/>
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_next"
-            android:backgroundTint="@color/color_p_700"/>
-    </LinearLayout>
+
+    <TextView
+        android:id="@+id/setting_app_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/four_dp"
+        android:padding="@dimen/eight_dp"
+        android:text="@string/feedback"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:drawableEndCompat="@drawable/ic_next" />
 
 
 </LinearLayout>
