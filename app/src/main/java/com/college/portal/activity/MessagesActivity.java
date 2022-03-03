@@ -6,12 +6,12 @@ import android.os.Bundle;
 
 import com.college.portal.R;
 
-public class NotificationActivity extends AppCompatActivity {
+public class MessagesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notification);
+        setContentView(R.layout.activity_messages);
 
         //Todo Notification recycler view
     }

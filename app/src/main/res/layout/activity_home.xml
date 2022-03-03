@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.HomeActivity">
+    tools:context=".activity.HomeActivity"
+    android:id="@+id/home">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -316,7 +317,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/notification"
+                            android:text="@string/messages"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -366,7 +367,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Column 2 About -->
+                <!-- About -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="@dimen/card_height"
@@ -407,8 +408,49 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Row 4 -->
-                <!-- Column 1 Settings -->
+
+                <!-- Clubs -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/card_height"
+                    android:layout_rowWeight="3"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp">
+
+                    <RelativeLayout
+                        android:id="@+id/home_club"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:onClick="cardViewClicked"
+                        android:orientation="vertical"
+                        android:padding="@dimen/eight_dp">
+
+                        <ImageView
+                            android:layout_width="@dimen/card_image_width"
+                            android:layout_height="@dimen/card_image_height"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/thirty_two_dp"
+                            android:background="@drawable/ic_club"
+                            android:backgroundTint="@color/color_p_900"
+                            android:scaleType="centerCrop"
+                            android:tintMode="screen" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/eight_dp"
+                            android:text="@string/clubs"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Settings -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="@dimen/card_height"
@@ -449,7 +491,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Column 2 Logout-->
+                <!-- Logout -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="@dimen/card_height"

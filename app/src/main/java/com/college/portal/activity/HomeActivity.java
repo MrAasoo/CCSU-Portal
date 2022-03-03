@@ -4,15 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.college.portal.R;
 import com.college.portal.model.StudentPref;
 import com.college.portal.prefrences.SharedPrefManager;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
 
@@ -22,6 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     //Views and Variables
     private CollapsingToolbarLayout mToolBar;
     private TextView stdDepartmentView, stdIdView, greet;
+    private CoordinatorLayout coordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class HomeActivity extends AppCompatActivity {
         mToolBar = findViewById(R.id.collapsing_toolbar);
         stdDepartmentView = findViewById(R.id.std_department);
         stdIdView = findViewById(R.id.std_id);
+
+        coordinatorLayout = findViewById(R.id.home);
 
         //Time of day
         greet = findViewById(R.id.greet);
@@ -83,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
 
             case R.id.home_notifications:
-                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
+                startActivity(new Intent(getApplicationContext(), MessagesActivity.class));
                 break;
 
             case R.id.home_settings:
@@ -100,6 +107,10 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.home_about_us:
                 startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
+                break;
+
+            case R.id.home_club:
+                Snackbar.make(coordinatorLayout, R.string.clubs, BaseTransientBottomBar.LENGTH_LONG).show();
                 break;
 
         }
