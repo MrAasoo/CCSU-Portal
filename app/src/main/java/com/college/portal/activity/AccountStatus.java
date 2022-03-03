@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.college.portal.R;
-import com.college.portal.prefrences.SharedPrefManager;
+import com.college.portal.sharedpreferences.SharedPrefManager;
 
 import static com.college.portal.api.AppApi.ACCOUNT_MESSAGE;
 import static com.college.portal.api.AppApi.ACCOUNT_STATUS;

@@ -12,7 +12,7 @@ import com.college.portal.api.RetrofitClient;
 import com.college.portal.model.InfoResponse;
 import com.college.portal.model.StudentInfo;
 import com.college.portal.model.StudentPref;
-import com.college.portal.prefrences.SharedPrefManager;
+import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import retrofit2.Call;

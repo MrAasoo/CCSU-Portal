@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.college.portal.AlertDialogInterface;
 import com.college.portal.R;
-import com.college.portal.prefrences.ThemePrefManager;
+import com.college.portal.sharedpreferences.ThemePrefManager;
 
 public class SplashScreen extends AppCompatActivity {
 

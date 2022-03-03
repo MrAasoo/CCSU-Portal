@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,7 +12,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.college.portal.R;
 import com.college.portal.model.StudentPref;
-import com.college.portal.prefrences.SharedPrefManager;
+import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;

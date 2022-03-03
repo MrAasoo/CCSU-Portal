@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.college.portal.R;
-import com.college.portal.prefrences.ThemePrefManager;
+import com.college.portal.sharedpreferences.ThemePrefManager;
 
 import static com.college.portal.api.AppApi.PAGE_URL;
 import static com.college.portal.api.RetroApi.PRIVACY_URL;

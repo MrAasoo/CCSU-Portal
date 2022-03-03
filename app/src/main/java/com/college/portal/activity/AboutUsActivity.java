@@ -30,11 +30,7 @@ public class AboutUsActivity extends AppCompatActivity {
         tvPhotos = findViewById(R.id.about_photo);
         tvVideos = findViewById(R.id.about_video);
 
-
-
-
         //Click listeners for text views
-
         tvMission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

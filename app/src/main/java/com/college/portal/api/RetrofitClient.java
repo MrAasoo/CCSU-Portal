@@ -13,9 +13,6 @@ import static com.college.portal.api.RetroApi.BASE_URL;
 
 public class RetrofitClient {
 
-
-
-
     private static RetrofitClient mInstance;
     private Retrofit retrofit;
     private Gson gson;

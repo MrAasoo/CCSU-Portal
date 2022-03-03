@@ -21,7 +21,7 @@ import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.model.LoginResponse;
 import com.college.portal.model.StudentPref;
-import com.college.portal.prefrences.SharedPrefManager;
+import com.college.portal.sharedpreferences.SharedPrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,4 +1,4 @@
-package com.college.portal.prefrences;
+package com.college.portal.sharedpreferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
