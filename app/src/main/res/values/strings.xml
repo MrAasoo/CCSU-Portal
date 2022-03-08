@@ -58,5 +58,7 @@
     <string name="clubs">Clubs</string>
     <string name="discussion">Discussion</string>
     <string name="mails">Mails</string>
+    <string name="dialog_message">Dialog message</string>
+    <string name="dialog_title">Dialog title</string>
 
 </resources>

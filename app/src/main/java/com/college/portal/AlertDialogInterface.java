@@ -19,7 +19,7 @@ public class AlertDialogInterface extends Dialog {
     private int icon;
     private ImageView dialogIcon;
     private TextView dialogTitle, dialogMessage;
-    private Button btnOk;
+    private Button btnOk, btnExit, btnBack;
 
     public AlertDialogInterface(@NonNull Context context, String title, String message, int icon) {
         super(context);
@@ -38,7 +38,9 @@ public class AlertDialogInterface extends Dialog {
         dialogIcon = findViewById(R.id.dialog_icon);
         dialogTitle = findViewById(R.id.dialog_title);
         dialogMessage = findViewById(R.id.dialog_message);
-        btnOk = findViewById(R.id.dialog_right_button);
+        btnOk = findViewById(R.id.dialog_middle_button);
+        btnExit = findViewById(R.id.dialog_left_button);
+        btnBack = findViewById(R.id.dialog_right_button);
 
         dialogIcon.setImageResource(icon);
         dialogTitle.setText(title);
@@ -58,4 +60,7 @@ public class AlertDialogInterface extends Dialog {
             }
         });
     }
+
+
+
 }

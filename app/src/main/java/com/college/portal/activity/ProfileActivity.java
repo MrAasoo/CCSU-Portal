@@ -1,5 +1,7 @@
 package com.college.portal.activity;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -7,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.college.portal.AlertDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.model.InfoResponse;
@@ -86,12 +89,20 @@ public class ProfileActivity extends AppCompatActivity {
                         stdDob.setText(studentInfo.getStdDob());
                         stdContact.setText(studentInfo.getStdContact());
                         stdEmail.setText(studentInfo.getStdEmail());
-                        stdAddress.setText("City : " + studentInfo.getStdCity()
-                        + "\nDistrict : " + studentInfo.getStdDist());
+                        stdAddress.setText(String.format("City : %s\nDistrict : %s", studentInfo.getStdCity(), studentInfo.getStdDist()));
                         stdPin.setText(studentInfo.getStdPin());
 
                     } else { //if error
-                        Toast.makeText(ProfileActivity.this, "No Data found!", Toast.LENGTH_SHORT).show();
+                        AlertDialogInterface dialog = new AlertDialogInterface(ProfileActivity.this,
+                                "No Data Found!",
+                                "Try to refresh or Contact to administration",
+                                R.drawable.ic_app_icon);
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                        dialog.setCancelable(false);
+                        dialog.create();
+                        dialog.show();
+                        dialog.dismissAlertDialog();
+                        //Toast.makeText(ProfileActivity.this, "No Data found!", Toast.LENGTH_SHORT).show();
                         Log.e(SignInActivity.class.getSimpleName(), "onResponse: " + infoResponse.getError() + " : " + infoResponse.getCode());
 
                     }
