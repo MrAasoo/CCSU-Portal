@@ -74,7 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
         Picasso.get()
                 .load(BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage())
                 .placeholder(R.drawable.ic_app_icon)
-                .error(R.drawable.ic_alert)
                 .into(stdImage);
 
         //Log.i("ProfileActivity", "onCreate:--- imageurl  ----> " + BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage());
