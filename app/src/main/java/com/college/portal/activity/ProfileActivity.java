@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,16 +18,21 @@ import com.college.portal.model.StudentInfo;
 import com.college.portal.model.StudentPref;
 import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.STUDENT_IMAGE_PATH;
 
 public class ProfileActivity extends AppCompatActivity {
 
     //Variables and Views
     private CollapsingToolbarLayout mToolBar;
     private TextView stdId, stdDep, stdSem, stdAcademic, stdFather, stdMother, stdDob, stdContact, stdEmail, stdAddress, stdPin;
+    private ImageView stdImage;
 
 
     @Override
@@ -50,6 +56,11 @@ public class ProfileActivity extends AppCompatActivity {
         stdPin = findViewById(R.id.std_pin);
 
 
+        stdImage = findViewById(R.id.std_image);
+
+
+
+
 
 
         //pref
@@ -59,6 +70,14 @@ public class ProfileActivity extends AppCompatActivity {
         mToolBar.setTitle(studentPref.getStdName());
         stdId.setText(studentPref.getStdId());
         stdDep.setText(studentPref.getStdDepartment());
+
+        Picasso.get()
+                .load(BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage())
+                .placeholder(R.drawable.ic_app_icon)
+                .error(R.drawable.ic_alert)
+                .into(stdImage);
+
+        //Log.i("ProfileActivity", "onCreate:--- imageurl  ----> " + BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage());
 
         apiCallGetStudentInfo(studentPref.getStdId(), studentPref.getStdPassword());
 

@@ -16,6 +16,11 @@ public interface RetroApi {
     // Emulator
     // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
 
+    String TERMS_URL = "termsdoc.html";
+    String PRIVACY_URL = "privacydoc.html";
+    String HISTORY_URL = "history.html";
+    String STUDENT_IMAGE_PATH = "images/studentimages/";
+
     @GET("login.php")
     Call<LoginResponse> studentLogin(
             @Query("std_id") String stdId,
@@ -39,8 +44,4 @@ public interface RetroApi {
     @GET("assignment.php")
     Call<JsonObject> getAssignmentList();
 
-
-    String TERMS_URL = "termsdoc.html";
-    String PRIVACY_URL = "privacydoc.html";
-    String HISTORY_URL = "history.html";
 }

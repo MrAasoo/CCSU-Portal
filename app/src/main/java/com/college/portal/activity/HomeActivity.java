@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -16,14 +16,19 @@ import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
+
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.STUDENT_IMAGE_PATH;
 
 public class HomeActivity extends AppCompatActivity {
 
 
     //Views and Variables
     private CollapsingToolbarLayout mToolBar;
+    private ImageView stdImage;
     private TextView stdDepartmentView, stdIdView, greet;
     private CoordinatorLayout coordinatorLayout;
 
@@ -42,13 +47,20 @@ public class HomeActivity extends AppCompatActivity {
 
         //Time of day
         greet = findViewById(R.id.greet);
+        stdImage = findViewById(R.id.std_image);
         greet.setText(getTimeOfDay());
 
         mToolBar.setTitle(studentPref.getStdName());
         stdDepartmentView.setText(studentPref.getStdDepartment());
         stdIdView.setText(studentPref.getStdId());
 
-        Toast.makeText(this, "Image : " + studentPref.getStdImage(), Toast.LENGTH_SHORT).show();
+        Picasso.get()
+                .load(BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage())
+                .placeholder(R.drawable.ic_app_icon)
+                .error(R.drawable.ic_alert)
+                .into(stdImage);
+
+        //Log.i("HomeActivity", "onCreate:--- imageurl  ----> " + BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage());
 
 
     }
