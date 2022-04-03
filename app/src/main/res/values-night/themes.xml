@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="Theme.CollegePortal" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/color_p_500</item>
-        <item name="colorPrimaryVariant">@color/color_p_700</item>
+        <item name="colorPrimary">@color/grey_200</item>
+        <item name="colorPrimaryVariant">@color/grey_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/light_blue_200</item>
