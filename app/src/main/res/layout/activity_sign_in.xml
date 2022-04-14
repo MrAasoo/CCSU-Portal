@@ -14,26 +14,23 @@
         android:layout_height="150dp"
         android:src="@drawable/ic_app_icon"
         android:transitionName="logoTransition"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/login_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
         android:id="@+id/login_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/background_1"
-        android:backgroundTint="@color/color_p_100"
+        android:backgroundTint="@color/primary_100"
         android:backgroundTintMode="multiply"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_image">
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <TextView
@@ -52,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_1"
-            android:backgroundTint="@color/color_p_200"
+            android:backgroundTint="@color/primary_200"
             android:backgroundTintMode="multiply"
             android:orientation="vertical"
             android:padding="@dimen/eight_dp">
@@ -80,7 +77,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/eight_dp"
                 android:background="@drawable/button_background"
-                android:onClick="onSignInClick"
                 android:text="@string/sign_in"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
@@ -90,9 +86,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_margin="@dimen/eight_dp"
-                android:onClick="onForgotPasswordClick"
                 android:text="@string/forgot_password"
-                android:textColor="@color/color_red" />
+                android:textColor="@color/red" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -106,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/terms_of_uses"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic|bold"/>
+                    android:textStyle="italic|bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -120,6 +115,7 @@
                     android:text="@string/privacy_policy"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic|bold" />
+
             </LinearLayout>
 
         </LinearLayout>

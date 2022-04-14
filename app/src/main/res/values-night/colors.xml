@@ -2,12 +2,14 @@
 <resources>
 
     <!-- Dark/Light Theme Colors -->
-    <color name="color_p_50">#FF808080</color>
-    <color name="color_p_100">#FF666666</color>
-    <color name="color_p_200">#FF4D4D4D</color>
-    <color name="color_p_500">#FF333333</color>
-    <color name="color_p_700">#FF191919</color>
-    <color name="color_p_900">#FF000000</color>
+    <color name="primary_100">#FFDDDDDA</color>
+    <color name="primary_200">#FFC2C8C5</color>
+    <color name="primary_500">#FF94B0B7</color>
+    <color name="primary_700">#FF7697A0</color>
+    <color name="primary_900">#FF4A707A</color>
+
+    <color name="secondary_200">#FFFFC396</color>
+    <color name="secondary_700">#FFFF6D00</color>
 
 
 </resources>

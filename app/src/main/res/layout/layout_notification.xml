@@ -48,7 +48,7 @@
             android:layout_width="@dimen/card_image_width"
             android:layout_height="@dimen/card_image_height"
             android:background="@drawable/ic_notification"
-            android:backgroundTint="@color/color_p_900"
+            android:backgroundTint="@color/primary_900"
             android:scaleType="centerCrop"
             android:tintMode="screen" />
     </LinearLayout>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/sixteen_dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp">
+    android:layout_margin="@dimen/eight_dp"
+    app:cardCornerRadius="@dimen/eight_dp"
+    app:cardElevation="@dimen/four_dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/eight_dp">
+        android:padding="@dimen/sixteen_dp">
 
         <TextView
             android:id="@+id/assi_title"
@@ -23,10 +23,10 @@
 
         <TextView
             android:id="@+id/assi_message"
-            android:maxLines="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Here show assignment on etc."
+            android:maxLines="2"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
@@ -38,13 +38,14 @@
 
         <TextView
             android:id="@+id/assi_click"
-            android:layout_gravity="end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:text="@string/click_to_view"
             android:textAlignment="viewEnd"
-            android:textColor="@color/light_blue_700"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/primary_700" />
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

@@ -1,9 +1,22 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.ACCOUNT_MESSAGE;
+import static com.college.portal.api.AppApi.ACCOUNT_STATUS;
+import static com.college.portal.api.AppApi.PAGE_URL;
+import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_BLOCKED;
+import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_NOT_VERIFIED;
+import static com.college.portal.api.AppApi.STUDENT_ID_NOT_FOUND;
+import static com.college.portal.api.AppApi.STUDENT_PASSWORD_DO_NOT_MATCH;
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.PRIVACY_URL;
+import static com.college.portal.api.RetroApi.TERMS_URL;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.util.Linkify;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -27,23 +40,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.college.portal.api.AppApi.ACCOUNT_MESSAGE;
-import static com.college.portal.api.AppApi.ACCOUNT_STATUS;
-import static com.college.portal.api.AppApi.PAGE_URL;
-import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_BLOCKED;
-import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_NOT_VERIFIED;
-import static com.college.portal.api.AppApi.STUDENT_ID_NOT_FOUND;
-import static com.college.portal.api.AppApi.STUDENT_PASSWORD_DO_NOT_MATCH;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.PRIVACY_URL;
-import static com.college.portal.api.RetroApi.TERMS_URL;
-
 
 public class SignInActivity extends AppCompatActivity {
 
 
     //view objects
     private EditText stdId, stdPassword;
+    private TextView forgotPassBtn;
     private Button signInBtn;
 
 
@@ -60,6 +63,23 @@ public class SignInActivity extends AppCompatActivity {
         stdPassword = findViewById(R.id.std_password);
         signInBtn = findViewById(R.id.signIn);
 
+        //Sign In Button
+        signInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSignInClick();
+            }
+        });
+
+        //Forgot Password
+        forgotPassBtn = findViewById(R.id.forgot_password);
+        forgotPassBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onForgotPasswordClick();
+            }
+        });
+
 
         //Animation
         Animation bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
@@ -72,6 +92,7 @@ public class SignInActivity extends AppCompatActivity {
         //terms and privacy
         TextView settingTerms = findViewById(R.id.signin_terms);
         TextView settingPrivacy = findViewById(R.id.signin_policy);
+
 
         settingTerms.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,29 +120,24 @@ public class SignInActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         SharedPrefManager instance = SharedPrefManager.getInstance(SignInActivity.this);
-        if(instance.isLoggedIn()){
+        if (instance.isLoggedIn()) {
             StudentPref studentPref = instance.getStudentInfo();
             apiCallLogin(studentPref.getStdId(), studentPref.getStdPassword());
         }
     }
 
     // On Sign in button click
-    public void onSignInClick(View view) {
-        if (view.getId() == R.id.signIn) {
-                //set button clickable false
-                signInBtn.setClickable(false);
-                validateLogin();
-        }
+    private void onSignInClick() {
+        //set button clickable false
+        signInBtn.setClickable(false);
+        validateLogin();
     }
 
     // On Forgot password clicked
-    public void onForgotPasswordClick(View view) {
-        if (view.getId() == R.id.forgot_password) {
-            //TODO Forgot password
-            Toast.makeText(SignInActivity.this, "Forgot Password clicked.", Toast.LENGTH_SHORT).show();
-        }
+    private void onForgotPasswordClick() {
+        //TODO Forgot password
+        Toast.makeText(SignInActivity.this, "Forgot Password clicked.", Toast.LENGTH_SHORT).show();
     }
-
 
 
     //login validation
@@ -219,7 +235,6 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
     //Alert dialog

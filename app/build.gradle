@@ -12,8 +12,8 @@ android {
         applicationId "com.college.collegeportal"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0.3322"
+        versionCode 2
+        versionName "2.0.15422"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

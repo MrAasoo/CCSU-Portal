@@ -35,7 +35,7 @@
                 android:text="@string/signing_failed_title"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/color_red" />
+                android:textColor="@color/red" />
 
             <TextView
                 android:id="@+id/name"

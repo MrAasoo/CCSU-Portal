@@ -75,7 +75,7 @@ public class NewsActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
                     if (response.body() != null) {
-                        Log.e("onSuccess", response.body().toString());
+                        //Log.e("onSuccess", response.body().toString());
 
                         String jsonresponse = response.body().toString();
                         writeRecycler(jsonresponse);
