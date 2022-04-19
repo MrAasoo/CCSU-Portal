@@ -1,40 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".activity.MessagesActivity">
 
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/background_2"
+        android:fitsSystemWindows="true"
+
+        android:theme="@style/Theme.CollegePortal">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="Messages">
+
+            <LinearLayout
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:text="in Classroom"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
     <!-- TODO Create Email Chat etc. here-->
-
-    <TextView
+    <LinearLayout
+        android:layout_marginTop="@dimen/sixteen_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/discussion"
-        android:layout_margin="@dimen/eight_dp"
-        android:padding="@dimen/eight_dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:drawableEndCompat="@drawable/ic_next" />
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/mails"
-        android:layout_margin="@dimen/eight_dp"
-        android:padding="@dimen/eight_dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:drawableEndCompat="@drawable/ic_next" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/eight_dp"
+            android:background="@drawable/circular_background"
+            android:backgroundTint="@color/primary_200"
+            android:padding="@dimen/eight_dp"
+            android:paddingStart="@dimen/sixteen_dp"
+            android:text="@string/discussion"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:drawableEndCompat="@drawable/ic_next" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/notification"
-        android:layout_margin="@dimen/eight_dp"
-        android:padding="@dimen/eight_dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:drawableEndCompat="@drawable/ic_next" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/eight_dp"
+            android:background="@drawable/circular_background"
+            android:backgroundTint="@color/primary_200"
+            android:padding="@dimen/eight_dp"
+            android:paddingStart="@dimen/sixteen_dp"
+            android:text="@string/mails"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:drawableEndCompat="@drawable/ic_next" />
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/eight_dp"
+            android:background="@drawable/circular_background"
+            android:backgroundTint="@color/primary_200"
+            android:padding="@dimen/eight_dp"
+            android:paddingStart="@dimen/sixteen_dp"
+            android:text="@string/class_notices"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:drawableEndCompat="@drawable/ic_next" />
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

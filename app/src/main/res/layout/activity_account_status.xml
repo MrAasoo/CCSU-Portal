@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient_dark"
+    android:backgroundTint="@color/primary_500"
     android:orientation="vertical"
     tools:context=".activity.AccountStatus">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/status_card_width"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/sixteen_dp"
         android:elevation="@dimen/sixteen_dp"
@@ -23,9 +24,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:background="@drawable/background_gradient_light"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/sixteen_dp"
+            android:padding="@dimen/sixteen_dp"
             android:orientation="vertical">
 
             <TextView
@@ -61,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/eight_dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/circular_background"
                 android:onClick="onClick"
                 android:text="@string/logout_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />
@@ -71,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/eight_dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/circular_background"
                 android:onClick="onClick"
                 android:text="@string/exit_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />

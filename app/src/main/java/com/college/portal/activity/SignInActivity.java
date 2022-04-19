@@ -15,8 +15,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.util.Linkify;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -90,8 +88,8 @@ public class SignInActivity extends AppCompatActivity {
         loginStuff.setAnimation(bottomAnim);
 
         //terms and privacy
-        TextView settingTerms = findViewById(R.id.signin_terms);
-        TextView settingPrivacy = findViewById(R.id.signin_policy);
+        TextView settingTerms = findViewById(R.id.sign_in_terms);
+        TextView settingPrivacy = findViewById(R.id.sign_in_policy);
 
 
         settingTerms.setOnClickListener(new View.OnClickListener() {
@@ -135,8 +133,7 @@ public class SignInActivity extends AppCompatActivity {
 
     // On Forgot password clicked
     private void onForgotPasswordClick() {
-        //TODO Forgot password
-        Toast.makeText(SignInActivity.this, "Forgot Password clicked.", Toast.LENGTH_SHORT).show();
+        showAlertDialog("Forgot password ?", "Note:\nIn case you forgot the password, contact your college administration for the password");
     }
 
 
@@ -265,6 +262,5 @@ public class SignInActivity extends AppCompatActivity {
         Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        finish();
     }
 }

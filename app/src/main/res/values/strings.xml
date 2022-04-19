@@ -5,9 +5,10 @@
     <string name="college_name">College Name</string>
     <string name="college_phrase">College Phrase</string>
 
+    <string name="student_sign_in">Students Sign In</string>
     <string name="sign_in">Sign In</string>
-    <string name="college_id">College ID</string>
-    <string name="password">Password</string>
+    <string name="college_id">Your ID</string>
+    <string name="password">* * * * * *</string>
     <string name="forgot_password">Forgot Password ?</string>
     <string name="signing_failed_title">Signing Failed!</string>
     <string name="logout_text">Logout</string>
@@ -36,6 +37,7 @@
     <string name="assignment">Assignment</string>
     <string name="collage_news">Collage News</string>
     <string name="notification">Notification</string>
+    <string name="class_notices">Noticeboard</string>
     <string name="contact_us">Contact Us</string>
     <string name="about_us">About Us</string>
     <string name="settings">Settings</string>
@@ -56,9 +58,16 @@
     <string name="feedback">Feedback</string>
     <string name="messages">Messages</string>
     <string name="clubs">Clubs</string>
-    <string name="discussion">Discussion</string>
-    <string name="mails">Mails</string>
+    <string name="discussion">Class Discussion</string>
+    <string name="mails">Student Mails</string>
     <string name="dialog_message">Dialog message</string>
     <string name="dialog_title">Dialog title</string>
+    <string name="student_name">Student Name</string>
+    <string name="attendance">Attendance</string>
+    <string name="calendar">Calendar</string>
+    <string name="sign_in_msg">Please sign in with your</string>
+    <string name="student_college_id">Student College ID</string>
+    <string name="and">and</string>
+    <string name="password_text">Password</string>
 
 </resources>

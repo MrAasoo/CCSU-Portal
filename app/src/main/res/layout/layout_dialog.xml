@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,11 +12,11 @@
         android:layout_margin="@dimen/sixteen_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/sixteen_dp"
-        app:cardElevation="@dimen/eight_dp">
+        app:cardCornerRadius="@dimen/eight_dp"
+        app:cardElevation="@dimen/four_dp">
 
         <LinearLayout
-            android:background="@drawable/background_gradient_light"
+            android:background="@drawable/background_gradient_dark"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -38,7 +37,7 @@
                 android:layout_marginStart="@dimen/eight_dp"
                 android:layout_marginEnd="@dimen/eight_dp"
                 android:hint="@string/dialog_title"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
             <TextView
@@ -47,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/eight_dp"
                 android:hint="@string/dialog_message"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <LinearLayout
@@ -55,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3"
-                android:gravity="center">
+                android:gravity="end">
 
                 <Button
                     android:visibility="gone"

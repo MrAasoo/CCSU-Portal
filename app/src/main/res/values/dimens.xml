@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="four_dp">4dp</dimen>
     <dimen name="eight_dp">8dp</dimen>
     <dimen name="sixteen_dp">16dp</dimen>
     <dimen name="thirty_two_dp">32dp</dimen>
-    <dimen name="card_height">160dp</dimen>
     <dimen name="zero_dp">0dp</dimen>
+
+
+    <dimen name="card_height">160dp</dimen>
     <dimen name="card_image_width">40dp</dimen>
     <dimen name="card_image_height">40dp</dimen>
-    <dimen name="four_dp">4dp</dimen>
+    <dimen name="sign_width">0dp</dimen>
+    <dimen name="status_card_width">0dp</dimen>
+
 
 </resources>

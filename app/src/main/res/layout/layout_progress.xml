@@ -19,7 +19,7 @@
         <LinearLayout
             android:paddingBottom="@dimen/sixteen_dp"
             android:paddingTop="@dimen/sixteen_dp"
-            android:background="@drawable/background_gradient_light"
+            android:background="@drawable/background_gradient_dark"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
