@@ -9,26 +9,24 @@
     android:orientation="vertical"
     tools:context=".activity.AccountStatus">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="@dimen/status_card_width"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/sixteen_dp"
-        android:elevation="@dimen/sixteen_dp"
         app:cardCornerRadius="@dimen/sixteen_dp"
-        app:cardElevation="@dimen/eight_dp"
+        app:cardElevation="@dimen/four_dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:background="@drawable/background_gradient_light"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/sixteen_dp"
-            android:orientation="vertical">
+            android:background="@drawable/background_gradient_light"
+            android:orientation="vertical"
+            android:padding="@dimen/sixteen_dp">
 
             <TextView
                 android:layout_width="match_parent"

@@ -33,7 +33,6 @@ public class SettingActivity extends AppCompatActivity {
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        //getSupportActionBar().setTitle(R.string.settings);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -133,6 +132,7 @@ public class SettingActivity extends AppCompatActivity {
         });
     }
 
+    //For appbar back press
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){

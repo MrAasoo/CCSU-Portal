@@ -42,6 +42,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         </LinearLayout>
+
         <ImageView
             android:layout_gravity="center_vertical"
             android:layout_width="@dimen/card_image_width"
@@ -50,5 +51,6 @@
             android:backgroundTint="@color/primary_900"
             android:scaleType="centerCrop"
             android:tintMode="screen" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

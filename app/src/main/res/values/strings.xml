@@ -24,7 +24,7 @@
     <string name="server_response_failed_message">Server response failed!\nPlease try again …</string>
     <string name="progress_signing_message">Signing in …</string>
     <string name="progress_loading_message">Loading …</string>
-    <string name="copyright_text">© 2021 Himanshu Srivastava\nAndroid Application Development\nAll rights reserved</string>
+    <string name="copyright_text">© 2021 Himanshu Srivastava\nAndroid Application Development\nAll rights reserved.</string>
     <string name="copyrights_title">Copyrights</string>
     <string name="app_info">App Info</string>
     <string name="terms_of_uses">Terms of Uses</string>
@@ -69,5 +69,11 @@
     <string name="student_college_id">Student College ID</string>
     <string name="and">and</string>
     <string name="password_text">Password</string>
+    <string name="your_account">Your account</string>
+    <string name="e_books">E-Books</string>
+    <string name="notes">Notes</string>
+    <string name="magazine">Magazine</string>
+    <string name="lectures">Lectures</string>
+    <string name="my_library">My College Library</string>
 
 </resources>

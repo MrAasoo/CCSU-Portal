@@ -4,11 +4,14 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AlertDialogInterface;
 import com.college.portal.R;
@@ -40,9 +43,16 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        //Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //views
+        // collapsing toolbar
         mToolBar = findViewById(R.id.collapsing_toolbar);
+
+        // text views
         stdId = findViewById(R.id.std_id);
         stdDep = findViewById(R.id.std_dep);
         stdSem = findViewById(R.id.std_sem);
@@ -54,14 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
         stdEmail = findViewById(R.id.std_email);
         stdAddress = findViewById(R.id.std_address);
         stdPin = findViewById(R.id.std_pin);
-
-
         stdImage = findViewById(R.id.std_image);
-
-
-
-
-
 
         //pref
         StudentPref studentPref = SharedPrefManager.getInstance(ProfileActivity.this).getStudentInfo();
@@ -77,7 +80,6 @@ public class ProfileActivity extends AppCompatActivity {
                 .into(stdImage);
 
         //Log.i("ProfileActivity", "onCreate:--- imageurl  ----> " + BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage());
-
         apiCallGetStudentInfo(studentPref.getStdId(), studentPref.getStdPassword());
 
     }
@@ -130,10 +132,22 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<InfoResponse> call, Throwable t) {
-
                 Toast.makeText(ProfileActivity.this, "Server response failed", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
+
+    //For appbar back press
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default :
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }

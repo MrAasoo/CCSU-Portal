@@ -13,7 +13,6 @@
         android:layout_height="180dp"
         android:background="@drawable/background_2"
         android:fitsSystemWindows="true"
-
         android:theme="@style/Theme.CollegePortal">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -26,16 +25,17 @@
             app:title="Messages">
 
             <LinearLayout
-                android:gravity="bottom"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="bottom"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="@dimen/eight_dp"
                     android:text="in Classroom"
                     android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
             </LinearLayout>
@@ -56,48 +56,53 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-    <!-- TODO Create Email Chat etc. here-->
-    <LinearLayout
-        android:layout_marginTop="@dimen/sixteen_dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
+        <!-- TODO Create Email Chat etc. here-->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight_dp"
-            android:background="@drawable/circular_background"
-            android:backgroundTint="@color/primary_200"
-            android:padding="@dimen/eight_dp"
-            android:paddingStart="@dimen/sixteen_dp"
-            android:text="@string/discussion"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            app:drawableEndCompat="@drawable/ic_next" />
+            android:orientation="vertical"
+            android:padding="@dimen/sixteen_dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight_dp"
-            android:background="@drawable/circular_background"
-            android:backgroundTint="@color/primary_200"
-            android:padding="@dimen/eight_dp"
-            android:paddingStart="@dimen/sixteen_dp"
-            android:text="@string/mails"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            app:drawableEndCompat="@drawable/ic_next" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                android:background="@drawable/circular_background"
+                android:backgroundTint="@color/primary_200"
+                android:elevation="4dp"
+                android:padding="@dimen/sixteen_dp"
+                android:text="@string/discussion"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/eight_dp"
-            android:background="@drawable/circular_background"
-            android:backgroundTint="@color/primary_200"
-            android:padding="@dimen/eight_dp"
-            android:paddingStart="@dimen/sixteen_dp"
-            android:text="@string/class_notices"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            app:drawableEndCompat="@drawable/ic_next" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                android:background="@drawable/circular_background"
+                android:backgroundTint="@color/primary_200"
+                android:elevation="4dp"
+                android:padding="@dimen/sixteen_dp"
+                android:text="@string/mails"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                android:background="@drawable/circular_background"
+                android:backgroundTint="@color/primary_200"
+                android:elevation="4dp"
+                android:padding="@dimen/sixteen_dp"
+                android:text="@string/class_notices"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
+        </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

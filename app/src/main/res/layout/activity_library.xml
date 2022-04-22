@@ -1,62 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LibraryActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activity.LibraryActivity">
 
-    <TextView
-        android:layout_margin="@dimen/sixteen_dp"
-        android:padding="@dimen/eight_dp"
+    <include layout="@layout/app_bar" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="E-Books"
-        android:drawableEnd="@drawable/ic_next" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_margin="@dimen/sixteen_dp"
-        android:padding="@dimen/eight_dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="Notes"
-        android:drawableEnd="@drawable/ic_next" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/eight_dp">
 
-    <TextView
-        android:layout_margin="@dimen/sixteen_dp"
-        android:padding="@dimen/eight_dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="Magazine"
-        android:drawableEnd="@drawable/ic_next" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                app:cardCornerRadius="@dimen/eight_dp"
+                app:cardElevation="@dimen/four_dp">
 
-    <TextView
-        android:layout_margin="@dimen/sixteen_dp"
-        android:padding="@dimen/eight_dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="Lectures"
-        android:drawableEnd="@drawable/ic_next" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    android:padding="@dimen/eight_dp"
+                    android:text="@string/e_books"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:drawableEndCompat="@drawable/ic_next"
+                    app:drawableTint="@color/secondary_700" />
+            </androidx.cardview.widget.CardView>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_margin="@dimen/eight_dp"
-        android:background="@drawable/background_gradient_dark" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                app:cardCornerRadius="@dimen/eight_dp"
+                app:cardElevation="@dimen/four_dp">
 
-    <TextView
-        android:layout_margin="@dimen/sixteen_dp"
-        android:padding="@dimen/eight_dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="My College Library"
-        android:drawableEnd="@drawable/ic_next" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    android:padding="@dimen/eight_dp"
+                    android:text="@string/notes"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:drawableEndCompat="@drawable/ic_next"
+                    app:drawableTint="@color/secondary_700" />
+            </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                app:cardCornerRadius="@dimen/eight_dp"
+                app:cardElevation="@dimen/four_dp">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    android:padding="@dimen/eight_dp"
+                    android:text="@string/magazine"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:drawableEndCompat="@drawable/ic_next"
+                    app:drawableTint="@color/secondary_700" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                app:cardCornerRadius="@dimen/eight_dp"
+                app:cardElevation="@dimen/four_dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    android:padding="@dimen/eight_dp"
+                    android:text="@string/lectures"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:drawableEndCompat="@drawable/ic_next"
+                    app:drawableTint="@color/secondary_700" />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="@dimen/eight_dp"
+                android:background="@drawable/background_gradient_dark" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/eight_dp"
+                app:cardCornerRadius="@dimen/eight_dp"
+                app:cardElevation="@dimen/four_dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    android:padding="@dimen/eight_dp"
+                    android:text="@string/my_library"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:drawableEndCompat="@drawable/ic_next"
+                    app:drawableTint="@color/secondary_700" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
