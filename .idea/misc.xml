@@ -32,10 +32,12 @@
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_messages.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_news.xml" value="0.22138157894736843" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_profile.xml" value="0.22138157894736843" />
-        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_setting.xml" value="0.22736486486486487" />
+        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_setting.xml" value="0.1" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_sign_in.xml" value="0.22043891254503767" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_splash_screen.xml" value="0.22138157894736843" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_web_view.xml" value="0.22736486486486487" />
+        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/app_bar.xml" value="0.22736486486486487" />
+        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/app_bar_withimage.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/layout_assignment.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/layout_contact_us.xml" value="0.22138157894736843" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/layout_dialog.xml" value="0.22736486486486487" />
@@ -54,7 +56,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.1" />
+        <option name="scale" value="0.22736486486486487" />
       </ProjectState>
     </option>
   </component>

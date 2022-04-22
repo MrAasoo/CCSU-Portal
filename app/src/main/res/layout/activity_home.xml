@@ -119,6 +119,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:hint="@string/student_branch"
+                        android:textColor="@color/primary_700"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
