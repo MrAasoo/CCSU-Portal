@@ -66,13 +66,18 @@
             android:configChanges="orientation"/>
         <activity
             android:name=".activity.SplashScreen"
-            android:configChanges="orientation">
+            android:configChanges="orientation"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".services.NetworkServices"
+            android:enabled="true" />
     </application>
 
 </manifest>

@@ -28,13 +28,14 @@ public class WebViewActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        String url = "";
+        String url = getResources().getString(R.string.link_dummydata);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             url = getIntent().getStringExtra(PAGE_URL);
         }
         webView = findViewById(R.id.web_view);
         webView.setWebViewClient(new WebViewClient());
+        //webView.loadUrl(getResources().getString(R.string.link_dummydata));
         webView.loadUrl(url);
 
     }

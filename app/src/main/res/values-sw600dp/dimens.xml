@@ -3,5 +3,6 @@
 
     <dimen name="sign_width">500dp</dimen>
     <dimen name="status_card_width">500dp</dimen>
+    <dimen name="dialog_width">420dp</dimen>
 
 </resources>

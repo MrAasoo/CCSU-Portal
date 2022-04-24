@@ -2,6 +2,7 @@ package com.college.portal.activity;
 
 import static com.college.portal.api.AppApi.ACCOUNT_MESSAGE;
 import static com.college.portal.api.AppApi.ACCOUNT_STATUS;
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.PAGE_URL;
 import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_BLOCKED;
 import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_NOT_VERIFIED;
@@ -12,6 +13,7 @@ import static com.college.portal.api.RetroApi.PRIVACY_URL;
 import static com.college.portal.api.RetroApi.TERMS_URL;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -30,8 +32,10 @@ import com.college.portal.AlertDialogInterface;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.model.LoginResponse;
 import com.college.portal.model.StudentPref;
+import com.college.portal.services.NetworkServices;
 import com.college.portal.sharedpreferences.SharedPrefManager;
 
 import retrofit2.Call;
@@ -48,10 +52,22 @@ public class SignInActivity extends AppCompatActivity {
     private Button signInBtn;
 
 
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         //Layouts
         LinearLayout loginHolder = findViewById(R.id.login_holder);
@@ -124,12 +140,32 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
+    }
+
+
     // On Sign in button click
     private void onSignInClick() {
         //set button clickable false
         signInBtn.setClickable(false);
         validateLogin();
     }
+
 
     // On Forgot password clicked
     private void onForgotPasswordClick() {
@@ -167,7 +203,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     // Login api call
-    private void apiCallLogin(String std_id, String std_password) {
+    public void apiCallLogin(String std_id, String std_password) {
 
         //Show progress dialog
         final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
@@ -256,6 +292,7 @@ public class SignInActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
     // Start activity Home
     public void toHomeActivity() {

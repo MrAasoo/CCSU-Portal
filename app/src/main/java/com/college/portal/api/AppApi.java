@@ -7,8 +7,14 @@ public interface AppApi {
     int STUDENT_ACCOUNT_NOT_VERIFIED = 203;
     int STUDENT_ACCOUNT_BLOCKED = 204;
 
+
     String ACCOUNT_STATUS = "status";
     String ACCOUNT_MESSAGE = "message";
     String PAGE_URL = "page_url";
+
+
+    //Application
+    String INTERNET_BROADCAST_ACTION = "check_internet";
+    String ONLINE_STATUS = "online_status";
 
 }

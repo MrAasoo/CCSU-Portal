@@ -1,11 +1,12 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.STUDENT_IMAGE_PATH;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.GridLayout;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,9 +23,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.STUDENT_IMAGE_PATH;
-
 public class HomeActivity extends AppCompatActivity {
 
 
@@ -38,13 +36,14 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //pref
+
+        //student pref
         StudentPref studentPref = SharedPrefManager.getInstance(HomeActivity.this).getStudentInfo();
+
         //Views
         mToolBar = findViewById(R.id.collapsing_toolbar);
         stdDepartmentView = findViewById(R.id.std_department);
         stdIdView = findViewById(R.id.std_id);
-
         coordinatorLayout = findViewById(R.id.home);
 
         //Time of day
@@ -62,8 +61,6 @@ public class HomeActivity extends AppCompatActivity {
                 .into(stdImage);
 
         //Log.i("HomeActivity", "onCreate:--- imageurl  ----> " + BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage());
-
-
 
     }
 
