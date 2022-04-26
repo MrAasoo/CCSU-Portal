@@ -29,6 +29,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.App;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
@@ -156,6 +157,9 @@ public class SignInActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
+
+        //App Theme
+        App.setAppTheme(getApplicationContext());
     }
 
 

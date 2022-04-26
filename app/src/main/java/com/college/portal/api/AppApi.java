@@ -16,5 +16,7 @@ public interface AppApi {
     //Application
     String INTERNET_BROADCAST_ACTION = "check_internet";
     String ONLINE_STATUS = "online_status";
+    String MODE_DARK = "dark";
+    String MODE_LIGHT = "light";
 
 }

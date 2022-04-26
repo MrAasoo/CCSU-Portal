@@ -114,13 +114,15 @@
                 android:autofillHints="" />
 
             <Button
+                android:layout_gravity="center"
                 android:id="@+id/signIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/eight_dp"
-                android:background="@drawable/circular_background"
+                android:layout_marginHorizontal="@dimen/eight_dp"
+                android:paddingHorizontal="@dimen/thirty_two_dp"
                 android:text="@string/sign_in"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/sixteen_dp" />
 
             <TextView
                 android:id="@+id/forgot_password"

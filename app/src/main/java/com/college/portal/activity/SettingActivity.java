@@ -1,5 +1,12 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.MODE_DARK;
+import static com.college.portal.api.AppApi.MODE_LIGHT;
+import static com.college.portal.api.AppApi.PAGE_URL;
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.PRIVACY_URL;
+import static com.college.portal.api.RetroApi.TERMS_URL;
+
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -17,11 +24,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.R;
 import com.college.portal.sharedpreferences.ThemePrefManager;
-
-import static com.college.portal.api.AppApi.PAGE_URL;
-import static com.college.portal.api.RetroApi.PRIVACY_URL;
-import static com.college.portal.api.RetroApi.TERMS_URL;
-import static com.college.portal.api.RetroApi.BASE_URL;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -47,10 +49,10 @@ public class SettingActivity extends AppCompatActivity {
 
         if (prefManager.getThemeMode() != null) {
             switch (prefManager.getThemeMode()) {
-                case "dark":
+                case MODE_DARK:
                     darkBtn.setChecked(true);
                     break;
-                case "light":
+                case MODE_LIGHT:
                     lightBtn.setChecked(true);
                     break;
             }
@@ -78,11 +80,11 @@ public class SettingActivity extends AppCompatActivity {
                         }
                         break;
                     case R.id.radio_dark:
-                        prefManager.setTheme("dark");
+                        prefManager.setTheme(MODE_DARK);
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                         break;
                     case R.id.radio_light:
-                        prefManager.setTheme("light");
+                        prefManager.setTheme(MODE_LIGHT);
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         break;
                 }

@@ -13,12 +13,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.college.portal.App;
 import com.college.portal.R;
 import com.college.portal.model.StudentPref;
 import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
@@ -56,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         stdIdView.setText(studentPref.getStdId());
 
         Picasso.get()
-                .load(BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage())
+                .load(BASE_URL + STUDENT_IMAGE_PATH + studentPref.getStdImage())
                 .placeholder(R.drawable.ic_app_icon)
                 .into(stdImage);
 
@@ -64,20 +63,29 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        //App Theme
+        App.setAppTheme(getApplicationContext());
+    }
+
     private String getTimeOfDay() {
         Calendar c = Calendar.getInstance();
         int hrs = c.get(Calendar.HOUR_OF_DAY);
         Log.e("TAG", "onCreate: " + hrs);
         if (hrs >= 20 || hrs <= 4)
-            return "Good Night...";       //After 8pm
+            return "Good Night...";         // After 8pm
         if (hrs >= 16)
-            return "Good evening...";      // After 4pm
+            return "Good evening...";       // After 4pm
         if (hrs > 12)
-            return "Good afternoon...";    // After 12pm
+            return "Good afternoon...";     // After 12pm
         if (hrs >= 6)
-            return "Good morning...";      // After 6am
+            return "Good morning...";       // After 6am
         if (hrs > 4)
-            return "Morning's Sunshine!"; // REALLY early
+            return "Morning's Sunshine!";   // Really early
         return "Welcome";
     }
 
@@ -115,12 +123,14 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.home_contact:
                 startActivity(new Intent(getApplicationContext(), ContactUsActivity.class));
                 break;
+
             case R.id.home_about_us:
                 startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
                 break;
 
             case R.id.home_club:
-                Snackbar.make(coordinatorLayout, R.string.clubs, BaseTransientBottomBar.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), ClubsActivity.class));
+                //Snackbar.make(coordinatorLayout, R.string.clubs, BaseTransientBottomBar.LENGTH_LONG).show();
                 break;
 
         }

@@ -11,7 +11,6 @@ import static com.college.portal.api.AppApi.STUDENT_PASSWORD_DO_NOT_MATCH;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -26,9 +25,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.App;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
@@ -37,7 +36,6 @@ import com.college.portal.model.LoginResponse;
 import com.college.portal.model.StudentPref;
 import com.college.portal.services.NetworkServices;
 import com.college.portal.sharedpreferences.SharedPrefManager;
-import com.college.portal.sharedpreferences.ThemePrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -121,25 +119,6 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        ThemePrefManager prefManager = new ThemePrefManager(SplashScreen.this);
-        if (prefManager.getThemeMode() != null) {
-            switch (prefManager.getThemeMode()) {
-                case "dark":
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    break;
-                case "light":
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    break;
-            }
-        } else {
-            int systemUiThemeMode = getApplicationContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-            if (systemUiThemeMode == Configuration.UI_MODE_NIGHT_YES) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            } else if (systemUiThemeMode == Configuration.UI_MODE_NIGHT_NO) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-        }
-
         SharedPrefManager instance = SharedPrefManager.getInstance(SplashScreen.this);
         if (instance.isLoggedIn()) {
             StudentPref studentPref = instance.getStudentInfo();
@@ -166,6 +145,10 @@ public class SplashScreen extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
+
+        //App Theme
+        App.setAppTheme(getApplicationContext());
+
     }
 
 

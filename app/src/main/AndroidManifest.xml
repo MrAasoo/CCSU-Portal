@@ -2,12 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.college.portal">
-
     <!-- Application Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- Activities -->
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,53 +15,56 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activity.ClubsActivity"
+            android:configChanges="orientation"
+            android:label="@string/clubs" />
+        <activity
             android:name=".activity.LibraryActivity"
             android:configChanges="orientation"
-            android:label="@string/library"/>
+            android:label="@string/library" />
         <activity
             android:name=".activity.ContactUsActivity"
             android:configChanges="orientation"
-            android:label="@string/contact_us"/>
+            android:label="@string/contact_us" />
         <activity
             android:name=".activity.MessagesActivity"
             android:configChanges="orientation"
-            android:label="@string/messages"/>
+            android:label="@string/messages" />
         <activity
             android:name=".activity.NewsActivity"
             android:configChanges="orientation"
-            android:label="@string/collage_news"/>
+            android:label="@string/collage_news" />
         <activity
             android:name=".activity.WebViewActivity"
             android:configChanges="orientation" />
         <activity
             android:name=".activity.AboutUsActivity"
             android:configChanges="orientation"
-            android:label="@string/about_us"/>
+            android:label="@string/about_us" />
         <activity
             android:name=".activity.AssignmentActivity"
             android:configChanges="orientation"
-            android:label="@string/assignment"/>
+            android:label="@string/assignment" />
         <activity
             android:name=".activity.SettingActivity"
             android:configChanges="orientation"
-            android:label="@string/settings"/>
+            android:label="@string/settings" />
         <activity
             android:name=".activity.AppInfoActivity"
-            android:configChanges="orientation"
-            android:label="@string/app_name"/>
+            android:configChanges="orientation" />
         <activity
             android:name=".activity.ProfileActivity"
             android:configChanges="orientation" />
         <activity
             android:name=".activity.AccountStatus"
             android:configChanges="orientation"
-            android:label="@string/your_account"/>
+            android:label="@string/your_account" />
         <activity
             android:name=".activity.HomeActivity"
-            android:configChanges="orientation"/>
+            android:configChanges="orientation" />
         <activity
             android:name=".activity.SignInActivity"
-            android:configChanges="orientation"/>
+            android:configChanges="orientation" />
         <activity
             android:name=".activity.SplashScreen"
             android:configChanges="orientation"
@@ -77,7 +78,8 @@
 
         <service
             android:name=".services.NetworkServices"
-            android:enabled="true" />
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>
