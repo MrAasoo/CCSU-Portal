@@ -1,19 +1,20 @@
 package com.college.portal.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.college.portal.api.AppApi.ACCOUNT_MESSAGE;
+import static com.college.portal.api.AppApi.ACCOUNT_STATUS;
+import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_BLOCKED;
+import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_NOT_VERIFIED;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.sharedpreferences.SharedPrefManager;
-
-import static com.college.portal.api.AppApi.ACCOUNT_MESSAGE;
-import static com.college.portal.api.AppApi.ACCOUNT_STATUS;
-import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_BLOCKED;
-import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_NOT_VERIFIED;
 
 
 public class AccountStatus extends AppCompatActivity {
@@ -51,15 +52,23 @@ public class AccountStatus extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
+    }
+
     public void onClick(View view) {
-        if(view.getId() == R.id.logout){
-            if(SharedPrefManager.getInstance(AccountStatus.this).isLoggedIn()){
+        if (view.getId() == R.id.logout) {
+            if (SharedPrefManager.getInstance(AccountStatus.this).isLoggedIn()) {
                 SharedPrefManager.getInstance(AccountStatus.this).clearStudent();
             }
             toLoginActivity();
         }
 
-        if(view.getId() == R.id.exit){
+        if (view.getId() == R.id.exit) {
             onBackPressed();
         }
     }

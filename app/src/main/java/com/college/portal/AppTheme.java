@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.college.portal.sharedpreferences.ThemePrefManager;
 
-public class App {
+public class AppTheme {
     public static void setAppTheme(Context context) {
         ThemePrefManager prefManager = new ThemePrefManager(context);
         if (prefManager.getThemeMode() != null) {

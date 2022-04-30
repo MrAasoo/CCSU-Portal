@@ -15,7 +15,6 @@
     <string name="exit_text">Exit</string>
     <string name="ok_text">OK</string>
     <string name="no_internet_title">No Internet!</string>
-
     <string name="not_verified_message">Your account has not been verified yet. Please contact to Administration.</string>
     <string name="account_blocked">Your account has been temporarily Blocked. Please contact to Administration.</string>
     <string name="id_not_found_message">You have entered wrong ID. Please check and try again …</string>
@@ -64,7 +63,7 @@
     <string name="dialog_title">Dialog title</string>
     <string name="student_name">Student Name</string>
     <string name="attendance">Attendance</string>
-    <string name="calendar">Calendar</string>
+    <string name="subjects">Subjects</string>
     <string name="sign_in_msg">Please sign in with your</string>
     <string name="student_college_id">Student College ID</string>
     <string name="and">and</string>
@@ -75,5 +74,18 @@
     <string name="magazine">Magazine</string>
     <string name="lectures">Lectures</string>
     <string name="my_library">My College Library</string>
+    <string name="assignment_name">Assignment Name</string>
+    <string name="news_title">News Title</string>
+    <string name="news_message">Here show news on…</string>
+
+
+    <!-- Place Holder String -->
+    <string name="assignment_due_date">Submit before : %1$s</string>
+    <string name="assignment_date">Assignment Date : %1$s</string>
+    <string name="date">Date : %1$s</string>
+    <string name="address_placeholder">City : %1$s\nDistrict : %2$s</string>
+    <string name="assignment_faculty">By - %1$s</string>
+    <string name="student_department">Department</string>
+    <string name="student_branch_text">%1$s - %2$s</string>
 
 </resources>

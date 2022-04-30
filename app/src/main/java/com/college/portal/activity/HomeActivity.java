@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import com.college.portal.App;
+import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.model.StudentPref;
 import com.college.portal.sharedpreferences.SharedPrefManager;
@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     //Views and Variables
     private CollapsingToolbarLayout mToolBar;
     private ImageView stdImage;
-    private TextView stdDepartmentView, stdIdView, greet;
+    private TextView stdDepartment, stdBranch, stdId, greet;
     private CoordinatorLayout coordinatorLayout;
 
     @Override
@@ -41,8 +41,9 @@ public class HomeActivity extends AppCompatActivity {
 
         //Views
         mToolBar = findViewById(R.id.collapsing_toolbar);
-        stdDepartmentView = findViewById(R.id.std_department);
-        stdIdView = findViewById(R.id.std_id);
+        stdDepartment = findViewById(R.id.std_department);
+        stdBranch = findViewById(R.id.std_branch);
+        stdId = findViewById(R.id.std_id);
         coordinatorLayout = findViewById(R.id.home);
 
         //Time of day
@@ -51,15 +52,16 @@ public class HomeActivity extends AppCompatActivity {
         greet.setText(getTimeOfDay());
 
         mToolBar.setTitle(studentPref.getStdName());
-        stdDepartmentView.setText(studentPref.getStdDepartment());
-        stdIdView.setText(studentPref.getStdId());
+        stdDepartment.setText(studentPref.getStdDepartment());
+        stdBranch.setText(studentPref.getStdBranchName());
+        stdId.setText(studentPref.getStdId());
 
         Picasso.get()
                 .load(BASE_URL + STUDENT_IMAGE_PATH + studentPref.getStdImage())
                 .placeholder(R.drawable.ic_app_icon)
                 .into(stdImage);
 
-        //Log.i("HomeActivity", "onCreate:--- imageurl  ----> " + BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage());
+        Log.i("HomeActivity", "onCreate:--- imageurl  ----> " + BASE_URL + STUDENT_IMAGE_PATH + studentPref.getStdImage());
 
     }
 
@@ -67,9 +69,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-
-        //App Theme
-        App.setAppTheme(getApplicationContext());
+        //AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
     }
 
     private String getTimeOfDay() {
@@ -96,7 +97,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
 
             case R.id.home_assignment:
-                startActivity(new Intent(getApplicationContext(), AssignmentActivity.class));
+                startActivity(new Intent(getApplicationContext(), AssignmentListActivity.class));
                 break;
 
             case R.id.home_library:
@@ -104,7 +105,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
 
             case R.id.home_news:
-                startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                startActivity(new Intent(getApplicationContext(), NewsListActivity.class));
                 break;
 
             case R.id.home_notifications:

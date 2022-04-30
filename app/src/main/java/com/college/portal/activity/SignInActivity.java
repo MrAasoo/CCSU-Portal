@@ -29,7 +29,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.college.portal.AlertDialogInterface;
-import com.college.portal.App;
+import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
@@ -130,17 +130,6 @@ public class SignInActivity extends AppCompatActivity {
     }
 
 
-    // Check if user already Sign in
-    @Override
-    protected void onStart() {
-        super.onStart();
-        SharedPrefManager instance = SharedPrefManager.getInstance(SignInActivity.this);
-        if (instance.isLoggedIn()) {
-            StudentPref studentPref = instance.getStudentInfo();
-            apiCallLogin(studentPref.getStdId(), studentPref.getStdPassword());
-        }
-    }
-
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -158,8 +147,8 @@ public class SignInActivity extends AppCompatActivity {
         super.onResume();
         registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        //App Theme
-        App.setAppTheme(getApplicationContext());
+        //AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
     }
 
 

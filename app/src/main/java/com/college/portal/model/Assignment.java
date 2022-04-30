@@ -17,17 +17,17 @@ public class Assignment {
     @Expose
     private String assiDate;
 
-    @SerializedName("assi_type")
+    @SerializedName("assi_details")
     @Expose
-    private String assiType;
+    private String assiDetails;
 
-    @SerializedName("assi_dep")
+    @SerializedName("faculty_name")
     @Expose
-    private String assiDep;
+    private String facultyName;
 
-    @SerializedName("assi_faculty")
+    @SerializedName("assi_due_date")
     @Expose
-    private String assiFaculty;
+    private String assiDueDate;
 
     public Assignment() {
     }
@@ -35,15 +35,15 @@ public class Assignment {
     public Assignment(Integer assiId,
                       String assiTitle,
                       String assiDate,
-                      String assiType,
-                      String assiDep,
-                      String assiFaculty) {
+                      String assiDetails,
+                      String facultyName,
+                      String assiDueDate) {
         this.assiId = assiId;
         this.assiTitle = assiTitle;
         this.assiDate = assiDate;
-        this.assiType = assiType;
-        this.assiDep = assiDep;
-        this.assiFaculty = assiFaculty;
+        this.assiDetails = assiDetails;
+        this.facultyName = facultyName;
+        this.assiDueDate = assiDueDate;
     }
 
     public Integer getAssiId() {
@@ -70,27 +70,27 @@ public class Assignment {
         this.assiDate = assiDate;
     }
 
-    public String getAssiType() {
-        return assiType;
+    public String getAssiDetails() {
+        return assiDetails;
     }
 
-    public void setAssiType(String assiType) {
-        this.assiType = assiType;
+    public void setAssiDetails(String assiDetails) {
+        this.assiDetails = assiDetails;
     }
 
-    public String getAssiDep() {
-        return assiDep;
+    public String getFacultyName() {
+        return facultyName;
     }
 
-    public void setAssiDep(String assiDep) {
-        this.assiDep = assiDep;
+    public void setFacultyName(String facultyName) {
+        this.facultyName = facultyName;
     }
 
-    public String getAssiFaculty() {
-        return assiFaculty;
+    public String getAssiDueDate() {
+        return assiDueDate;
     }
 
-    public void setAssiFaculty(String assiFaculty) {
-        this.assiFaculty = assiFaculty;
+    public void setAssiDueDate(String assiDueDate) {
+        this.assiDueDate = assiDueDate;
     }
 }

@@ -23,6 +23,22 @@ public class StudentInfo {
     @Expose
     private String stdDepartment;
 
+    @SuppressLint("stdDepartmentId")
+    @Expose
+    private String stdDepartmentId;
+
+    @SuppressLint("stdBranchName")
+    @Expose
+    private String stdBranchName;
+
+    @SuppressLint("stdBranchFullName")
+    @Expose
+    private String stdBranchFullName;
+
+    @SuppressLint("stdBranchId")
+    @Expose
+    private String stdBranchId;
+
     @SerializedName("stdSem")
     @Expose
     private String stdSem;
@@ -67,11 +83,17 @@ public class StudentInfo {
     @Expose
     private String stdImage;
 
+    public StudentInfo() {
+    }
+
     public StudentInfo(String stdId,
                        String stdPassword,
                        String stdName,
-                       String stdImage,
                        String stdDepartment,
+                       String stdBranchName,
+                       String stdBranchFullName,
+                       String stdDepartmentId,
+                       String stdBranchId,
                        String stdSem,
                        String stdAcademic,
                        String stdFather,
@@ -81,12 +103,16 @@ public class StudentInfo {
                        String stdEmail,
                        String stdCity,
                        String stdDist,
-                       String stdPin) {
+                       String stdPin,
+                       String stdImage) {
         this.stdId = stdId;
         this.stdPassword = stdPassword;
         this.stdName = stdName;
-        this.stdImage = stdImage;
         this.stdDepartment = stdDepartment;
+        this.stdBranchName = stdBranchName;
+        this.stdBranchFullName = stdBranchFullName;
+        this.stdDepartmentId = stdDepartmentId;
+        this.stdBranchId = stdBranchId;
         this.stdSem = stdSem;
         this.stdAcademic = stdAcademic;
         this.stdFather = stdFather;
@@ -97,30 +123,7 @@ public class StudentInfo {
         this.stdCity = stdCity;
         this.stdDist = stdDist;
         this.stdPin = stdPin;
-    }
-
-    public String getStdName() {
-        return stdName;
-    }
-
-    public void setStdName(String stdName) {
-        this.stdName = stdName;
-    }
-
-    public String getStdImage() {
-        return stdImage;
-    }
-
-    public void setStdImage(String stdImage) {
         this.stdImage = stdImage;
-    }
-
-    public String getStdDepartment() {
-        return stdDepartment;
-    }
-
-    public void setStdDepartment(String stdDepartment) {
-        this.stdDepartment = stdDepartment;
     }
 
     public String getStdId() {
@@ -137,6 +140,54 @@ public class StudentInfo {
 
     public void setStdPassword(String stdPassword) {
         this.stdPassword = stdPassword;
+    }
+
+    public String getStdName() {
+        return stdName;
+    }
+
+    public void setStdName(String stdName) {
+        this.stdName = stdName;
+    }
+
+    public String getStdDepartment() {
+        return stdDepartment;
+    }
+
+    public void setStdDepartment(String stdDepartment) {
+        this.stdDepartment = stdDepartment;
+    }
+
+    public String getStdBranchName() {
+        return stdBranchName;
+    }
+
+    public void setStdBranchName(String stdBranchName) {
+        this.stdBranchName = stdBranchName;
+    }
+
+    public String getStdDepartmentId() {
+        return stdDepartmentId;
+    }
+
+    public void setStdDepartmentId(String stdDepartmentId) {
+        this.stdDepartmentId = stdDepartmentId;
+    }
+
+    public String getStdBranchFullName() {
+        return stdBranchFullName;
+    }
+
+    public void setStdBranchFullName(String stdBranchFullName) {
+        this.stdBranchFullName = stdBranchFullName;
+    }
+
+    public String getStdBranchId() {
+        return stdBranchId;
+    }
+
+    public void setStdBranchId(String stdBranchId) {
+        this.stdBranchId = stdBranchId;
     }
 
     public String getStdSem() {
@@ -217,6 +268,14 @@ public class StudentInfo {
 
     public void setStdPin(String stdPin) {
         this.stdPin = stdPin;
+    }
+
+    public String getStdImage() {
+        return stdImage;
+    }
+
+    public void setStdImage(String stdImage) {
+        this.stdImage = stdImage;
     }
 }
 

@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.adapter.ContactUsAdapter;
@@ -47,16 +48,24 @@ public class ContactUsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        recyclerView = findViewById(R.id.contact_us_recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         mList = new ArrayList<>();
-        mAdapter = new ContactUsAdapter(getApplicationContext(), mList);
+        mAdapter = new ContactUsAdapter(ContactUsActivity.this, mList);
         recyclerView.setAdapter(mAdapter);
 
         getContactList();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
     }
 
     private void getContactList() {

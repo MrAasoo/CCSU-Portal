@@ -112,10 +112,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Student's Personal Detail"
+                        android:text="Student's Personal Information"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginHorizontal="@dimen/eight_dp"
+                        android:background="@drawable/background_gradient_dark" />
 
                     <!-- ID -->
                     <TextView
@@ -149,6 +155,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Student department"
+                        android:padding="@dimen/eight_dp"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <!-- Branch -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/eight_dp"
+                        android:text="Branch"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <TextView
+                        android:id="@+id/std_branch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Student branch"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -211,10 +235,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Students Parent's Information"
+                        android:text="Student Parent's Information"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginHorizontal="@dimen/eight_dp"
+                        android:background="@drawable/background_gradient_dark" />
 
                     <!-- Father -->
                     <TextView
@@ -289,10 +319,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Student Address and Contact No."
+                        android:text="Student Address &amp; Contact"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginHorizontal="@dimen/eight_dp"
+                        android:background="@drawable/background_gradient_dark" />
 
                     <!-- Contact -->
                     <TextView

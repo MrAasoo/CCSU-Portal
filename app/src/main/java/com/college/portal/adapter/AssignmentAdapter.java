@@ -1,20 +1,22 @@
 package com.college.portal.adapter;
 
-import android.annotation.SuppressLint;
+import static com.college.portal.api.AppApi.ASSIGNMENT_ID;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.college.portal.R;
+import com.college.portal.activity.AssignmentActivity;
 import com.college.portal.model.Assignment;
-import com.college.portal.model.ContactUs;
 
 import java.util.List;
 
@@ -40,14 +42,21 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.assiTitle.setText(mList.get(position).getAssiTitle());
-        holder.assiMessage.setText(mList.get(position).getAssiType());
-        holder.assiDate.setText("Submission Date : " + mList.get(position).getAssiDate());
+        // Card Animation
+        holder.cardHolder.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade_scale_animation));
 
-        holder.assiClick.setOnClickListener(new View.OnClickListener() {
+        // Values
+        holder.assiTitle.setText(mList.get(position).getAssiTitle());
+        holder.assiMessage.setText(mList.get(position).getAssiDetails());
+        holder.assiDate.setText(String.format(mContext.getString(R.string.assignment_date), mList.get(position).getAssiDate()));
+
+        holder.cardHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "Assignment ID : " + mList.get(position).getAssiId(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "Assignment ID : " + mList.get(holder.getAdapterPosition()).getAssiId(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, AssignmentActivity.class);
+                intent.putExtra(ASSIGNMENT_ID, mList.get(holder.getAdapterPosition()).getAssiId());
+                mContext.startActivity(intent);
             }
         });
     }
@@ -59,15 +68,16 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView assiTitle, assiMessage, assiDate, assiClick;
+        TextView assiTitle, assiMessage, assiDate;
+        CardView cardHolder;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             assiTitle = itemView.findViewById(R.id.assi_title);
-            assiMessage = itemView.findViewById(R.id.assi_message);
+            assiMessage = itemView.findViewById(R.id.assi_details);
             assiDate = itemView.findViewById(R.id.assi_date);
-            assiClick = itemView.findViewById(R.id.assi_click);
+            cardHolder = itemView.findViewById(R.id.holder);
 
         }
     }

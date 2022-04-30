@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.sharedpreferences.ThemePrefManager;
 
@@ -114,7 +115,7 @@ public class SettingActivity extends AppCompatActivity {
         });
 
 
-        //App info
+        //AppTheme info
         TextView settingAbout = findViewById(R.id.setting_app_info);
         settingAbout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,25 +124,33 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
-        //App feedback
+        //AppTheme feedback
         TextView settingFeedback = findViewById(R.id.setting_app_feedback);
         settingFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO : Feedback
-                Toast.makeText(SettingActivity.this, "App Feedback", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingActivity.this, "AppTheme Feedback", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
     }
 
     //For appbar back press
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
                 return true;
-            default :
+            default:
                 return super.onOptionsItemSelected(item);
         }
     }

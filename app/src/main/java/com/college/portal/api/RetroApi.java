@@ -1,6 +1,6 @@
 package com.college.portal.api;
 
-import com.college.portal.model.ContactUs;
+
 import com.college.portal.model.InfoResponse;
 import com.college.portal.model.LoginResponse;
 import com.google.gson.JsonObject;
@@ -12,9 +12,9 @@ import retrofit2.http.Query;
 public interface RetroApi {
 
     // 000WebHost
-    String BASE_URL = "https://collageportal.000webhostapp.com/";
+    //String BASE_URL = "https://collageportal.000webhostapp.com/";
     // Mobile
-    //String BASE_URL = "http://192.168.43.126/collegeportalapi/";
+    String BASE_URL = "http://192.168.43.126/collegeportalapi/";
     // Emulator
     // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
 
@@ -44,6 +44,8 @@ public interface RetroApi {
     Call<JsonObject> getNewsList();
 
     @GET("assignment.php")
-    Call<JsonObject> getAssignmentList();
+    Call<JsonObject> getAssignmentList(
+            @Query("assi_id") String assiId
+    );
 
 }

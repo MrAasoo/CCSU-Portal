@@ -4,17 +4,18 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.college.portal.R;
 import com.college.portal.model.ContactUs;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.ViewHolder> {
 
@@ -38,13 +39,17 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        // Card Animation
+        holder.cardHolder.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade_transition_animation));
+
+
         holder.contactName.setText(mList.get(position).getColName());
-        if(!mList.get(position).getColContact().isEmpty()){
+        if (!mList.get(position).getColContact().isEmpty()) {
             holder.cn.setVisibility(View.VISIBLE);
             holder.contactNumber.setText(mList.get(position).getColContact());
         }
 
-        if(!mList.get(position).getColEmail().isEmpty()){
+        if (!mList.get(position).getColEmail().isEmpty()) {
             holder.ce.setVisibility(View.VISIBLE);
             holder.contactEmail.setText(mList.get(position).getColEmail());
         }
@@ -64,9 +69,12 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.View
 
         TextView contactName, contactNumber, contactEmail, contactWeb;
         LinearLayout cn, ce, web;
+        CardView cardHolder;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            cardHolder = itemView.findViewById(R.id.holder);
             contactName = itemView.findViewById(R.id.contact_name);
             contactNumber = itemView.findViewById(R.id.contact_number);
             contactEmail = itemView.findViewById(R.id.contact_email);

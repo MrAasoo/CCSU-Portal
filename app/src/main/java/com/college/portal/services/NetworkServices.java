@@ -26,7 +26,7 @@ public class NetworkServices extends Service {
     private Runnable periodUpdate = new Runnable() {
         @Override
         public void run() {
-            handler.postDelayed(periodUpdate, 2 * 1000 - SystemClock.elapsedRealtime() % 1000);
+            handler.postDelayed(periodUpdate, 5 * 1000 - SystemClock.elapsedRealtime() % 1000);
             Intent broadcastIntent = new Intent();
             broadcastIntent.setAction(INTERNET_BROADCAST_ACTION);
             broadcastIntent.putExtra(ONLINE_STATUS, isNetworkConnected(NetworkServices.this));

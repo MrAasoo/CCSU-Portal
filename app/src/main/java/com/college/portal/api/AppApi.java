@@ -11,6 +11,8 @@ public interface AppApi {
     String ACCOUNT_STATUS = "status";
     String ACCOUNT_MESSAGE = "message";
     String PAGE_URL = "page_url";
+    String ASSIGNMENT_LIST = "0";
+    String ASSIGNMENT_ID = "assignment_id";
 
 
     //Application

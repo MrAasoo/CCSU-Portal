@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppTheme;
 import com.college.portal.R;
 
 public class MessagesActivity extends AppCompatActivity {
@@ -23,6 +24,14 @@ public class MessagesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Todo Notification recycler view
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
     }
 
     //For appbar back press

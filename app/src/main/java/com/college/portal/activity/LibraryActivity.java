@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppTheme;
 import com.college.portal.R;
 
 public class LibraryActivity extends AppCompatActivity {
@@ -25,6 +26,13 @@ public class LibraryActivity extends AppCompatActivity {
         //TODO : Library Stuff
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
+    }
 
     //For appbar back press
     @Override

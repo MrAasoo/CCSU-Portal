@@ -4,7 +4,7 @@
     <style name="Theme.CollegePortal" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_900</item>
-        <item name="colorPrimaryVariant">@color/primary_200</item>
+        <item name="colorPrimaryVariant">@color/primary_700</item>
         <item name="colorOnPrimary">@color/secondary_700</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_200</item>

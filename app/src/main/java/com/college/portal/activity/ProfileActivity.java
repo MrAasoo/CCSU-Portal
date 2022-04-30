@@ -1,5 +1,8 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.STUDENT_IMAGE_PATH;
+
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -14,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.model.InfoResponse;
@@ -27,14 +31,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.STUDENT_IMAGE_PATH;
-
 public class ProfileActivity extends AppCompatActivity {
 
     //Variables and Views
     private CollapsingToolbarLayout mToolBar;
-    private TextView stdId, stdDep, stdSem, stdAcademic, stdFather, stdMother, stdDob, stdContact, stdEmail, stdAddress, stdPin;
+    private TextView stdId, stdDep, stdBranch, stdSem, stdAcademic, stdFather, stdMother, stdDob, stdContact, stdEmail, stdAddress, stdPin;
     private ImageView stdImage;
 
 
@@ -55,6 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
         // text views
         stdId = findViewById(R.id.std_id);
         stdDep = findViewById(R.id.std_dep);
+        stdBranch = findViewById(R.id.std_branch);
         stdSem = findViewById(R.id.std_sem);
         stdAcademic = findViewById(R.id.std_session);
         stdFather = findViewById(R.id.std_father);
@@ -72,10 +74,9 @@ public class ProfileActivity extends AppCompatActivity {
         //Collapsing Toolbar
         mToolBar.setTitle(studentPref.getStdName());
         stdId.setText(studentPref.getStdId());
-        stdDep.setText(studentPref.getStdDepartment());
 
         Picasso.get()
-                .load(BASE_URL+ STUDENT_IMAGE_PATH + studentPref.getStdImage())
+                .load(BASE_URL + STUDENT_IMAGE_PATH + studentPref.getStdImage())
                 .placeholder(R.drawable.ic_app_icon)
                 .into(stdImage);
 
@@ -84,6 +85,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
+    }
 
     private void apiCallGetStudentInfo(String stdId, String stdPassword) {
         Call<InfoResponse> call = RetrofitClient.getInstance()
@@ -102,6 +110,8 @@ public class ProfileActivity extends AppCompatActivity {
                         StudentInfo studentInfo = infoResponse.getInfo();
 
                         //Set values to textView
+                        stdDep.setText(studentInfo.getStdDepartment());
+                        stdBranch.setText(String.format(getString(R.string.student_branch_text), studentInfo.getStdBranchName(), studentInfo.getStdBranchFullName()));
                         stdSem.setText(studentInfo.getStdSem());
                         stdAcademic.setText(studentInfo.getStdAcademic());
                         stdFather.setText(studentInfo.getStdFather());
@@ -109,7 +119,7 @@ public class ProfileActivity extends AppCompatActivity {
                         stdDob.setText(studentInfo.getStdDob());
                         stdContact.setText(studentInfo.getStdContact());
                         stdEmail.setText(studentInfo.getStdEmail());
-                        stdAddress.setText(String.format("City : %s\nDistrict : %s", studentInfo.getStdCity(), studentInfo.getStdDist()));
+                        stdAddress.setText(String.format(getString(R.string.address_placeholder), studentInfo.getStdCity(), studentInfo.getStdDist()));
                         stdPin.setText(studentInfo.getStdPin());
 
                     } else { //if error

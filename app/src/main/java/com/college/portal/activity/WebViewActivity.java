@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppTheme;
 import com.college.portal.R;
 
 public class WebViewActivity extends AppCompatActivity {
@@ -40,6 +41,13 @@ public class WebViewActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
+    }
 
     //For appbar back press
     @Override

@@ -27,7 +27,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.college.portal.AlertDialogInterface;
-import com.college.portal.App;
+import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
@@ -45,6 +45,7 @@ public class SplashScreen extends AppCompatActivity {
 
     // constants
     private static final int SPLASH_SCREEN_DELAY = 3000;
+    private static final int SPLASH_SCREEN_RESTART_DELAY = 1500;
 
 
     // view objects
@@ -101,29 +102,26 @@ public class SplashScreen extends AppCompatActivity {
         phraseText.setAnimation(fadeInAnim);
 
 
-        if (NetworkServices.isNetworkConnected(SplashScreen.this)) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (NetworkServices.isNetworkConnected(SplashScreen.this)) {
                     SharedPrefManager instance = SharedPrefManager.getInstance(SplashScreen.this);
-                    if (!instance.isLoggedIn())
+                    if (instance.isLoggedIn()) {
+                        StudentPref studentPref = instance.getStudentInfo();
+                        apiCallLogin(studentPref.getStdId(), studentPref.getStdPassword());
+                    } else {
                         toLoginActivity();
+                    }
                 }
-            }, SPLASH_SCREEN_DELAY);
+            }
+        }, SPLASH_SCREEN_DELAY);
 
-        } else {
-            showNoInternetAlertDialog();
-        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        SharedPrefManager instance = SharedPrefManager.getInstance(SplashScreen.this);
-        if (instance.isLoggedIn()) {
-            StudentPref studentPref = instance.getStudentInfo();
-            apiCallLogin(studentPref.getStdId(), studentPref.getStdPassword());
-        }
     }
 
 
@@ -131,6 +129,21 @@ public class SplashScreen extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (NetworkServices.isNetworkConnected(SplashScreen.this)) {
+                    SharedPrefManager instance = SharedPrefManager.getInstance(SplashScreen.this);
+                    if (instance.isLoggedIn()) {
+                        StudentPref studentPref = instance.getStudentInfo();
+                        apiCallLogin(studentPref.getStdId(), studentPref.getStdPassword());
+                    } else {
+                        toLoginActivity();
+                    }
+                }
+            }
+        }, SPLASH_SCREEN_RESTART_DELAY);
     }
 
 
@@ -146,8 +159,8 @@ public class SplashScreen extends AppCompatActivity {
         super.onResume();
         registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        //App Theme
-        App.setAppTheme(getApplicationContext());
+        //AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
 
     }
 
@@ -189,7 +202,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
     private void toLoginActivity() {
-        Intent intent = new Intent(this, SignInActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, Pair.create(logoImage, "logoTransition"));
         startActivity(intent, options.toBundle());
@@ -221,12 +234,7 @@ public class SplashScreen extends AppCompatActivity {
                     LoginResponse loginResponse = response.body();
                     //login success
                     if (!loginResponse.getError()) {
-                        StudentPref std = loginResponse.getInfo();
-                        std.setStdPassword(std_password);
-                        if (std != null) {
-                            SharedPrefManager.getInstance(SplashScreen.this).saveStudent(std);
-                            toHomeActivity();
-                        }
+                        toHomeActivity();
                     } else {
                         //login failed
                         switch (loginResponse.getCode()) {

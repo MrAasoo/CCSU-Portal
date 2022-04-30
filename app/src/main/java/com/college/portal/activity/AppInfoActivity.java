@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppTheme;
 import com.college.portal.BuildConfig;
 import com.college.portal.R;
 
@@ -28,6 +29,14 @@ public class AppInfoActivity extends AppCompatActivity {
         TextView versionInfo = findViewById(R.id.about_version);
         versionInfo.setText(BuildConfig.VERSION_NAME);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
     }
 
     //For appbar back press

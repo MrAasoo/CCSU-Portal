@@ -1,5 +1,9 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.PAGE_URL;
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.HISTORY_URL;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,12 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppTheme;
 import com.college.portal.R;
-
-import static com.college.portal.api.AppApi.PAGE_URL;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.HISTORY_URL;
-import static com.college.portal.api.RetroApi.TERMS_URL;
 
 public class AboutUsActivity extends AppCompatActivity {
 
@@ -85,14 +85,21 @@ public class AboutUsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
+    }
+
     //For appbar back press
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
                 return true;
-            default :
+            default:
                 return super.onOptionsItemSelected(item);
         }
     }
