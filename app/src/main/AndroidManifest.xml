@@ -67,8 +67,7 @@
             android:configChanges="orientation" />
         <activity
             android:name=".activity.AccountStatus"
-            android:configChanges="orientation"
-            android:label="@string/your_account" />
+            android:configChanges="orientation" />
         <activity
             android:name=".activity.HomeActivity"
             android:configChanges="orientation" />

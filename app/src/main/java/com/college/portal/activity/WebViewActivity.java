@@ -29,7 +29,7 @@ public class WebViewActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        String url = getResources().getString(R.string.link_dummydata);
+        String url = getResources().getString(R.string.link_dummy_data);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             url = getIntent().getStringExtra(PAGE_URL);

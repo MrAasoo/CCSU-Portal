@@ -16,7 +16,6 @@ import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
 import com.college.portal.api.RetrofitClient;
-import com.college.portal.model.Assignment;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -112,17 +111,15 @@ public class AssignmentActivity extends AppCompatActivity {
             if (obj.optBoolean("status")) {
 
                 JSONArray dataArray = obj.getJSONArray("data");
-                for (int i = 0; i < dataArray.length(); i++) {
-                    Assignment assignment = new Assignment();
-                    JSONObject jsonObject = dataArray.getJSONObject(i);
+                JSONObject jsonObject = dataArray.getJSONObject(0);
 
-                    assiTitle.setText(jsonObject.getString("assi_title"));
-                    assiDate.setText(String.format(getString(R.string.assignment_date), jsonObject.getString("assi_date")));
-                    assiDueDate.setText(String.format(getString(R.string.assignment_due_date), jsonObject.getString("assi_due_date")));
-                    assiDetails.setText(jsonObject.getString("assi_details"));
-                    assiFaculty.setText(String.format(getString(R.string.assignment_faculty), jsonObject.getString("faculty_name")));
+                assiTitle.setText(jsonObject.getString("assi_title"));
+                assiDate.setText(String.format(getString(R.string.assignment_date), jsonObject.getString("assi_date")));
+                assiDueDate.setText(String.format(getString(R.string.assignment_due_date), jsonObject.getString("assi_due_date")));
+                assiDetails.setText(jsonObject.getString("assi_details"));
+                assiFaculty.setText(String.format(getString(R.string.assignment_faculty), jsonObject.getString("faculty_name")));
 
-                }
+
             }
         } catch (JSONException e) {
             e.printStackTrace();

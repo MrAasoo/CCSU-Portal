@@ -18,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +27,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/view_pager_height">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/news_view_pager"
@@ -34,12 +36,12 @@
                 android:layout_height="@dimen/view_pager_height"
                 android:layout_centerInParent="true" />
 
+
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/news_tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/twenty_four"
-                android:layout_alignParentBottom="true"
-                android:background="@color/transparent"
+                android:layout_below="@id/news_view_pager"
                 app:tabBackground="@drawable/indicator_selector"
                 app:tabGravity="center"
                 app:tabIndicatorHeight="0dp" />
@@ -49,7 +51,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/news_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
     </LinearLayout>
 

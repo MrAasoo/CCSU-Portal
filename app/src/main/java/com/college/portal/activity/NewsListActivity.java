@@ -1,5 +1,8 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.NEWS_SLIDER_NO;
+import static com.college.portal.api.AppApi.NEWS_SLIDER_YES;
+
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,13 +14,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.adapter.NewsAdapter;
+import com.college.portal.adapter.NewsSliderAdapter;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.model.News;
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -26,6 +32,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,9 +41,12 @@ import retrofit2.Response;
 
 public class NewsListActivity extends AppCompatActivity {
 
-    protected RecyclerView recyclerView;
-    protected NewsAdapter mAdapter;
-    protected List<News> mList;
+    private RecyclerView recyclerView;
+    private NewsAdapter mAdapter;
+    private NewsSliderAdapter newsSliderAdapter;
+    private List<News> mList, mSlideList;
+    private ViewPager newsViewPager;
+    private TabLayout newsTabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,21 @@ public class NewsListActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // News Slider
+        newsViewPager = findViewById(R.id.news_view_pager);
+        newsTabLayout = findViewById(R.id.news_tab_layout);
+
+        mSlideList = new ArrayList<>();
+        newsSliderAdapter = new NewsSliderAdapter(NewsListActivity.this, mSlideList);
+        newsViewPager.setAdapter(newsSliderAdapter);
+
+        // News Slider Timer
+        Timer timer = new Timer();
+        timer.schedule(new SlideTimer(), 2000, 3000);
+        newsTabLayout.setupWithViewPager(newsViewPager, true);
+        getNewsList(NEWS_SLIDER_YES);
+
+        // News List
         recyclerView = findViewById(R.id.news_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -55,8 +81,7 @@ public class NewsListActivity extends AppCompatActivity {
         mList = new ArrayList<>();
         mAdapter = new NewsAdapter(NewsListActivity.this, mList);
         recyclerView.setAdapter(mAdapter);
-
-        getNewsList();
+        getNewsList(NEWS_SLIDER_NO);
 
     }
 
@@ -68,7 +93,7 @@ public class NewsListActivity extends AppCompatActivity {
         AppTheme.setAppTheme(getApplicationContext());
     }
 
-    private void getNewsList() {
+    private void getNewsList(int nSlider) {
 
         final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
                 NewsListActivity.this,
@@ -81,7 +106,7 @@ public class NewsListActivity extends AppCompatActivity {
 
         Call<JsonObject> call = RetrofitClient.getInstance()
                 .getRetroApi()
-                .getNewsList();
+                .getNewsList(0, nSlider);
 
         call.enqueue(new Callback<JsonObject>() {
             @Override
@@ -93,8 +118,8 @@ public class NewsListActivity extends AppCompatActivity {
                     if (response.body() != null) {
                         //Log.e("onSuccess", response.body().toString());
 
-                        String jsonresponse = response.body().toString();
-                        writeRecycler(jsonresponse);
+                        String jsonResponse = response.body().toString();
+                        writeRecycler(jsonResponse, nSlider);
 
                     } else {
                         Log.e("onEmptyResponse", "Returned empty response");
@@ -111,26 +136,44 @@ public class NewsListActivity extends AppCompatActivity {
         });
     }
 
-    private void writeRecycler(String jsonresponse) {
+    private void writeRecycler(String jsonResponse, int nSlider) {
         try {
             //getting the whole json object from the response
-            JSONObject obj = new JSONObject(jsonresponse);
+            JSONObject obj = new JSONObject(jsonResponse);
             if (obj.optBoolean("status")) {
 
-                JSONArray dataArray = obj.getJSONArray("data");
-                for (int i = 0; i < dataArray.length(); i++) {
-                    News news = new News();
-                    JSONObject jsonObject = dataArray.getJSONObject(i);
+                if (nSlider == NEWS_SLIDER_NO) {
+                    JSONArray dataArray = obj.getJSONArray("data");
+                    for (int i = 0; i < dataArray.length(); i++) {
+                        News news = new News();
+                        JSONObject jsonObject = dataArray.getJSONObject(i);
 
-                    news.setnId(Integer.valueOf(jsonObject.getString("n_id")));
-                    news.setnTitle(jsonObject.getString("n_title"));
-                    news.setnMessage(jsonObject.getString("n_message"));
-                    news.setnDate(jsonObject.getString("n_date"));
+                        news.setnId(Integer.valueOf(jsonObject.getString("n_id")));
+                        news.setnTitle(jsonObject.getString("n_title"));
+                        news.setnSubtitle(jsonObject.getString("n_subtitle"));
+                        news.setnDate(jsonObject.getString("n_date"));
 
-                    mList.add(news);
+                        mList.add(news);
 
+                    }
+                    mAdapter.notifyDataSetChanged();
+                } else if (nSlider == NEWS_SLIDER_YES) {
+
+                    JSONArray dataArray = obj.getJSONArray("data");
+                    for (int i = 0; i < dataArray.length(); i++) {
+                        News news = new News();
+                        JSONObject jsonObject = dataArray.getJSONObject(i);
+
+                        news.setnId(Integer.valueOf(jsonObject.getString("n_id")));
+                        news.setnTitle(jsonObject.getString("n_title"));
+                        news.setnSubtitle(jsonObject.getString("n_subtitle"));
+                        news.setnImage(jsonObject.getString("n_image"));
+
+                        mSlideList.add(news);
+
+                    }
+                    newsSliderAdapter.notifyDataSetChanged();
                 }
-                mAdapter.notifyDataSetChanged();
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -147,6 +190,28 @@ public class NewsListActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public class SlideTimer extends TimerTask {
+
+        @Override
+        public void run() {
+
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    if (newsViewPager.getCurrentItem() < mSlideList.size() - 1) {
+                        newsViewPager.setCurrentItem(newsViewPager.getCurrentItem() + 1);
+                    } else {
+                        newsViewPager.setCurrentItem(0);
+                    }
+                }
+
+            });
+
+        }
+
     }
 
 }

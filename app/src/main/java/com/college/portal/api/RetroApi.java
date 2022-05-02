@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 public interface RetroApi {
 
     // 000WebHost
-    //String BASE_URL = "https://collageportal.000webhostapp.com/";
+    // String BASE_URL = "https://collageportal.000webhostapp.com/";
     // Mobile
     String BASE_URL = "http://192.168.43.126/collegeportalapi/";
     // Emulator
@@ -21,7 +21,8 @@ public interface RetroApi {
     String TERMS_URL = "termsdoc.html";
     String PRIVACY_URL = "privacydoc.html";
     String HISTORY_URL = "history.html";
-    String STUDENT_IMAGE_PATH = "images/studentimages/";
+    String STUDENT_IMAGES = "images/studentimages/";
+    String NEWS_IMAGES = "images/newsimages/";
 
     @GET("login.php")
     Call<LoginResponse> studentLogin(
@@ -41,7 +42,10 @@ public interface RetroApi {
     Call<JsonObject> getCollegeContactUs();
 
     @GET("collegeevents.php")
-    Call<JsonObject> getNewsList();
+    Call<JsonObject> getNewsList(
+            @Query("n_id") Integer nId,
+            @Query("n_slider") Integer nSlider
+    );
 
     @GET("assignment.php")
     Call<JsonObject> getAssignmentList(

@@ -43,7 +43,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         // Card Animation
-        holder.cardHolder.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade_scale_animation));
+        holder.cardHolder.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade_transition_animation));
 
         // Values
         holder.assiTitle.setText(mList.get(position).getAssiTitle());

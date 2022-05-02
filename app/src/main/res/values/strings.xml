@@ -23,7 +23,7 @@
     <string name="server_response_failed_message">Server response failed!\nPlease try again …</string>
     <string name="progress_signing_message">Signing in …</string>
     <string name="progress_loading_message">Loading …</string>
-    <string name="copyright_text">© 2021 Himanshu Srivastava\nAndroid Application Development\nAll rights reserved.</string>
+    <string name="copyright_text">© 2021 Himanshu Srivastava \nAndroid Application Development\nAll rights reserved.</string>
     <string name="copyrights_title">Copyrights</string>
     <string name="app_info">App Info</string>
     <string name="terms_of_uses">Terms of Uses</string>
@@ -49,11 +49,11 @@
     <string name="library">Library</string>
     <string name="click_to_view">Click to view</string>
     <string name="contact_number_hint">Contact Number</string>
-    <string name="contact_number_dummydata">+91 1234567890</string>
+    <string name="contact_number_dummy_data">+91 1234567890</string>
     <string name="email_hint">Email</string>
-    <string name="email_dummydata">example@domain.com</string>
+    <string name="email_dummy_data">example@domain.com</string>
     <string name="link_hint">Link</string>
-    <string name="link_dummydata">https://www.example.com</string>
+    <string name="link_dummy_data">https://www.example.com</string>
     <string name="feedback">Feedback</string>
     <string name="messages">Messages</string>
     <string name="clubs">Clubs</string>
@@ -76,7 +76,11 @@
     <string name="my_library">My College Library</string>
     <string name="assignment_name">Assignment Name</string>
     <string name="news_title">News Title</string>
-    <string name="news_message">Here show news on…</string>
+    <string name="student_department">Department</string>
+    <string name="news_subtitle">News Subtitle</string>
+    <string name="news_detail">News Details</string>
+    <string name="news_image">News Image</string>
+    <string name="download_notice">Download Notice</string>
 
 
     <!-- Place Holder String -->
@@ -85,7 +89,6 @@
     <string name="date">Date : %1$s</string>
     <string name="address_placeholder">City : %1$s\nDistrict : %2$s</string>
     <string name="assignment_faculty">By - %1$s</string>
-    <string name="student_department">Department</string>
     <string name="student_branch_text">%1$s - %2$s</string>
 
 </resources>

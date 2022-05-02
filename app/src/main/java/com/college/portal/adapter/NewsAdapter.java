@@ -1,18 +1,21 @@
 package com.college.portal.adapter;
 
+import static com.college.portal.api.AppApi.NEWS_ID;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.college.portal.R;
+import com.college.portal.activity.NewsActivity;
 import com.college.portal.model.News;
 
 import java.util.List;
@@ -44,13 +47,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
 
         holder.newsTitle.setText(mList.get(position).getnTitle());
-        holder.newsMessage.setText(mList.get(position).getnMessage());
+        holder.newsMessage.setText(mList.get(position).getnSubtitle());
         holder.newsDate.setText(String.format(mContext.getString(R.string.date), mList.get(position).getnDate()));
 
         holder.cardHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "News/Event : " + mList.get(holder.getAdapterPosition()).getnId(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, NewsActivity.class);
+                intent.putExtra(NEWS_ID, mList.get(holder.getAdapterPosition()).getnId());
+                mContext.startActivity(intent);
+                // Toast.makeText(mContext, "News/Event : " + mList.get(holder.getAdapterPosition()).getnId(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -70,7 +76,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
             cardHolder = itemView.findViewById(R.id.holder);
             newsTitle = itemView.findViewById(R.id.news_title);
-            newsMessage = itemView.findViewById(R.id.news_message);
+            newsMessage = itemView.findViewById(R.id.news_subtitle);
             newsDate = itemView.findViewById(R.id.news_date);
 
         }

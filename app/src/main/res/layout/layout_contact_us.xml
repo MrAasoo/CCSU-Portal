@@ -48,7 +48,7 @@
                 android:id="@+id/contact_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/contact_number_dummydata"
+                android:hint="@string/contact_number_dummy_data"
                 android:padding="@dimen/eight_dp"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -80,7 +80,7 @@
                 android:id="@+id/contact_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_dummydata"
+                android:hint="@string/email_dummy_data"
                 android:padding="@dimen/eight_dp"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -112,7 +112,7 @@
                 android:id="@+id/contact_web"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/link_dummydata"
+                android:hint="@string/link_dummy_data"
                 android:padding="@dimen/eight_dp"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />

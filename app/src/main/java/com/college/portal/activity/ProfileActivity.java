@@ -1,7 +1,7 @@
 package com.college.portal.activity;
 
 import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.STUDENT_IMAGE_PATH;
+import static com.college.portal.api.RetroApi.STUDENT_IMAGES;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -76,7 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
         stdId.setText(studentPref.getStdId());
 
         Picasso.get()
-                .load(BASE_URL + STUDENT_IMAGE_PATH + studentPref.getStdImage())
+                .load(BASE_URL + STUDENT_IMAGES + studentPref.getStdImage())
                 .placeholder(R.drawable.ic_app_icon)
                 .into(stdImage);
 

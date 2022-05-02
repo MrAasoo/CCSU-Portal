@@ -18,7 +18,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="@dimen/scrolling_appbar_height"
             android:background="@drawable/background_2"
             android:fitsSystemWindows="true"
             android:theme="@style/Theme.CollegePortal">

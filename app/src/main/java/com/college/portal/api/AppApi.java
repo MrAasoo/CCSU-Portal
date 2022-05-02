@@ -13,6 +13,7 @@ public interface AppApi {
     String PAGE_URL = "page_url";
     String ASSIGNMENT_LIST = "0";
     String ASSIGNMENT_ID = "assignment_id";
+    String NEWS_ID = "news_id";
 
 
     //Application
@@ -20,5 +21,7 @@ public interface AppApi {
     String ONLINE_STATUS = "online_status";
     String MODE_DARK = "dark";
     String MODE_LIGHT = "light";
+    int NEWS_SLIDER_YES = 1;
+    int NEWS_SLIDER_NO = 0;
 
 }
