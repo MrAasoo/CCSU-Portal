@@ -5,58 +5,74 @@ import com.google.gson.annotations.SerializedName;
 
 public class ContactUs {
 
-    @SerializedName("col_name")
+    @SerializedName("contact_name")
     @Expose
-    private String colName;
-    @SerializedName("col_contact")
+    private String contactName;
+
+    @SerializedName("contact_designation")
     @Expose
-    private String colContact;
-    @SerializedName("col_link")
+    private String contactDesignation;
+
+    @SerializedName("contact_number")
     @Expose
-    private String colLink;
-    @SerializedName("col_email")
+    private String contactNumber;
+
+    @SerializedName("contact_link")
     @Expose
-    private String colEmail;
+    private String contactLink;
+
+    @SerializedName("contact_email")
+    @Expose
+    private String contactEmail;
 
     public ContactUs() {
     }
 
-    public ContactUs(String colName, String colContact, String colLink, String colEmail) {
-        this.colName = colName;
-        this.colContact = colContact;
-        this.colLink = colLink;
-        this.colEmail = colEmail;
+    public ContactUs(String contactName, String contactDesignation, String contactNumber, String contactLink, String contactEmail) {
+        this.contactName = contactName;
+        this.contactDesignation = contactDesignation;
+        this.contactNumber = contactNumber;
+        this.contactLink = contactLink;
+        this.contactEmail = contactEmail;
     }
 
-    public String getColName() {
-        return colName;
+    public String getContactName() {
+        return contactName;
     }
 
-    public void setColName(String colName) {
-        this.colName = colName;
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
     }
 
-    public String getColContact() {
-        return colContact;
+    public String getContactDesignation() {
+        return contactDesignation;
     }
 
-    public void setColContact(String colContact) {
-        this.colContact = colContact;
+    public void setContactDesignation(String contactDesignation) {
+        this.contactDesignation = contactDesignation;
     }
 
-    public String getColLink() {
-        return colLink;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setColLink(String colLink) {
-        this.colLink = colLink;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
-    public String getColEmail() {
-        return colEmail;
+    public String getContactLink() {
+        return contactLink;
     }
 
-    public void setColEmail(String colEmail) {
-        this.colEmail = colEmail;
+    public void setContactLink(String contactLink) {
+        this.contactLink = contactLink;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 }

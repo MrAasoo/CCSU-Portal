@@ -1,8 +1,11 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.RetroApi.BASE_URL;
 import static com.college.portal.api.RetroApi.STUDENT_IMAGES;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,9 +23,11 @@ import com.college.portal.AlertDialogInterface;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.model.InfoResponse;
 import com.college.portal.model.StudentInfo;
 import com.college.portal.model.StudentPref;
+import com.college.portal.services.NetworkServices;
 import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.squareup.picasso.Picasso;
@@ -38,6 +43,10 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView stdId, stdDep, stdBranch, stdSem, stdAcademic, stdFather, stdMother, stdDob, stdContact, stdEmail, stdAddress, stdPin;
     private ImageView stdImage;
 
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +58,13 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         // collapsing toolbar
         mToolBar = findViewById(R.id.collapsing_toolbar);
@@ -85,12 +101,22 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        // AppTheme Theme
+        //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
+
     }
 
     private void apiCallGetStudentInfo(String stdId, String stdPassword) {

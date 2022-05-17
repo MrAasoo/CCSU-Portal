@@ -2,9 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.college.portal">
+
     <!-- Application Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +23,7 @@
             android:configChanges="orientation" />
         <activity
             android:name=".activity.ClubsActivity"
+            android:configChanges="orientation"
             android:label="@string/clubs" />
         <activity
             android:name=".activity.LibraryActivity"
@@ -35,11 +40,11 @@
         <activity
             android:name=".activity.NewsActivity"
             android:configChanges="orientation"
-            android:label="@string/collage_news" />
+            android:label="@string/college_news" />
         <activity
             android:name=".activity.NewsListActivity"
             android:configChanges="orientation"
-            android:label="@string/collage_news" />
+            android:label="@string/college_news" />
         <activity
             android:name=".activity.WebViewActivity"
             android:configChanges="orientation" />

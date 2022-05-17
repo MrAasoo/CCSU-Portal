@@ -1,5 +1,9 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
+
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,7 +21,9 @@ import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.adapter.ContactUsAdapter;
 import com.college.portal.api.RetrofitClient;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.model.ContactUs;
+import com.college.portal.services.NetworkServices;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -37,6 +43,10 @@ public class ContactUsActivity extends AppCompatActivity {
     protected ContactUsAdapter mAdapter;
     protected List<ContactUs> mList;
 
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +57,13 @@ public class ContactUsActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -60,12 +77,22 @@ public class ContactUsActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        // AppTheme Theme
+        //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
+
     }
 
     private void getContactList() {
@@ -85,15 +112,15 @@ public class ContactUsActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.i("Responsestring", response.body().toString());
+                Log.i("Response string", response.body().toString());
                 //Toast.makeText()
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
                     if (response.body() != null) {
                         Log.e("onSuccess", response.body().toString());
 
-                        String jsonresponse = response.body().toString();
-                        writeRecycler(jsonresponse);
+                        String jsonResponse = response.body().toString();
+                        writeRecycler(jsonResponse);
 
                     } else {
                         Log.e("onEmptyResponse", "Returned empty response");
@@ -110,10 +137,10 @@ public class ContactUsActivity extends AppCompatActivity {
         });
     }
 
-    private void writeRecycler(String jsonresponse) {
+    private void writeRecycler(String jsonResponse) {
         try {
             //getting the whole json object from the response
-            JSONObject obj = new JSONObject(jsonresponse);
+            JSONObject obj = new JSONObject(jsonResponse);
             if (obj.optBoolean("status")) {
 
                 JSONArray dataArray = obj.getJSONArray("data");
@@ -121,15 +148,18 @@ public class ContactUsActivity extends AppCompatActivity {
                     ContactUs contact = new ContactUs();
                     JSONObject jsonObject = dataArray.getJSONObject(i);
 
-                    contact.setColName(jsonObject.getString("col_name"));
-                    contact.setColContact(jsonObject.getString("col_contact"));
-                    contact.setColLink(jsonObject.getString("col_link"));
-                    contact.setColEmail(jsonObject.getString("col_email"));
+                    contact.setContactName(jsonObject.getString("contact_name"));
+                    contact.setContactDesignation(jsonObject.getString("contact_designation"));
+                    contact.setContactNumber(jsonObject.getString("contact_number"));
+                    contact.setContactLink(jsonObject.getString("contact_link"));
+                    contact.setContactEmail(jsonObject.getString("contact_email"));
 
                     mList.add(contact);
 
                 }
+
                 mAdapter.notifyDataSetChanged();
+
             }
         } catch (JSONException e) {
             e.printStackTrace();

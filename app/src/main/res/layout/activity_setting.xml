@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="@dimen/eight_dp"
+                android:layout_marginHorizontal="@dimen/four_dp"
                 android:padding="@dimen/eight_dp"
                 android:text="Application theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -32,7 +32,7 @@
                 android:id="@+id/radio_group_theme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/eight_dp"
+                android:layout_marginHorizontal="@dimen/eight_dp"
                 android:checkedButton="@id/radio_default"
                 android:elevation="@dimen/eight_dp"
                 android:orientation="vertical">
@@ -67,8 +67,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="@dimen/eight_dp"
-                android:layout_marginBottom="@dimen/eight_dp"
+                android:layout_margin="@dimen/eight_dp"
                 android:background="@drawable/background_gradient_dark" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -76,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="@dimen/eight_dp"
+                android:layout_margin="@dimen/four_dp"
                 android:text="Notifications"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/primary_500" />
@@ -83,8 +83,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="@dimen/eight_dp"
-                android:layout_marginBottom="@dimen/eight_dp"
+                android:layout_margin="@dimen/eight_dp"
                 android:background="@drawable/background_gradient_dark" />
 
 
@@ -92,7 +91,7 @@
                 android:id="@+id/setting_terms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="@dimen/eight_dp"
+                android:layout_margin="@dimen/four_dp"
                 android:padding="@dimen/eight_dp"
                 android:text="@string/terms_of_uses"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -103,8 +102,7 @@
                 android:id="@+id/setting_privacy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/eight_dp"
-                android:elevation="@dimen/eight_dp"
+                android:layout_margin="@dimen/four_dp"
                 android:padding="@dimen/eight_dp"
                 android:text="@string/privacy_policy"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -114,8 +112,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="@dimen/eight_dp"
-                android:layout_marginBottom="@dimen/eight_dp"
+                android:layout_margin="@dimen/eight_dp"
                 android:background="@drawable/background_gradient_dark" />
 
 

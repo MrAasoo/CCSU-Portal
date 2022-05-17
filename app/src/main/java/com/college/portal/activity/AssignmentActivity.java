@@ -1,5 +1,9 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
+
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,6 +20,8 @@ import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
 import com.college.portal.api.RetrofitClient;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
+import com.college.portal.services.NetworkServices;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -30,6 +36,10 @@ public class AssignmentActivity extends AppCompatActivity {
 
     private TextView assiTitle, assiDetails, assiDate, assiDueDate, assiFaculty;
 
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +49,13 @@ public class AssignmentActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         assiTitle = findViewById(R.id.assi_title);
         assiDetails = findViewById(R.id.assi_details);
@@ -50,12 +67,22 @@ public class AssignmentActivity extends AppCompatActivity {
         getAssignmentDetails(id);
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        // AppTheme Theme
+        //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
+
     }
 
 

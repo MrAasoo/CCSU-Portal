@@ -1,8 +1,11 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.NEWS_SLIDER_NO;
 import static com.college.portal.api.AppApi.NEWS_SLIDER_YES;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,10 +22,13 @@ import androidx.viewpager.widget.ViewPager;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
+import com.college.portal.ZoomOutPageTransformer;
 import com.college.portal.adapter.NewsAdapter;
 import com.college.portal.adapter.NewsSliderAdapter;
 import com.college.portal.api.RetrofitClient;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.model.News;
+import com.college.portal.services.NetworkServices;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.JsonObject;
 
@@ -48,6 +54,10 @@ public class NewsListActivity extends AppCompatActivity {
     private ViewPager newsViewPager;
     private TabLayout newsTabLayout;
 
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,17 +69,25 @@ public class NewsListActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
+
         // News Slider
         newsViewPager = findViewById(R.id.news_view_pager);
         newsTabLayout = findViewById(R.id.news_tab_layout);
 
         mSlideList = new ArrayList<>();
         newsSliderAdapter = new NewsSliderAdapter(NewsListActivity.this, mSlideList);
+        newsViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         newsViewPager.setAdapter(newsSliderAdapter);
 
         // News Slider Timer
         Timer timer = new Timer();
-        timer.schedule(new SlideTimer(), 2000, 3000);
+        timer.schedule(new SlideTimer(), 5000, 3000);
         newsTabLayout.setupWithViewPager(newsViewPager, true);
         getNewsList(NEWS_SLIDER_YES);
 
@@ -85,12 +103,22 @@ public class NewsListActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        // AppTheme Theme
+        //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
+
     }
 
     private void getNewsList(int nSlider) {

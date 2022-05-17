@@ -43,20 +43,25 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.View
         holder.cardHolder.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade_transition_animation));
 
 
-        holder.contactName.setText(mList.get(position).getColName());
-        if (!mList.get(position).getColContact().isEmpty()) {
+        holder.contactName.setText(mList.get(position).getContactName());
+        if (!mList.get(position).getContactNumber().isEmpty()) {
             holder.cn.setVisibility(View.VISIBLE);
-            holder.contactNumber.setText(mList.get(position).getColContact());
+            holder.contactNumber.setText(mList.get(position).getContactNumber());
         }
 
-        if (!mList.get(position).getColEmail().isEmpty()) {
+        if (!mList.get(position).getContactDesignation().isEmpty()) {
+            holder.contactDesignation.setVisibility(View.VISIBLE);
+            holder.contactDesignation.setText(mList.get(position).getContactDesignation());
+        }
+
+        if (!mList.get(position).getContactEmail().isEmpty()) {
             holder.ce.setVisibility(View.VISIBLE);
-            holder.contactEmail.setText(mList.get(position).getColEmail());
+            holder.contactEmail.setText(mList.get(position).getContactEmail());
         }
 
-        if(!mList.get(position).getColLink().isEmpty()){
+        if (!mList.get(position).getContactLink().isEmpty()) {
             holder.web.setVisibility(View.VISIBLE);
-            holder.contactNumber.setText(mList.get(position).getColLink());
+            holder.contactNumber.setText(mList.get(position).getContactLink());
         }
     }
 
@@ -67,7 +72,7 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView contactName, contactNumber, contactEmail, contactWeb;
+        TextView contactName, contactNumber, contactEmail, contactWeb, contactDesignation;
         LinearLayout cn, ce, web;
         CardView cardHolder;
 
@@ -76,6 +81,7 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.View
 
             cardHolder = itemView.findViewById(R.id.holder);
             contactName = itemView.findViewById(R.id.contact_name);
+            contactDesignation = itemView.findViewById(R.id.contact_desi);
             contactNumber = itemView.findViewById(R.id.contact_number);
             contactEmail = itemView.findViewById(R.id.contact_email);
             contactWeb = itemView.findViewById(R.id.contact_web);

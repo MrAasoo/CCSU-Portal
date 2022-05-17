@@ -12,9 +12,9 @@ import retrofit2.http.Query;
 public interface RetroApi {
 
     // 000WebHost
-    // String BASE_URL = "https://collageportal.000webhostapp.com/";
+    String BASE_URL = "https://collageportal.000webhostapp.com/";
     // Mobile
-    String BASE_URL = "http://192.168.43.126/collegeportalapi/";
+    // String BASE_URL = "http://192.168.43.126/collegeportalapi/";
     // Emulator
     // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
 

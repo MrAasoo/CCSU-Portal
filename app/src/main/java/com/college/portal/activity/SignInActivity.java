@@ -52,7 +52,6 @@ public class SignInActivity extends AppCompatActivity {
     private TextView forgotPassBtn;
     private Button signInBtn;
 
-
     //For Network
     private IntentFilter mIntentFilter;
     private InternetBroadcastReceiver mInternetBroadcastReceiver;

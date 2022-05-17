@@ -1,10 +1,13 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.NEWS_ID;
 import static com.college.portal.api.AppApi.NEWS_SLIDER_YES;
 import static com.college.portal.api.RetroApi.BASE_URL;
 import static com.college.portal.api.RetroApi.NEWS_IMAGES;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,9 +21,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
+import com.college.portal.services.NetworkServices;
 import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
 
@@ -37,6 +43,10 @@ public class NewsActivity extends AppCompatActivity {
     private ImageView newsImage;
     private TextView newsTitle, newsSubtitle, newsDetail, newsDate;
 
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +58,12 @@ public class NewsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         int id = getIntent().getIntExtra(NEWS_ID, 0);
 
@@ -60,8 +76,25 @@ public class NewsActivity extends AppCompatActivity {
         getNewsDetails(id);
     }
 
-    private void getNewsDetails(int id) {
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
+
+        //AppTheme Theme
+        AppTheme.setAppTheme(getApplicationContext());
+
+    }
+
+    private void getNewsDetails(int id) {
 
         final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
                 NewsActivity.this,
@@ -79,7 +112,7 @@ public class NewsActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.i("Responsestring", response.body().toString());
+                //Log.i("Response string", response.body().toString());
                 //Toast.makeText()
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
@@ -125,7 +158,7 @@ public class NewsActivity extends AppCompatActivity {
                         getSupportActionBar().setTitle("Event");
                         break;
                     default:
-                        getSupportActionBar().setTitle(getString(R.string.collage_news));
+                        getSupportActionBar().setTitle(getString(R.string.college_news));
                 }
 
 

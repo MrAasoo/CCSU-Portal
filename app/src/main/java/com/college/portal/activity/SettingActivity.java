@@ -1,5 +1,6 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.MODE_DARK;
 import static com.college.portal.api.AppApi.MODE_LIGHT;
 import static com.college.portal.api.AppApi.PAGE_URL;
@@ -8,6 +9,7 @@ import static com.college.portal.api.RetroApi.PRIVACY_URL;
 import static com.college.portal.api.RetroApi.TERMS_URL;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,9 +26,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
+import com.college.portal.services.NetworkServices;
 import com.college.portal.sharedpreferences.ThemePrefManager;
 
 public class SettingActivity extends AppCompatActivity {
+
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,12 @@ public class SettingActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         // Application Theme
         RadioGroup themeGroup = findViewById(R.id.radio_group_theme);
@@ -135,12 +149,22 @@ public class SettingActivity extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        // AppTheme Theme
+        //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
+
     }
 
     //For appbar back press

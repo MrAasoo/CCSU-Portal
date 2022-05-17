@@ -9,13 +9,14 @@
     android:background="@android:color/transparent">
 
     <androidx.cardview.widget.CardView
-        android:layout_margin="@dimen/sixteen_dp"
         android:layout_width="@dimen/dialog_width"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/eight_dp"
-        app:cardElevation="@dimen/four_dp">
+        android:layout_margin="@dimen/sixteen_dp"
+        app:cardCornerRadius="@dimen/sixteen_dp"
+        app:cardElevation="@dimen/eight_dp">
 
         <LinearLayout
+            android:padding="@dimen/four_dp"
             android:background="@drawable/background_gradient_dark"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

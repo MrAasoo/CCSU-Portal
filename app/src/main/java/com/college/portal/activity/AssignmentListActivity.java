@@ -1,7 +1,10 @@
 package com.college.portal.activity;
 
 import static com.college.portal.api.AppApi.ASSIGNMENT_LIST;
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,7 +22,9 @@ import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.adapter.AssignmentAdapter;
 import com.college.portal.api.RetrofitClient;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.model.Assignment;
+import com.college.portal.services.NetworkServices;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -38,6 +43,10 @@ public class AssignmentListActivity extends AppCompatActivity {
     protected AssignmentAdapter mAdapter;
     protected ArrayList<Assignment> mList;
 
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +57,13 @@ public class AssignmentListActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         recyclerView = findViewById(R.id.assignment_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -61,11 +77,20 @@ public class AssignmentListActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
+    @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        // AppTheme Theme
+        //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
+
     }
 
     private void getAssignmentList() {

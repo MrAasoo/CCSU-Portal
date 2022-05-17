@@ -1,7 +1,10 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.PAGE_URL;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -13,10 +16,16 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
+import com.college.portal.services.NetworkServices;
 
 public class WebViewActivity extends AppCompatActivity {
 
     private WebView webView;
+
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +37,13 @@ public class WebViewActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         String url = getResources().getString(R.string.link_dummy_data);
         Bundle bundle = getIntent().getExtras();
@@ -42,11 +58,20 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
+    @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
 
-        // AppTheme Theme
+        //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
+
     }
 
     //For appbar back press
@@ -74,4 +99,5 @@ public class WebViewActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 }

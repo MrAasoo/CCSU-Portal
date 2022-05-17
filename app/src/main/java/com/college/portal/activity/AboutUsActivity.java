@@ -1,10 +1,12 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.PAGE_URL;
 import static com.college.portal.api.RetroApi.BASE_URL;
 import static com.college.portal.api.RetroApi.HISTORY_URL;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,10 +19,16 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.broadcasts.InternetBroadcastReceiver;
+import com.college.portal.services.NetworkServices;
 
 public class AboutUsActivity extends AppCompatActivity {
 
-    TextView tvMission, tvVision, tvHistory, tvPhotos, tvVideos;
+    private TextView tvMission, tvVision, tvHistory, tvPhotos, tvVideos;
+
+    //For Network
+    private IntentFilter mIntentFilter;
+    private InternetBroadcastReceiver mInternetBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,14 @@ public class AboutUsActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        //Network broadcast
+        mInternetBroadcastReceiver = new InternetBroadcastReceiver();
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        Intent serviceIntent = new Intent(this, NetworkServices.class);
+        startService(serviceIntent);
 
         tvMission = findViewById(R.id.about_mission);
         tvVision = findViewById(R.id.about_vision);
@@ -85,11 +101,22 @@ public class AboutUsActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mInternetBroadcastReceiver);
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
-        // AppTheme Theme
+        registerReceiver(mInternetBroadcastReceiver, mIntentFilter);
+
+        //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
+
     }
 
     //For appbar back press

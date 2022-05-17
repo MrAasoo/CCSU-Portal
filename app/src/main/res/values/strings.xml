@@ -9,7 +9,7 @@
     <string name="sign_in">Sign In</string>
     <string name="college_id">Your ID</string>
     <string name="password">* * * * * *</string>
-    <string name="forgot_password">Forgot Password ?</string>
+    <string name="forgot_password">Forgot Password?</string>
     <string name="signing_failed_title">Signing Failed!</string>
     <string name="logout_text">Logout</string>
     <string name="exit_text">Exit</string>
@@ -29,12 +29,17 @@
     <string name="terms_of_uses">Terms of Uses</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="student_s_image">Student\'s Image</string>
+    <string name="good_night_msg">Good Night …</string>
+    <string name="good_evening_msg">Good evening …</string>
+    <string name="good_afternoon_msg">Good afternoon …</string>
+    <string name="good_morning_msg">Good morning …</string>
+    <string name="morning_msg">Morning\'s Sunshine!</string>
     <string name="welcome">Welcome</string>
     <string name="student_branch">Student Branch</string>
     <string name="student_id">Student ID</string>
     <string name="students_profile">Profile</string>
     <string name="assignment">Assignments</string>
-    <string name="collage_news">Collage News</string>
+    <string name="college_news">News/Updates</string>
     <string name="notification">Notification</string>
     <string name="class_notices">Noticeboard</string>
     <string name="contact_us">Contact Us</string>
@@ -70,8 +75,8 @@
     <string name="password_text">Password</string>
     <string name="your_account">Your account</string>
     <string name="e_books">E-Books</string>
-    <string name="notes">Notes</string>
-    <string name="magazine">Magazine</string>
+    <string name="blogs">Blogs</string>
+    <string name="magazine">E-Magazine</string>
     <string name="lectures">Lectures</string>
     <string name="my_library">My College Library</string>
     <string name="assignment_name">Assignment Name</string>
@@ -81,9 +86,12 @@
     <string name="news_detail">News Details</string>
     <string name="news_image">News Image</string>
     <string name="download_notice">Download Notice</string>
+    <string name="call">Call</string>
+    <string name="chat">Chat</string>
+    <string name="enquiry">Enquiry</string>
 
 
-    <!-- Place Holder String -->
+    <!-- Place Holder Strings -->
     <string name="assignment_due_date">Submit before : %1$s</string>
     <string name="assignment_date">Assignment Date : %1$s</string>
     <string name="date">Date : %1$s</string>

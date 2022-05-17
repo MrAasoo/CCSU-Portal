@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/holder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/holder"
-    app:cardCornerRadius="8dp"
     android:layout_margin="@dimen/eight_dp"
+    app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
     <LinearLayout
@@ -22,6 +22,16 @@
             android:padding="@dimen/eight_dp"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+        <TextView
+            android:id="@+id/contact_desi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Designation"
+            android:padding="@dimen/eight_dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/contact_no_ll"

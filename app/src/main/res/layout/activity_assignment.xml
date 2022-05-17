@@ -78,7 +78,7 @@
         android:layout_marginHorizontal="@dimen/eight_dp"
         android:text="Download"
         android:textAllCaps="false"
-        android:visibility="gone"
+        android:visibility="visible"
         app:cornerRadius="@dimen/sixteen_dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -33,6 +33,7 @@
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout-land/activity_no_internet.xml" value="0.3104166666666667" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout-land/activity_sign_in.xml" value="0.15236486486486486" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout-sw600dp/activity_sign_in.xml" value="0.262890625" />
+        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout-v23/activity_home.xml" value="0.2877297990594271" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_about_us.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_account_status.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_app_info.xml" value="0.18986486486486487" />
@@ -42,13 +43,13 @@
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_contact_us.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_home.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_home_v2.xml" value="0.22736486486486487" />
-        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_library.xml" value="0.22736486486486487" />
+        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_library.xml" value="0.3055555555555556" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_messages.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_news.xml" value="0.31157407407407406" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_news_list.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_no_internet.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_profile.xml" value="0.22138157894736843" />
-        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_setting.xml" value="0.1" />
+        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_setting.xml" value="0.3055555555555556" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_sign_in.xml" value="0.22043891254503767" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_splash_screen.xml" value="0.22138157894736843" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/activity_web_view.xml" value="0.22736486486486487" />
@@ -60,7 +61,7 @@
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/layout_news.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/layout_news_viewpager.xml" value="0.22736486486486487" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/layout_notification.xml" value="0.22736486486486487" />
-        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/layout_progress.xml" value="0.1798611111111111" />
+        <entry key="..\:/St Portal/StPortal/app/src/main/res/layout/layout_progress.xml" value="0.2877297990594271" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.238" />
         <entry key="..\:/St Portal/StPortal/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.238" />
       </map>
