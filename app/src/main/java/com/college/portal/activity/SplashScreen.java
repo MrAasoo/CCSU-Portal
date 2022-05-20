@@ -120,12 +120,6 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-
-    @Override
     protected void onRestart() {
         super.onRestart();
         registerReceiver(mInternetBroadcastReceiver, mIntentFilter);

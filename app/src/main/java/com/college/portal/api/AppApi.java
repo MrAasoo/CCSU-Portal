@@ -21,7 +21,13 @@ public interface AppApi {
     String ONLINE_STATUS = "online_status";
     String MODE_DARK = "dark";
     String MODE_LIGHT = "light";
+
     int NEWS_SLIDER_YES = 1;
     int NEWS_SLIDER_NO = 0;
+    int GALLERY_TYPE_IMAGE = 1;
+    int GALLERY_TYPE_VIDEO = 2;
 
+    String MEDIA_PATH = "media_path";
+    String MEDIA_DESCRIPTION = "media_description";
+    String MEDIA_POST = "media_post";
 }

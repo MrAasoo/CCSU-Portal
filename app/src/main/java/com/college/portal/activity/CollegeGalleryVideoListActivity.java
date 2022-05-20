@@ -1,8 +1,9 @@
 package com.college.portal.activity;
 
+import static com.college.portal.api.AppApi.GALLERY_TYPE_VIDEO;
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
-import static com.college.portal.api.AppApi.NEWS_SLIDER_NO;
-import static com.college.portal.api.AppApi.NEWS_SLIDER_YES;
+import static com.college.portal.api.RetroApi.BASE_URL;
+import static com.college.portal.api.RetroApi.COLLEGE_IMAGES;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -17,19 +18,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
+import com.college.portal.AlertDialogInterface;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
-import com.college.portal.ZoomOutPageTransformer;
-import com.college.portal.adapter.NewsAdapter;
-import com.college.portal.adapter.NewsSliderAdapter;
+import com.college.portal.adapter.GalleryImageAdapter;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
-import com.college.portal.model.News;
+import com.college.portal.model.Gallery;
 import com.college.portal.services.NetworkServices;
-import com.google.android.material.tabs.TabLayout;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -38,25 +36,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewsListActivity extends AppCompatActivity {
+public class CollegeGalleryVideoListActivity extends AppCompatActivity {
 
-    // news list
+    //Image list
     private RecyclerView recyclerView;
-    private NewsAdapter mAdapter;
-    private List<News> mList;
-
-    // news image slider
-    private NewsSliderAdapter newsSliderAdapter;
-    private List<News> mSlideList;
-    private ViewPager newsViewPager;
-    private TabLayout newsTabLayout;
+    private GalleryImageAdapter mAdapter;
+    private List<Gallery> mList;
 
     //For Network
     private IntentFilter mIntentFilter;
@@ -65,7 +55,7 @@ public class NewsListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_list);
+        setContentView(R.layout.activity_college_gallery_video_list);
 
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
@@ -80,33 +70,100 @@ public class NewsListActivity extends AppCompatActivity {
         Intent serviceIntent = new Intent(this, NetworkServices.class);
         startService(serviceIntent);
 
-        // News Slider
-        newsViewPager = findViewById(R.id.news_view_pager);
-        newsTabLayout = findViewById(R.id.news_tab_layout);
-
-        mSlideList = new ArrayList<>();
-        newsSliderAdapter = new NewsSliderAdapter(NewsListActivity.this, mSlideList);
-        newsViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        newsViewPager.setAdapter(newsSliderAdapter);
-
-        // News Slider Timer
-        Timer timer = new Timer();
-        timer.schedule(new SlideTimer(), 5000, 3000);
-        newsTabLayout.setupWithViewPager(newsViewPager, true);
-        getNewsList(NEWS_SLIDER_YES);
-
-        // News List
-        recyclerView = findViewById(R.id.news_recycler_view);
+        // get list
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         mList = new ArrayList<>();
-        mAdapter = new NewsAdapter(NewsListActivity.this, mList);
+        mAdapter = new GalleryImageAdapter(CollegeGalleryVideoListActivity.this, mList);
         recyclerView.setAdapter(mAdapter);
-        getNewsList(NEWS_SLIDER_NO);
+        getImageList(GALLERY_TYPE_VIDEO);
 
     }
 
+    private void getImageList(int galleryTypeImage) {
+
+
+        final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
+                CollegeGalleryVideoListActivity.this,
+                getString(R.string.progress_loading_message));
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setCancelable(false);
+        progressDialog.create();
+        progressDialog.show();
+
+
+        Call<JsonObject> call = RetrofitClient.getInstance()
+                .getRetroApi()
+                .getCollegeGalleryList(galleryTypeImage);
+
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                Log.i("Responsestring", response.body().toString());
+                //Toast.makeText()
+                if (response.isSuccessful()) {
+                    progressDialog.dismiss();
+                    if (response.body() != null) {
+                        //Log.e("onSuccess", response.body().toString());
+
+                        String jsonResponse = response.body().toString();
+                        writeRecycler(jsonResponse);
+
+                    } else {
+                        Log.e("onEmptyResponse", "Returned empty response");
+                        //Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Log.e("onFailure : ", "Something went wrong .....", t);
+                progressDialog.dismiss();
+            }
+        });
+    }
+
+    private void writeRecycler(String jsonResponse) {
+
+        try {
+            //getting the whole json object from the response
+            JSONObject obj = new JSONObject(jsonResponse);
+            if (obj.optBoolean("status")) {
+
+                JSONArray dataArray = obj.getJSONArray("data");
+                for (int i = 0; i < dataArray.length(); i++) {
+                    Gallery gallery = new Gallery();
+                    JSONObject jsonObject = dataArray.getJSONObject(i);
+
+                    gallery.setSrNo(Integer.valueOf(jsonObject.getString("sr_no")));
+                    gallery.setMediaDescription(jsonObject.getString("media_description"));
+                    gallery.setMediaAdded(jsonObject.getString("media_added"));
+                    gallery.setMediaPath(BASE_URL + COLLEGE_IMAGES + jsonObject.getString("media_path"));
+
+                    mList.add(gallery);
+
+                }
+                mAdapter.notifyDataSetChanged();
+
+            } else {
+                AlertDialogInterface dialog = new AlertDialogInterface(CollegeGalleryVideoListActivity.this,
+                        "No data found",
+                        "Please try again...",
+                        R.drawable.ic_alert);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.setCancelable(false);
+                dialog.create();
+                dialog.show();
+                dialog.dismissAlertDialog();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @Override
     protected void onPause() {
@@ -125,93 +182,6 @@ public class NewsListActivity extends AppCompatActivity {
 
     }
 
-    private void getNewsList(int nSlider) {
-
-        final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
-                NewsListActivity.this,
-                getString(R.string.progress_loading_message));
-        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        progressDialog.setCancelable(false);
-        progressDialog.create();
-        progressDialog.show();
-
-
-        Call<JsonObject> call = RetrofitClient.getInstance()
-                .getRetroApi()
-                .getNewsList(0, nSlider);
-
-        call.enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.i("Responsestring", response.body().toString());
-                //Toast.makeText()
-                if (response.isSuccessful()) {
-                    progressDialog.dismiss();
-                    if (response.body() != null) {
-                        //Log.e("onSuccess", response.body().toString());
-
-                        String jsonResponse = response.body().toString();
-                        writeRecycler(jsonResponse, nSlider);
-
-                    } else {
-                        Log.e("onEmptyResponse", "Returned empty response");
-                        //Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                Log.e("onFailure : ", "Something went wrong .....", t);
-                progressDialog.dismiss();
-            }
-        });
-    }
-
-    private void writeRecycler(String jsonResponse, int nSlider) {
-        try {
-            //getting the whole json object from the response
-            JSONObject obj = new JSONObject(jsonResponse);
-            if (obj.optBoolean("status")) {
-
-                if (nSlider == NEWS_SLIDER_NO) {
-                    JSONArray dataArray = obj.getJSONArray("data");
-                    for (int i = 0; i < dataArray.length(); i++) {
-                        News news = new News();
-                        JSONObject jsonObject = dataArray.getJSONObject(i);
-
-                        news.setnId(Integer.valueOf(jsonObject.getString("n_id")));
-                        news.setnTitle(jsonObject.getString("n_title"));
-                        news.setnSubtitle(jsonObject.getString("n_subtitle"));
-                        news.setnDate(jsonObject.getString("n_date"));
-
-                        mList.add(news);
-
-                    }
-                    mAdapter.notifyDataSetChanged();
-                } else if (nSlider == NEWS_SLIDER_YES) {
-
-                    JSONArray dataArray = obj.getJSONArray("data");
-                    for (int i = 0; i < dataArray.length(); i++) {
-                        News news = new News();
-                        JSONObject jsonObject = dataArray.getJSONObject(i);
-
-                        news.setnId(Integer.valueOf(jsonObject.getString("n_id")));
-                        news.setnTitle(jsonObject.getString("n_title"));
-                        news.setnSubtitle(jsonObject.getString("n_subtitle"));
-                        news.setnImage(jsonObject.getString("n_image"));
-
-                        mSlideList.add(news);
-
-                    }
-                    newsSliderAdapter.notifyDataSetChanged();
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
     //For appbar back press
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -224,26 +194,5 @@ public class NewsListActivity extends AppCompatActivity {
         }
     }
 
-    public class SlideTimer extends TimerTask {
-
-        @Override
-        public void run() {
-
-            runOnUiThread(new Runnable() {
-
-                @Override
-                public void run() {
-                    if (newsViewPager.getCurrentItem() < mSlideList.size() - 1) {
-                        newsViewPager.setCurrentItem(newsViewPager.getCurrentItem() + 1);
-                    } else {
-                        newsViewPager.setCurrentItem(0);
-                    }
-                }
-
-            });
-
-        }
-
-    }
 
 }

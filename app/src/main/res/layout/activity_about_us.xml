@@ -24,47 +24,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/eight_dp">
+            android:padding="@dimen/sixteen_dp">
+
             <!-- TODO Update Card background with images -->
             <!--Our Mission-->
-            <androidx.cardview.widget.CardView
+            <TextView
+                android:id="@+id/about_mission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/eight_dp"
-                app:cardCornerRadius="@dimen/eight_dp"
-                app:cardElevation="@dimen/four_dp">
-
-                <TextView
-                    android:id="@+id/about_mission"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/sixteen_dp"
-                    android:text="@string/our_mission"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:drawableEndCompat="@drawable/ic_next"
-                    app:drawableTint="@color/secondary_700" />
-
-            </androidx.cardview.widget.CardView>
+                android:layout_margin="@dimen/four_dp"
+                android:padding="@dimen/eight_dp"
+                android:text="@string/our_mission"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
 
             <!--Our Vision-->
-            <androidx.cardview.widget.CardView
+            <TextView
+                android:id="@+id/about_vision"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/eight_dp"
-                app:cardCornerRadius="@dimen/eight_dp"
-                app:cardElevation="@dimen/four_dp">
-
-                <TextView
-                    android:id="@+id/about_vision"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/sixteen_dp"
-                    android:text="@string/our_vision"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:drawableEndCompat="@drawable/ic_next"
-                    app:drawableTint="@color/secondary_700" />
-
-            </androidx.cardview.widget.CardView>
+                android:layout_margin="@dimen/four_dp"
+                android:padding="@dimen/eight_dp"
+                android:text="@string/our_vision"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
 
             <View
                 android:layout_width="match_parent"
@@ -73,66 +58,40 @@
                 android:background="@drawable/background_gradient_dark" />
 
             <!--History-->
-            <androidx.cardview.widget.CardView
+            <TextView
+                android:id="@+id/about_history"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/eight_dp"
-                app:cardCornerRadius="@dimen/eight_dp"
-                app:cardElevation="@dimen/four_dp">
-
-                <TextView
-                    android:id="@+id/about_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/sixteen_dp"
-                    android:text="@string/history"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:drawableEndCompat="@drawable/ic_next"
-                    app:drawableTint="@color/secondary_700" />
-
-            </androidx.cardview.widget.CardView>
-
+                android:layout_margin="@dimen/four_dp"
+                android:padding="@dimen/eight_dp"
+                android:text="@string/history"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
 
             <!--Photos-->
-            <androidx.cardview.widget.CardView
+            <TextView
+                android:id="@+id/about_photo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/eight_dp"
-                app:cardCornerRadius="@dimen/eight_dp"
-                app:cardElevation="@dimen/four_dp">
-
-                <TextView
-                    android:id="@+id/about_photo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/sixteen_dp"
-                    android:text="@string/photos"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:drawableEndCompat="@drawable/ic_next"
-                    app:drawableTint="@color/secondary_700" />
-
-            </androidx.cardview.widget.CardView>
-
+                android:layout_margin="@dimen/four_dp"
+                android:padding="@dimen/eight_dp"
+                android:text="@string/photos"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
 
             <!--Videos-->
-            <androidx.cardview.widget.CardView
+            <TextView
+                android:id="@+id/about_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/eight_dp"
-                app:cardCornerRadius="@dimen/eight_dp"
-                app:cardElevation="@dimen/four_dp">
-
-                <TextView
-                    android:id="@+id/about_video"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/sixteen_dp"
-                    android:text="@string/videos"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:drawableEndCompat="@drawable/ic_next"
-                    app:drawableTint="@color/secondary_700" />
-
-            </androidx.cardview.widget.CardView>
+                android:layout_margin="@dimen/four_dp"
+                android:padding="@dimen/eight_dp"
+                android:text="@string/videos"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
 
         </LinearLayout>
 

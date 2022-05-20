@@ -2,4 +2,5 @@
 <resources>
     <integer name="grid_column_count">4</integer>
     <integer name="grid_enq_column_count">3</integer>
+    <integer name="photo_description_lines">1</integer>
 </resources>

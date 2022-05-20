@@ -67,6 +67,7 @@ public class NoInternetActivity extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     Intent i = new Intent(Settings.Panel.ACTION_WIFI);
                     startActivity(i);
+                    v.setClickable(true);
                 } else {
                     WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
                     wifiManager.setWifiEnabled(true);
@@ -81,6 +82,7 @@ public class NoInternetActivity extends AppCompatActivity {
                         }
                     }, 2000);
 
+                    v.setClickable(true);
                 }
             }
         });
@@ -96,7 +98,19 @@ public class NoInternetActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (isNetworkConnected(NoInternetActivity.this))
+            finish();
+        else {
+            AlertDialogInterface alertDialog = new AlertDialogInterface(NoInternetActivity.this,
+                    getString(R.string.no_internet_title),
+                    getString(R.string.no_internet_message),
+                    R.drawable.ic_nointernet);
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            alertDialog.setCancelable(false);
+            alertDialog.create();
+            alertDialog.show();
+            alertDialog.dismissAlertDialog();
+        }
     }
 
 }

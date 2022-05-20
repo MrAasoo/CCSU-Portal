@@ -23,7 +23,17 @@ public class NetworkServices extends Service {
     Handler handler = new Handler();
 
 
-    private Runnable periodUpdate = new Runnable() {
+    public static boolean isNetworkConnected(Context c) {
+        return isConnected(c) || isConnecting(c);
+        /*
+         * if (isConnected(c) || isConnecting(c))
+         *     return true;
+         * else
+         *     return false;
+         */
+    }
+
+    private final Runnable periodUpdate = new Runnable() {
         @Override
         public void run() {
             handler.postDelayed(periodUpdate, 5 * 1000 - SystemClock.elapsedRealtime() % 1000);
@@ -35,13 +45,7 @@ public class NetworkServices extends Service {
     };
 
 
-    public static boolean isNetworkConnected(Context c) {
 
-        if (isConnected(c) || isConnecting(c))
-            return true;
-        else
-            return false;
-    }
 
 
     private static boolean isConnected(Context c) {

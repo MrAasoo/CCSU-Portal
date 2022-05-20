@@ -14,7 +14,6 @@ public class AlertDialogInterface extends Dialog {
 
 
     // Objects and Variables
-    private Context context;
     private String title, message;
     private int icon;
     private ImageView dialogIcon;
@@ -23,7 +22,6 @@ public class AlertDialogInterface extends Dialog {
 
     public AlertDialogInterface(@NonNull Context context, String title, String message, int icon) {
         super(context);
-        this.context = context;
         this.title = title;
         this.message = message;
         this.icon = icon;

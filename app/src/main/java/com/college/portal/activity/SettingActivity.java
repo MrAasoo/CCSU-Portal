@@ -61,7 +61,6 @@ public class SettingActivity extends AppCompatActivity {
         RadioButton lightBtn = findViewById(R.id.radio_light);
 
         ThemePrefManager prefManager = new ThemePrefManager(SettingActivity.this);
-
         if (prefManager.getThemeMode() != null) {
             switch (prefManager.getThemeMode()) {
                 case MODE_DARK:
@@ -164,7 +163,6 @@ public class SettingActivity extends AppCompatActivity {
 
         //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
-
     }
 
     //For appbar back press

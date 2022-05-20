@@ -11,13 +11,11 @@ public class ProgressDialogInterface extends Dialog {
 
 
     // Objects and Variables
-    private Activity activity;
     private TextView progressMessage;
     private String message;
 
     public ProgressDialogInterface(@NonNull Activity activity, String message) {
         super(activity);
-        this.activity = activity;
         this.message = message;
     }
 

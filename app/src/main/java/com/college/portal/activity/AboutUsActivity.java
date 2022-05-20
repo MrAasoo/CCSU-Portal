@@ -24,7 +24,11 @@ import com.college.portal.services.NetworkServices;
 
 public class AboutUsActivity extends AppCompatActivity {
 
-    private TextView tvMission, tvVision, tvHistory, tvPhotos, tvVideos;
+    private TextView tvMission;
+    private TextView tvVision;
+    private TextView tvHistory;
+    private TextView tvPhotos;
+    private TextView tvVideos;
 
     //For Network
     private IntentFilter mIntentFilter;
@@ -75,9 +79,9 @@ public class AboutUsActivity extends AppCompatActivity {
         tvHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent webTermsIntent = new Intent(AboutUsActivity.this, WebViewActivity.class);
-                webTermsIntent.putExtra(PAGE_URL, BASE_URL + HISTORY_URL);
-                startActivity(webTermsIntent);
+                Intent webIntent = new Intent(AboutUsActivity.this, WebViewActivity.class);
+                webIntent.putExtra(PAGE_URL, BASE_URL + HISTORY_URL);
+                startActivity(webIntent);
             }
         });
 
@@ -85,8 +89,7 @@ public class AboutUsActivity extends AppCompatActivity {
         tvPhotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutUsActivity.this, "Photos Clicked", Toast.LENGTH_SHORT).show();
-                //TODO : Photos.
+                startActivity(new Intent(AboutUsActivity.this, CollegeGalleryImageListActivity.class));
             }
         });
 
@@ -94,8 +97,7 @@ public class AboutUsActivity extends AppCompatActivity {
         tvVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutUsActivity.this, "Videos Clicked", Toast.LENGTH_SHORT).show();
-                //TODO : Videos.
+                startActivity(new Intent(AboutUsActivity.this, CollegeGalleryVideoListActivity.class));
             }
         });
 

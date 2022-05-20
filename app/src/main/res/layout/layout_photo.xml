@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/eight_dp"
+    app:cardCornerRadius="@dimen/sixteen_dp"
+    app:cardElevation="@dimen/four_dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/gallery_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/gallery_photo_height"
+            android:contentDescription="@string/college_gallery_photo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/place_holder_image" />
+
+        <TextView
+            android:id="@+id/post_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/eight_dp"
+            android:text="@string/post_date_placeholder"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        <TextView
+            android:id="@+id/image_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/eight_dp"
+            android:hint="@string/post_description"
+            android:maxLines="@integer/photo_description_lines"
+            android:paddingHorizontal="@dimen/eight_dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
