@@ -21,17 +21,23 @@ public class Gallery {
     @Expose
     private String mediaPath;
 
+    @SerializedName("media_path_video")
+    @Expose
+    private String mediaPathVideo;
+
     public Gallery() {
     }
 
     public Gallery(Integer srNo,
                    String mediaDescription,
                    String mediaAdded,
-                   String mediaPath) {
+                   String mediaPath,
+                   String mediaPathVideo) {
         this.srNo = srNo;
         this.mediaDescription = mediaDescription;
         this.mediaAdded = mediaAdded;
         this.mediaPath = mediaPath;
+        this.mediaPathVideo = mediaPathVideo;
     }
 
     public Integer getSrNo() {
@@ -64,5 +70,13 @@ public class Gallery {
 
     public void setMediaPath(String mediaPath) {
         this.mediaPath = mediaPath;
+    }
+
+    public String getMediaPathVideo() {
+        return mediaPathVideo;
+    }
+
+    public void setMediaPathVideo(String mediaPathVideo) {
+        this.mediaPathVideo = mediaPathVideo;
     }
 }

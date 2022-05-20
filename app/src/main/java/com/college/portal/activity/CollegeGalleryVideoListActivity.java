@@ -4,6 +4,7 @@ import static com.college.portal.api.AppApi.GALLERY_TYPE_VIDEO;
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.RetroApi.BASE_URL;
 import static com.college.portal.api.RetroApi.COLLEGE_IMAGES;
+import static com.college.portal.api.RetroApi.COLLEGE_VIDEOS;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -23,7 +24,7 @@ import com.college.portal.AlertDialogInterface;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
-import com.college.portal.adapter.GalleryImageAdapter;
+import com.college.portal.adapter.GalleryVideoAdapter;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.model.Gallery;
@@ -45,7 +46,7 @@ public class CollegeGalleryVideoListActivity extends AppCompatActivity {
 
     //Image list
     private RecyclerView recyclerView;
-    private GalleryImageAdapter mAdapter;
+    private GalleryVideoAdapter mAdapter;
     private List<Gallery> mList;
 
     //For Network
@@ -76,7 +77,7 @@ public class CollegeGalleryVideoListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         mList = new ArrayList<>();
-        mAdapter = new GalleryImageAdapter(CollegeGalleryVideoListActivity.this, mList);
+        mAdapter = new GalleryVideoAdapter(CollegeGalleryVideoListActivity.this, mList);
         recyclerView.setAdapter(mAdapter);
         getImageList(GALLERY_TYPE_VIDEO);
 
@@ -101,7 +102,7 @@ public class CollegeGalleryVideoListActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.i("Responsestring", response.body().toString());
+                Log.i("response_string", response.body().toString());
                 //Toast.makeText()
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
@@ -142,6 +143,7 @@ public class CollegeGalleryVideoListActivity extends AppCompatActivity {
                     gallery.setMediaDescription(jsonObject.getString("media_description"));
                     gallery.setMediaAdded(jsonObject.getString("media_added"));
                     gallery.setMediaPath(BASE_URL + COLLEGE_IMAGES + jsonObject.getString("media_path"));
+                    gallery.setMediaPathVideo(BASE_URL + COLLEGE_VIDEOS + jsonObject.getString("media_path_video"));
 
                     mList.add(gallery);
 

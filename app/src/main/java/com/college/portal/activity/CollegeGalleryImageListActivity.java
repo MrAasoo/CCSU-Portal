@@ -101,7 +101,7 @@ public class CollegeGalleryImageListActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.i("Responsestring", response.body().toString());
+                Log.i("response_string", response.body().toString());
                 //Toast.makeText()
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();

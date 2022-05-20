@@ -5,11 +5,9 @@ import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.college.portal.AppTheme;
@@ -70,18 +68,5 @@ public class CollegeGalleryImageActivity extends AppCompatActivity {
         //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
     }
-
-    //For appbar back press
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
 
 }

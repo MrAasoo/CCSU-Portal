@@ -60,7 +60,7 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.View
 
         if (!mList.get(position).getContactLink().isEmpty()) {
             holder.web.setVisibility(View.VISIBLE);
-            holder.contactNumber.setText(mList.get(position).getContactLink());
+            holder.contactWeb.setText(mList.get(position).getContactLink());
         }
     }
 

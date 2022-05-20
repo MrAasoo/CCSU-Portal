@@ -3,7 +3,7 @@
 
     <gradient
         android:endColor="@color/transparent"
-        android:startColor="@color/transparentBlack" />
+        android:startColor="@color/transparent_black" />
 
     <corners
         android:bottomLeftRadius="@dimen/thirty_two_dp"

@@ -430,6 +430,47 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <!-- Clubs -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/card_height"
+                    android:layout_rowWeight="3"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    app:cardCornerRadius="@dimen/eight_dp"
+                    app:cardElevation="@dimen/four_dp">
+
+                    <RelativeLayout
+                        android:id="@+id/home_club"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:onClick="cardViewClicked"
+                        android:orientation="vertical"
+                        android:padding="@dimen/eight_dp">
+
+                        <ImageView
+                            android:layout_width="@dimen/card_image_width"
+                            android:layout_height="@dimen/card_image_height"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/thirty_two_dp"
+                            android:background="@drawable/ic_club"
+                            android:backgroundTint="@color/secondary_700"
+                            android:scaleType="centerCrop"
+                            android:tintMode="screen" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/eight_dp"
+                            android:text="@string/clubs"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
                 <!-- Contacts -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
@@ -505,47 +546,6 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="@dimen/eight_dp"
                             android:text="@string/about_us"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Clubs -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_club"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_club"
-                            android:backgroundTint="@color/secondary_700"
-                            android:scaleType="centerCrop"
-                            android:tintMode="screen" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/clubs"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -648,42 +648,41 @@
                 android:padding="@dimen/four_dp">
 
                 <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_gravity="center"
                     android:layout_marginHorizontal="@dimen/four_dp"
                     android:drawableEnd="@drawable/ic_call"
                     android:paddingHorizontal="@dimen/thirty_two_dp"
                     android:text="@string/call"
+                    android:textAlignment="viewStart"
                     android:textAllCaps="false"
                     app:cornerRadius="@dimen/sixteen_dp" />
 
                 <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_gravity="center"
                     android:layout_marginHorizontal="@dimen/four_dp"
                     android:drawableEnd="@drawable/ic_message"
                     android:paddingHorizontal="@dimen/thirty_two_dp"
                     android:text="@string/chat"
+                    android:textAlignment="viewStart"
                     android:textAllCaps="false"
                     app:cornerRadius="@dimen/sixteen_dp" />
 
-
                 <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_gravity="center"
                     android:layout_marginHorizontal="@dimen/four_dp"
                     android:drawableEnd="@drawable/ic_enq"
                     android:paddingHorizontal="@dimen/thirty_two_dp"
                     android:text="@string/enquiry"
+                    android:textAlignment="viewStart"
                     android:textAllCaps="false"
                     app:cornerRadius="@dimen/sixteen_dp" />
 
