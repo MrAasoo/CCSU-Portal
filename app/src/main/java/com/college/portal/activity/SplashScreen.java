@@ -19,7 +19,6 @@ import android.util.Pair;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,6 +46,8 @@ public class SplashScreen extends AppCompatActivity {
     private static final int SPLASH_SCREEN_DELAY = 3000;
     private static final int SPLASH_SCREEN_RESTART_DELAY = 1500;
 
+    // For System ui
+    private View decoderView;
 
     // view objects
     Animation topAnim, bottomAnim, fadeInAnim;
@@ -62,17 +63,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE
-                        // Set the content to appear under the system bars so that the
-                        // content doesn't resize when the system bars hide and show.
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        // Hide the nav bar and status bar
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        decoderView = getWindow().getDecorView();
         setContentView(R.layout.activity_splash_screen);
 
 
@@ -159,41 +150,23 @@ public class SplashScreen extends AppCompatActivity {
     }
 
 
-    private void showNoInternetAlertDialog() {
-        AlertDialogInterface dialog = new AlertDialogInterface(SplashScreen.this,
-                getString(R.string.no_internet_title),
-                getString(R.string.no_internet_message),
-                R.drawable.ic_nointernet);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        dialog.setCancelable(false);
-        dialog.create();
-        dialog.show();
-        Button btnOk = dialog.findViewById(R.id.dialog_right_button);
-        Button btnExit = dialog.findViewById(R.id.dialog_left_button);
-
-        btnOk.setVisibility(View.VISIBLE);
-        btnOk.setText(R.string.ok_text);
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                startActivity(new Intent(SplashScreen.this, SplashScreen.class));
-                finish();
-            }
-        });
-
-        btnExit.setVisibility(View.VISIBLE);
-        btnExit.setText(R.string.exit_text);
-        btnExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                finish();
-            }
-        });
+    //For hiding system ui
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            decoderView.setSystemUiVisibility(hideSystemUI());
+        }
     }
 
+    public int hideSystemUI() {
+        return View.SYSTEM_UI_FLAG_IMMERSIVE
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+    }
 
     private void toLoginActivity() {
         Intent intent = new Intent(getApplicationContext(), SignInActivity.class);

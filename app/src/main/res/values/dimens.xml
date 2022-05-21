@@ -20,6 +20,8 @@
     <dimen name="twenty_four">24dp</dimen>
 
     <dimen name="gallery_photo_height">280dp</dimen>
+    <dimen name="video_view_container_horizontal_padding">8dp</dimen>
+    <dimen name="video_view_container_bottom_padding">48dp</dimen>
 
 
 </resources>

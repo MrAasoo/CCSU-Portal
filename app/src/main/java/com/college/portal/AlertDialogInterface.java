@@ -44,8 +44,6 @@ public class AlertDialogInterface extends Dialog {
         dialogTitle.setText(title);
         dialogMessage.setText(message);
 
-
-
     }
 
     public void dismissAlertDialog(){
@@ -58,7 +56,5 @@ public class AlertDialogInterface extends Dialog {
             }
         });
     }
-
-
 
 }

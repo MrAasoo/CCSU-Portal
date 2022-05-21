@@ -23,6 +23,9 @@ import com.college.portal.services.NetworkServices;
 
 public class CollegeGalleryVideoActivity extends AppCompatActivity {
 
+    // For System ui
+    private View decoderView;
+
     // Views
     private TextView mediaTitle, postDate;
     private VideoView videoView;
@@ -36,6 +39,7 @@ public class CollegeGalleryVideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_college_gallery_video);
+        decoderView = getWindow().getDecorView();
 
         //Network broadcast
         mInternetBroadcastReceiver = new InternetBroadcastReceiver();
@@ -93,7 +97,6 @@ public class CollegeGalleryVideoActivity extends AppCompatActivity {
         unregisterReceiver(mInternetBroadcastReceiver);
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -103,5 +106,25 @@ public class CollegeGalleryVideoActivity extends AppCompatActivity {
         AppTheme.setAppTheme(getApplicationContext());
 
     }
+
+
+    //For hiding system ui
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            decoderView.setSystemUiVisibility(hideSystemUI());
+        }
+    }
+
+    public int hideSystemUI() {
+        return View.SYSTEM_UI_FLAG_IMMERSIVE
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+    }
+
 
 }

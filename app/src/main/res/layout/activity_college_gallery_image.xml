@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <ImageView
         android:id="@+id/gallery_image"
         android:layout_width="match_parent"
@@ -18,8 +17,10 @@
 
 
     <RelativeLayout
+        android:id="@+id/content_holder"
+        android:layout_height="160dp"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_marginBottom="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -41,9 +42,10 @@
                     android:id="@+id/post_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/post_date_placeholder"
                     android:paddingHorizontal="@dimen/eight_dp"
-                    android:text="@string/post_date_placeholder"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:id="@+id/image_description"
@@ -51,7 +53,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/post_description"
                     android:paddingHorizontal="@dimen/eight_dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
