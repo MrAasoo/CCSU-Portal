@@ -51,11 +51,17 @@
                 app:drawableEndCompat="@drawable/ic_next"
                 app:drawableTint="@color/secondary_700" />
 
-            <View
+            <!--History-->
+            <TextView
+                android:id="@+id/about_values"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_margin="@dimen/eight_dp"
-                android:background="@drawable/background_gradient_dark" />
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/four_dp"
+                android:padding="@dimen/eight_dp"
+                android:text="@string/our_values"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:drawableEndCompat="@drawable/ic_next"
+                app:drawableTint="@color/secondary_700" />
 
             <!--History-->
             <TextView
@@ -68,6 +74,12 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:drawableEndCompat="@drawable/ic_next"
                 app:drawableTint="@color/secondary_700" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="@dimen/eight_dp"
+                android:background="@drawable/background_gradient_dark" />
 
             <!--Photos-->
             <TextView

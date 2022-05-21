@@ -30,4 +30,8 @@ public interface AppApi {
     String MEDIA_PATH = "media_path";
     String MEDIA_DESCRIPTION = "media_description";
     String MEDIA_POST = "media_post";
+    String ABOUT_US_ACTIVITY = "about_us_activity";
+    String MISSION = "mission";
+    String VISION = "vision";
+    String VALUES = "values";
 }

@@ -49,7 +49,12 @@
     <string name="history">History</string>
     <string name="our_mission">Our Mission</string>
     <string name="our_vision">Our Vision</string>
+    <string name="our_values">Our Values</string>
+    <string name="our_vision_text">Creating a nurturing learning community where excellence is expected of everyone.</string>
+    <string name="our_mission_text">Instill learning as a life-long process by creating an environment where every student has the opportunity to develop their full potential, be empowered with confidence, and be prepared for future challenges in a global society.</string>
     <string name="photos">Photos</string>
+    <string name="post_description">Post Description</string>
+    <string name="college_gallery_photo">College gallery photo</string>
     <string name="videos">Videos</string>
     <string name="library">Library</string>
     <string name="click_to_view">Click to view</string>
@@ -102,7 +107,7 @@
     <string name="assignment_faculty">By - %1$s</string>
     <string name="student_branch_text">%1$s - %2$s</string>
     <string name="post_date_placeholder">Post : %1$s</string>
-    <string name="post_description">Post Description</string>
-    <string name="college_gallery_photo">College gallery photo</string>
+    <string name="our_values_text">Respect. Collaboration. Excellence. Integrity. Innovation</string>
+    <string name="error">Something went wrong.r\nPlease try again...</string>
 
 </resources>

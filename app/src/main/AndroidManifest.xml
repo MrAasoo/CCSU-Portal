@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activity.VisionMissionActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.CollegeGalleryImageActivity"
             android:configChanges="orientation" />
         <activity

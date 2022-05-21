@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.api.AppApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 
@@ -26,6 +26,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
     private TextView tvMission;
     private TextView tvVision;
+    private TextView tvValues;
     private TextView tvHistory;
     private TextView tvPhotos;
     private TextView tvVideos;
@@ -55,6 +56,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
         tvMission = findViewById(R.id.about_mission);
         tvVision = findViewById(R.id.about_vision);
+        tvValues = findViewById(R.id.about_values);
         tvHistory = findViewById(R.id.about_history);
         tvPhotos = findViewById(R.id.about_photo);
         tvVideos = findViewById(R.id.about_video);
@@ -63,16 +65,27 @@ public class AboutUsActivity extends AppCompatActivity {
         tvMission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutUsActivity.this, "Our Mission Clicked", Toast.LENGTH_SHORT).show();
-                //TODO : Our mission.
+                Intent intent = new Intent(AboutUsActivity.this, VisionMissionActivity.class);
+                intent.putExtra(AppApi.ABOUT_US_ACTIVITY, AppApi.MISSION);
+                startActivity(intent);
             }
         });
 
         tvVision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AboutUsActivity.this, "Our Vision Clicked", Toast.LENGTH_SHORT).show();
-                //TODO : Our vision.
+                Intent intent = new Intent(AboutUsActivity.this, VisionMissionActivity.class);
+                intent.putExtra(AppApi.ABOUT_US_ACTIVITY, AppApi.VISION);
+                startActivity(intent);
+            }
+        });
+
+        tvValues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AboutUsActivity.this, VisionMissionActivity.class);
+                intent.putExtra(AppApi.ABOUT_US_ACTIVITY, AppApi.VALUES);
+                startActivity(intent);
             }
         });
 
@@ -84,7 +97,6 @@ public class AboutUsActivity extends AppCompatActivity {
                 startActivity(webIntent);
             }
         });
-
 
         tvPhotos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +130,6 @@ public class AboutUsActivity extends AppCompatActivity {
 
         //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
-
     }
 
     //For appbar back press

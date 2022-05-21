@@ -17,8 +17,9 @@
     <color name="red">#FFFF0000</color>
 
     <color name="transparent">#00000000</color>
-    <color name="transparent_black">#CC000000</color>
-    <color name="transparent_grey">#408F8A8A</color>
+    <color name="transparent_light">#40000000</color>
+    <color name="transparent_black">#BF000000</color>
+    <color name="transparent_medium">#80000000</color>
 
 
 </resources>
