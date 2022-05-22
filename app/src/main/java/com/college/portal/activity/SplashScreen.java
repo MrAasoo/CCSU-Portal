@@ -47,7 +47,7 @@ public class SplashScreen extends AppCompatActivity {
     private static final int SPLASH_SCREEN_RESTART_DELAY = 1500;
 
     // For System ui
-    private View decoderView;
+    private View decorView;
 
     // view objects
     Animation topAnim, bottomAnim, fadeInAnim;
@@ -63,7 +63,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        decoderView = getWindow().getDecorView();
+        decorView = getWindow().getDecorView();
         setContentView(R.layout.activity_splash_screen);
 
 
@@ -155,7 +155,7 @@ public class SplashScreen extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
-            decoderView.setSystemUiVisibility(hideSystemUI());
+            decorView.setSystemUiVisibility(hideSystemUI());
         }
     }
 

@@ -30,50 +30,34 @@
             <!--Our Mission-->
             <TextView
                 android:id="@+id/about_mission"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/our_mission"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/our_mission" />
 
             <!--Our Vision-->
             <TextView
                 android:id="@+id/about_vision"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/our_vision"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/our_vision" />
 
             <!--History-->
             <TextView
                 android:id="@+id/about_values"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/our_values"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/our_values" />
 
             <!--History-->
             <TextView
                 android:id="@+id/about_history"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/history"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/history" />
 
             <View
                 android:layout_width="match_parent"
@@ -84,26 +68,18 @@
             <!--Photos-->
             <TextView
                 android:id="@+id/about_photo"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/photos"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/photos" />
 
             <!--Videos-->
             <TextView
                 android:id="@+id/about_video"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/videos"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/videos" />
 
         </LinearLayout>
 

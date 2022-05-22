@@ -24,7 +24,7 @@ import com.college.portal.services.NetworkServices;
 public class CollegeGalleryVideoActivity extends AppCompatActivity {
 
     // For System ui
-    private View decoderView;
+    private View decorView;
 
     // Views
     private TextView mediaTitle, postDate;
@@ -39,7 +39,7 @@ public class CollegeGalleryVideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_college_gallery_video);
-        decoderView = getWindow().getDecorView();
+        decorView = getWindow().getDecorView();
 
         //Network broadcast
         mInternetBroadcastReceiver = new InternetBroadcastReceiver();
@@ -113,7 +113,7 @@ public class CollegeGalleryVideoActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
-            decoderView.setSystemUiVisibility(hideSystemUI());
+            decorView.setSystemUiVisibility(hideSystemUI());
         }
     }
 

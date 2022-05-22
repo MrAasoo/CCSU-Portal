@@ -6,5 +6,7 @@
     <dimen name="dialog_width">420dp</dimen>
     <dimen name="video_view_container_horizontal_padding">48dp</dimen>
     <dimen name="video_view_container_bottom_padding">0dp</dimen>
+    <dimen name="image_view_bottom_margin">0dp</dimen>
+    <dimen name="enq_button_width">420dp</dimen>
 
 </resources>

@@ -19,9 +19,11 @@
     <dimen name="view_pager_height">240dp</dimen>
     <dimen name="twenty_four">24dp</dimen>
 
-    <dimen name="gallery_photo_height">280dp</dimen>
+    <dimen name="gallery_photo_height">180dp</dimen>
     <dimen name="video_view_container_horizontal_padding">8dp</dimen>
     <dimen name="video_view_container_bottom_padding">48dp</dimen>
+    <dimen name="image_view_bottom_margin">48dp</dimen>
+    <dimen name="enq_button_width">280dp</dimen>
 
 
 </resources>

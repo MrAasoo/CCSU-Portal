@@ -8,11 +8,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
     private CollapsingToolbarLayout mToolBar;
     private ImageView stdImage;
     private TextView stdDepartment, stdBranch, stdId, greet;
-    private CoordinatorLayout coordinatorLayout;
+    private Button enquiry;
 
     //For Network
     private IntentFilter mIntentFilter;
@@ -57,7 +57,7 @@ public class HomeActivity extends AppCompatActivity {
         stdDepartment = findViewById(R.id.std_department);
         stdBranch = findViewById(R.id.std_branch);
         stdId = findViewById(R.id.std_id);
-        coordinatorLayout = findViewById(R.id.home);
+        enquiry = findViewById(R.id.enquiry);
 
         //Time of day
         greet = findViewById(R.id.greet);
@@ -75,6 +75,13 @@ public class HomeActivity extends AppCompatActivity {
                 .into(stdImage);
 
         //Log.i("HomeActivity", "onCreate:--- image url  ----> " + BASE_URL + STUDENT_IMAGES + studentPref.getStdImage());
+
+        enquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, EnquiryActivity.class));
+            }
+        });
 
     }
 
@@ -106,9 +113,7 @@ public class HomeActivity extends AppCompatActivity {
             return getString(R.string.good_afternoon_msg);     // After 12pm
         if (hrs >= 6)
             return getString(R.string.good_morning_msg);       // After 6am
-        if (hrs > 4)
-            return getString(R.string.morning_msg);   // Really early
-        return getString(R.string.welcome);
+        return getString(R.string.morning_msg);   // Really early
     }
 
     public void cardViewClicked(View view) {
@@ -152,7 +157,6 @@ public class HomeActivity extends AppCompatActivity {
 
             case R.id.home_club:
                 startActivity(new Intent(getApplicationContext(), ClubsActivity.class));
-                //Snackbar.make(coordinatorLayout, R.string.clubs, BaseTransientBottomBar.LENGTH_LONG).show();
                 break;
 
         }

@@ -100,21 +100,17 @@
                 android:id="@+id/setting_terms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
+                style="@style/AppOptionText"
                 android:text="@string/terms_of_uses"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/primary_500"
                 android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/setting_privacy"
+                style="@style/AppOptionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
                 android:text="@string/privacy_policy"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/primary_500"
                 android:textStyle="italic" />
 
@@ -127,24 +123,18 @@
 
             <TextView
                 android:id="@+id/setting_app_info"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/app_info"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next" />
+                android:text="@string/app_info" />
 
 
             <TextView
                 android:id="@+id/setting_app_feedback"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/feedback"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next" />
+                android:text="@string/feedback" />
 
         </LinearLayout>
     </ScrollView>

@@ -26,51 +26,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/eight_dp">
+            android:padding="@dimen/sixteen_dp">
 
             <TextView
                 android:id="@+id/library_ebook"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/e_books"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/e_books" />
 
             <TextView
                 android:id="@+id/library_blogs"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/blogs"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/blogs" />
 
             <TextView
                 android:id="@+id/library_e_magazine"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/magazine"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/magazine" />
 
             <TextView
                 android:id="@+id/library_lecture_videos"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/lectures"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/lectures" />
 
             <View
                 android:layout_width="match_parent"
@@ -80,14 +64,10 @@
 
             <TextView
                 android:id="@+id/library_my_library"
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/my_library"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next"
-                app:drawableTint="@color/secondary_700" />
+                android:text="@string/my_library" />
 
         </LinearLayout>
 

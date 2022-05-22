@@ -117,7 +117,7 @@ public class ContactUsActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
                     if (response.body() != null) {
-                        Log.e("onSuccess", response.body().toString());
+                        //Log.e("onSuccess", response.body().toString());
 
                         String jsonResponse = response.body().toString();
                         writeRecycler(jsonResponse);

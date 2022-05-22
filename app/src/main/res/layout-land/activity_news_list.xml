@@ -34,7 +34,8 @@
                 android:id="@+id/news_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/view_pager_height"
-                android:layout_centerInParent="true" />
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/news_image" />
 
 
             <com.google.android.material.tabs.TabLayout
@@ -42,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/twenty_four"
                 android:layout_below="@id/news_view_pager"
+                android:contentDescription="@string/news_bullets"
                 app:tabBackground="@drawable/indicator_selector"
                 app:tabGravity="center"
                 app:tabIndicatorHeight="0dp" />

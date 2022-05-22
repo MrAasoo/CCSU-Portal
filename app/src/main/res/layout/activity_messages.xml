@@ -32,32 +32,24 @@
             android:padding="@dimen/sixteen_dp">
 
             <TextView
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/discussion"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next" />
+                android:text="@string/discussion" />
 
             <TextView
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/mails"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next" />
+                android:text="@string/mails" />
 
             <TextView
+                style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/class_notices"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableEndCompat="@drawable/ic_next" />
+                android:text="@string/class_notices" />
         </LinearLayout>
 
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

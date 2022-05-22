@@ -141,7 +141,6 @@
             </androidx.cardview.widget.CardView>
 
             <GridLayout
-                android:id="@+id/grid_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -637,56 +636,17 @@
 
             </GridLayout>
 
-
-            <GridLayout
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/enquiry"
+                android:layout_width="@dimen/enq_button_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:alignmentMode="alignMargins"
-                android:columnCount="@integer/grid_enq_column_count"
-                android:orientation="horizontal"
-                android:padding="@dimen/four_dp">
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginHorizontal="@dimen/four_dp"
-                    android:drawableEnd="@drawable/ic_call"
-                    android:paddingHorizontal="@dimen/thirty_two_dp"
-                    android:text="@string/call"
-                    android:textAlignment="viewStart"
-                    android:textAllCaps="false"
-                    app:cornerRadius="@dimen/sixteen_dp" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginHorizontal="@dimen/four_dp"
-                    android:drawableEnd="@drawable/ic_message"
-                    android:paddingHorizontal="@dimen/thirty_two_dp"
-                    android:text="@string/chat"
-                    android:textAlignment="viewStart"
-                    android:textAllCaps="false"
-                    app:cornerRadius="@dimen/sixteen_dp" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginHorizontal="@dimen/four_dp"
-                    android:drawableEnd="@drawable/ic_enq"
-                    android:paddingHorizontal="@dimen/thirty_two_dp"
-                    android:text="@string/enquiry"
-                    android:textAlignment="viewStart"
-                    android:textAllCaps="false"
-                    app:cornerRadius="@dimen/sixteen_dp" />
-
-            </GridLayout>
+                android:layout_marginHorizontal="@dimen/four_dp"
+                android:drawableEnd="@drawable/ic_enq"
+                android:paddingHorizontal="@dimen/thirty_two_dp"
+                android:text="@string/enquiry"
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/sixteen_dp" />
 
         </LinearLayout>
 

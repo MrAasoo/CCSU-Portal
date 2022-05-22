@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 public class CollegeGalleryImageActivity extends AppCompatActivity {
 
     // For System ui
-    private View decoderView;
+    private View decorView;
 
     //views
     private ImageView galleryImage;
@@ -40,7 +40,7 @@ public class CollegeGalleryImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_college_gallery_image);
-        decoderView = getWindow().getDecorView();
+        decorView = getWindow().getDecorView();
 
         //Network broadcast
         mInternetBroadcastReceiver = new InternetBroadcastReceiver();
@@ -66,7 +66,7 @@ public class CollegeGalleryImageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag) {
-                    decoderView.setSystemUiVisibility(hideSystemUI());
+                    decorView.setSystemUiVisibility(hideSystemUI());
                     contentHolder.setVisibility(View.GONE);
                     flag = false;
                 } else {
@@ -101,7 +101,7 @@ public class CollegeGalleryImageActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
-            decoderView.setSystemUiVisibility(hideSystemUI());
+            decorView.setSystemUiVisibility(hideSystemUI());
         }
     }
 
