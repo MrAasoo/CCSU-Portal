@@ -12,6 +12,7 @@
         android:text="Do you have any query to ask?" />
 
     <EditText
+        style="@style/AppOptionText"
         android:id="@+id/text_sms"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
