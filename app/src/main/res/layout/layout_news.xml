@@ -15,19 +15,20 @@
         android:padding="@dimen/eight_dp">
 
         <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:id="@+id/news_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/news_title"
             android:textAlignment="viewStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/news_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/news_subtitle"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
         <TextView
             android:id="@+id/news_date"

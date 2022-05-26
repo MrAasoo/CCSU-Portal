@@ -15,12 +15,13 @@
         android:padding="@dimen/sixteen_dp">
 
         <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:id="@+id/assi_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/assignment_name"
             android:textAlignment="viewStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/assi_details"
@@ -29,7 +30,7 @@
             android:hint="Here show assignment on etc."
             android:maxLines="4"
             android:textAlignment="viewStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
         <TextView
             android:id="@+id/assi_date"

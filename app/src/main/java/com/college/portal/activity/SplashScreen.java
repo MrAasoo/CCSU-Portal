@@ -169,7 +169,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void toLoginActivity() {
-        Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+        Intent intent = new Intent(SplashScreen.this, SignInActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, Pair.create(logoImage, "logoTransition"));
         startActivity(intent, options.toBundle());

@@ -63,10 +63,9 @@ public class AssignmentActivity extends AppCompatActivity {
         assiDueDate = findViewById(R.id.assi_due_date);
         assiFaculty = findViewById(R.id.faculty_name);
 
-        String id = String.valueOf(getIntent().getIntExtra(AppApi.ASSIGNMENT_ID, 0));
-        getAssignmentDetails(id);
-    }
 
+        getAssignmentDetails("", String.valueOf(getIntent().getIntExtra(AppApi.ASSIGNMENT_ID, 0)));
+    }
 
     @Override
     protected void onPause() {
@@ -86,7 +85,7 @@ public class AssignmentActivity extends AppCompatActivity {
     }
 
 
-    private void getAssignmentDetails(String id) {
+    private void getAssignmentDetails(String stdId, String id) {
 
         final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
                 AssignmentActivity.this,
@@ -99,7 +98,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
         Call<JsonObject> call = RetrofitClient.getInstance()
                 .getRetroApi()
-                .getAssignmentList(id);
+                .getAssignmentList(stdId, id);
 
         call.enqueue(new Callback<JsonObject>() {
             @Override

@@ -1,6 +1,5 @@
 package com.college.portal.activity;
 
-import static com.college.portal.api.AppApi.ASSIGNMENT_LIST;
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 
 import android.content.Intent;
@@ -10,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,10 +21,13 @@ import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
 import com.college.portal.adapter.AssignmentAdapter;
+import com.college.portal.api.AppApi;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.model.Assignment;
+import com.college.portal.model.StudentPref;
 import com.college.portal.services.NetworkServices;
+import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -73,7 +76,19 @@ public class AssignmentListActivity extends AppCompatActivity {
         mAdapter = new AssignmentAdapter(AssignmentListActivity.this, mList);
         recyclerView.setAdapter(mAdapter);
 
-        getAssignmentList();
+        SharedPrefManager instance = SharedPrefManager.getInstance(AssignmentListActivity.this);
+        if (instance.isLoggedIn()) {
+            StudentPref studentPref = instance.getStudentInfo();
+            getAssignmentList(studentPref.getStdId(), AppApi.ASSIGNMENT_LIST);
+        } else {
+            toLoginActivity();
+        }
+    }
+
+    private void toLoginActivity() {
+        Intent intent = new Intent(AssignmentListActivity.this, SignInActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
@@ -93,7 +108,7 @@ public class AssignmentListActivity extends AppCompatActivity {
 
     }
 
-    private void getAssignmentList() {
+    private void getAssignmentList(String stdId, String assignmentId) {
 
         final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
                 AssignmentListActivity.this,
@@ -106,7 +121,7 @@ public class AssignmentListActivity extends AppCompatActivity {
 
         Call<JsonObject> call = RetrofitClient.getInstance()
                 .getRetroApi()
-                .getAssignmentList(ASSIGNMENT_LIST);
+                .getAssignmentList(stdId, assignmentId);
 
         call.enqueue(new Callback<JsonObject>() {
             @Override
@@ -149,13 +164,16 @@ public class AssignmentListActivity extends AppCompatActivity {
                     Assignment assignment = new Assignment();
                     JSONObject jsonObject = dataArray.getJSONObject(i);
 
-                    assignment.setAssiId(Integer.valueOf(jsonObject.getString("assi_id")));
-                    assignment.setAssiTitle(jsonObject.getString("assi_title"));
-                    assignment.setAssiDate(jsonObject.getString("assi_date"));
-                    assignment.setAssiDetails(jsonObject.getString("assi_details"));
+                    if (!jsonObject.getString("assi_id").equals("null")) {
+                        assignment.setAssiId(Integer.valueOf(jsonObject.getString("assi_id")));
+                        assignment.setAssiTitle(jsonObject.getString("assi_title"));
+                        assignment.setAssiDate(jsonObject.getString("assi_date"));
+                        assignment.setAssiDetails(jsonObject.getString("assi_details"));
 
-                    mList.add(assignment);
-
+                        mList.add(assignment);
+                    } else {
+                        Toast.makeText(this, "No Assignments found.", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 mAdapter.notifyDataSetChanged();

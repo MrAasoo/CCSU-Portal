@@ -1,9 +1,6 @@
 package com.college.portal.activity;
 
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
-import static com.college.portal.api.AppApi.PAGE_URL;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.HISTORY_URL;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -18,13 +15,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
-import com.college.portal.api.AppApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 
-public class AboutUsActivity extends AppCompatActivity {
+public class CollegeGalleryActivity extends AppCompatActivity {
 
-    private TextView tvMission, tvVision, tvValues, tvHistory;
+    private TextView tvPhotos, tvVideos;
 
     //For Network
     private IntentFilter mIntentFilter;
@@ -33,7 +29,8 @@ public class AboutUsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
+        setContentView(R.layout.activity_college_gallery);
+
 
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
@@ -49,45 +46,21 @@ public class AboutUsActivity extends AppCompatActivity {
         Intent serviceIntent = new Intent(this, NetworkServices.class);
         startService(serviceIntent);
 
-        tvMission = findViewById(R.id.about_mission);
-        tvVision = findViewById(R.id.about_vision);
-        tvValues = findViewById(R.id.about_values);
-        tvHistory = findViewById(R.id.about_history);
+        tvPhotos = findViewById(R.id.about_photo);
+        tvVideos = findViewById(R.id.about_video);
 
-        //Click listeners for text views
-        tvMission.setOnClickListener(new View.OnClickListener() {
+        tvPhotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AboutUsActivity.this, VisionMissionActivity.class);
-                intent.putExtra(AppApi.ABOUT_US_ACTIVITY, AppApi.MISSION);
-                startActivity(intent);
+                startActivity(new Intent(CollegeGalleryActivity.this, CollegeGalleryImageListActivity.class));
             }
         });
 
-        tvVision.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AboutUsActivity.this, VisionMissionActivity.class);
-                intent.putExtra(AppApi.ABOUT_US_ACTIVITY, AppApi.VISION);
-                startActivity(intent);
-            }
-        });
 
-        tvValues.setOnClickListener(new View.OnClickListener() {
+        tvVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AboutUsActivity.this, VisionMissionActivity.class);
-                intent.putExtra(AppApi.ABOUT_US_ACTIVITY, AppApi.VALUES);
-                startActivity(intent);
-            }
-        });
-
-        tvHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent webIntent = new Intent(AboutUsActivity.this, WebViewActivity.class);
-                webIntent.putExtra(PAGE_URL, BASE_URL + HISTORY_URL);
-                startActivity(webIntent);
+                startActivity(new Intent(CollegeGalleryActivity.this, CollegeGalleryVideoListActivity.class));
             }
         });
 

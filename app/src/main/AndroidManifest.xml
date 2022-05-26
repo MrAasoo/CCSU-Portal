@@ -20,6 +20,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activity.FeedbackActivity"
+            android:configChanges="orientation"
+            android:label="@string/feedback" />
+        <activity
+            android:name=".activity.CollegeGalleryActivity"
+            android:configChanges="orientation"
+            android:label="@string/college_gallery" />
+        <activity
             android:name=".activity.EnquiryActivity"
             android:configChanges="orientation" />
         <activity

@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -142,8 +141,7 @@ public class SettingActivity extends AppCompatActivity {
         settingFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO : Feedback
-                Toast.makeText(SettingActivity.this, "AppTheme Feedback", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(SettingActivity.this, FeedbackActivity.class));
             }
         });
     }

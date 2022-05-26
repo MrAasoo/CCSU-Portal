@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
-    android:background="@android:color/transparent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/dialog_width"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/sixteen_dp"
         app:cardCornerRadius="@dimen/sixteen_dp"
         app:cardElevation="@dimen/eight_dp">
 
         <LinearLayout
-            android:padding="@dimen/four_dp"
-            android:background="@drawable/background_gradient_dark"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/background_gradient_dark"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/four_dp">
 
             <ImageView
                 android:id="@+id/dialog_icon"
@@ -32,14 +29,14 @@
 
             <TextView
                 android:id="@+id/dialog_title"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/eight_dp"
                 android:layout_marginEnd="@dimen/eight_dp"
                 android:hint="@string/dialog_title"
                 android:textAlignment="viewStart"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/dialog_message"
@@ -53,37 +50,38 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="end"
                 android:orientation="horizontal"
-                android:weightSum="3"
-                android:gravity="end">
+                android:weightSum="3">
 
                 <Button
-                    android:visibility="gone"
                     android:id="@+id/dialog_left_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/eight_dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:visibility="gone" />
 
                 <Button
-                    android:visibility="gone"
                     android:id="@+id/dialog_middle_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/eight_dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:visibility="gone" />
 
                 <Button
-                    android:visibility="gone"
                     android:id="@+id/dialog_right_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/eight_dp"
-                    android:layout_weight="1" />
-
+                    android:layout_weight="1"
+                    android:visibility="gone" />
 
             </LinearLayout>
+
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

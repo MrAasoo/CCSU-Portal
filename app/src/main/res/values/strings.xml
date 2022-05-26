@@ -107,10 +107,14 @@
     <string name="assignment_faculty">By - %1$s</string>
     <string name="student_branch_text">%1$s - %2$s</string>
     <string name="post_date_placeholder">Post : %1$s</string>
+
+
     <string name="our_values_text">Respect. Collaboration. Excellence. Integrity. Innovation</string>
     <string name="error">Something went wrong.r\nPlease try again...</string>
     <string name="news_bullets">News Bullets</string>
     <string name="message">Message</string>
     <string name="enter_your_query">Enter your query (MAX 160)</string>
+    <string name="college_gallery">College Gallery</string>
+    <string name="submit">Submit</string>
 
 </resources>

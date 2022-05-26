@@ -155,6 +155,10 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
                 break;
 
+            case R.id.home_college_gallery:
+                startActivity(new Intent(getApplicationContext(), CollegeGalleryActivity.class));
+                break;
+
             case R.id.home_club:
                 startActivity(new Intent(getApplicationContext(), ClubsActivity.class));
                 break;

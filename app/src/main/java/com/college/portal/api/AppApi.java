@@ -53,4 +53,5 @@ public interface AppApi {
     String SMS_TYPE = "vnd.android-dir/mms-sms";
     String SMS_ADDRESS = "address";
     String SMS_BODY = "sms_body";
+    String STATUS = "status";
 }

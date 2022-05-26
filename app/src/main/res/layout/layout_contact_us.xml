@@ -14,24 +14,35 @@
         android:orientation="vertical"
         android:padding="@dimen/eight_dp">
 
-        <TextView
-            android:id="@+id/contact_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name/Website Name"
-            android:padding="@dimen/eight_dp"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            android:layout_marginBottom="@dimen/eight_dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/contact_desi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Designation"
-            android:padding="@dimen/eight_dp"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/contact_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name/Website Name"
+                android:paddingStart="@dimen/eight_dp"
+                android:paddingEnd="@dimen/eight_dp"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/secondary_700"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/contact_desi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Designation"
+                android:paddingStart="@dimen/eight_dp"
+                android:paddingEnd="@dimen/eight_dp"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:visibility="gone" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/contact_no_ll"
@@ -61,7 +72,8 @@
                 android:hint="@string/contact_number_dummy_data"
                 android:padding="@dimen/eight_dp"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,7 +105,8 @@
                 android:hint="@string/email_dummy_data"
                 android:padding="@dimen/eight_dp"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -125,8 +138,11 @@
                 android:hint="@string/link_dummy_data"
                 android:padding="@dimen/eight_dp"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
 
         </LinearLayout>
+
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

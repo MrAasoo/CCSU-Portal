@@ -50,6 +50,7 @@ public interface RetroApi {
             @Query("n_slider") Integer nSlider
     );
 
+
     @GET("college_gallery.php")
     Call<JsonObject> getCollegeGalleryList(
             @Query("gallery_type") Integer nGalleryType
@@ -58,7 +59,15 @@ public interface RetroApi {
 
     @GET("assignment.php")
     Call<JsonObject> getAssignmentList(
+            @Query("std_id") String stdId,
             @Query("assi_id") String assiId
+    );
+
+    @GET("feedback.php")
+    Call<JsonObject> feedback(
+            @Query("std_id") String stdId,
+            @Query("std_password") String stdPassword,
+            @Query("feedback_message") String feedbackMessage
     );
 
 }

@@ -16,13 +16,24 @@
     </style>
 
 
-    <!-- Application Option Text -->
-    <style name="AppOptionText" parent="Theme.CollegePortal">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+    <!-- Application default padding margin -->
+    <style name="DefaultMarginPadding" parent="Theme.CollegePortal">
         <item name="android:layout_margin">@dimen/four_dp</item>
         <item name="android:padding">@dimen/eight_dp</item>
     </style>
 
+    <!-- Application Option Text -->
+    <style name="AppTitleText" parent="DefaultMarginPadding">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Application Option Text -->
+    <style name="AppOptionText" parent="DefaultMarginPadding">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+    </style>
+
+    <!--Application option text with drawable-->
     <style name="DrawableNextTintSecondary" parent="AppOptionText">
         <item name="drawableEndCompat">@drawable/ic_next</item>
         <item name="drawableTint">@color/secondary_700</item>

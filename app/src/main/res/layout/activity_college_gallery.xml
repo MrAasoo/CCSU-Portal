@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.AboutUsActivity">
+    tools:context=".activity.CollegeGalleryActivity">
+
 
     <include
         layout="@layout/app_bar"
@@ -26,39 +27,21 @@
             android:orientation="vertical"
             android:padding="@dimen/sixteen_dp">
 
-            <!-- TODO Update Card background with images -->
-
-            <!--Our Mission-->
+            <!--Photos-->
             <TextView
-                android:id="@+id/about_mission"
+                android:id="@+id/about_photo"
                 style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/our_mission" />
+                android:text="@string/photos" />
 
-            <!--Our Vision-->
+            <!--Videos-->
             <TextView
-                android:id="@+id/about_vision"
+                android:id="@+id/about_video"
                 style="@style/DrawableNextTintSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/our_vision" />
-
-            <!--History-->
-            <TextView
-                android:id="@+id/about_values"
-                style="@style/DrawableNextTintSecondary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/our_values" />
-
-            <!--History-->
-            <TextView
-                android:id="@+id/about_history"
-                style="@style/DrawableNextTintSecondary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/history" />
+                android:text="@string/videos" />
 
         </LinearLayout>
 

@@ -70,6 +70,7 @@ public class CollegeGalleryImageActivity extends AppCompatActivity {
                     contentHolder.setVisibility(View.GONE);
                     flag = false;
                 } else {
+                    decorView.setSystemUiVisibility(showSystemUI());
                     contentHolder.setVisibility(View.VISIBLE);
                     flag = true;
                 }
@@ -112,6 +113,12 @@ public class CollegeGalleryImageActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN;
+    }
+
+    public int showSystemUI() {
+        return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
     }
 
 }
