@@ -12,13 +12,13 @@
         android:id="@+id/logo_image"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/ic_app_icon"
         android:transitionName="logoTransition"
         app:layout_constraintBottom_toTopOf="@+id/login_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/app_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
@@ -56,14 +56,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/sixteen_dp"
-                android:layout_marginBottom="@dimen/eight_dp"
                 android:layout_marginLeft="@dimen/eight_dp"
+                android:layout_marginTop="@dimen/sixteen_dp"
                 android:layout_marginRight="@dimen/eight_dp"
+                android:layout_marginBottom="@dimen/eight_dp"
                 android:text="@string/sign_in_msg"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Menu"
                 android:textStyle="bold" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -74,11 +75,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/sixteen_dp"
                 android:layout_marginStart="@dimen/eight_dp"
+                android:layout_marginTop="@dimen/sixteen_dp"
                 android:layout_marginEnd="@dimen/eight_dp"
-                android:text="@string/student_college_id"
                 android:padding="@dimen/four_dp"
+                android:text="@string/student_college_id"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
@@ -88,9 +89,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/eight_dp"
                 android:layout_marginEnd="@dimen/eight_dp"
+                android:autofillHints=""
                 android:hint="@string/college_id"
-                android:inputType="textWebEmailAddress"
-                android:autofillHints="" />
+                android:inputType="textWebEmailAddress" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -109,15 +110,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/eight_dp"
                 android:layout_marginEnd="@dimen/eight_dp"
+                android:autofillHints=""
                 android:hint="@string/password"
-                android:inputType="textPassword"
-                android:autofillHints="" />
+                android:inputType="textPassword" />
 
             <Button
-                android:layout_gravity="center"
                 android:id="@+id/signIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginHorizontal="@dimen/eight_dp"
                 android:paddingHorizontal="@dimen/thirty_two_dp"
                 android:text="@string/sign_in"
@@ -137,6 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/eight_dp"
+                android:layout_marginBottom="@dimen/thirty_two_dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -148,9 +150,9 @@
                     android:textStyle="italic|bold" />
 
                 <TextView
-                    android:padding="@dimen/four_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="@dimen/four_dp"
                     android:text="@string/and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 

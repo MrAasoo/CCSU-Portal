@@ -126,6 +126,10 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), AssignmentListActivity.class));
                 break;
 
+            case R.id.home_subject:
+                startActivity(new Intent(getApplicationContext(), SubjectListActivity.class));
+                break;
+
             case R.id.home_library:
                 startActivity(new Intent(getApplicationContext(), LibraryActivity.class));
                 break;

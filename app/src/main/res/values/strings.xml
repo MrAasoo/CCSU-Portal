@@ -116,5 +116,8 @@
     <string name="enter_your_query">Enter your query (MAX 160)</string>
     <string name="college_gallery">College Gallery</string>
     <string name="submit">Submit</string>
+    <string name="subject_name">Subject name</string>
+    <string name="subject_code">Subject Code</string>
+    <string name="subject_teacher">Subject Teacher</string>
 
 </resources>

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Dark/Light Theme Colors -->
-    <color name="primary_100">#FFDDDDDA</color>
-    <color name="primary_200">#FFC2C8C5</color>
-    <color name="primary_500">#FF94B0B7</color>
-    <color name="primary_700">#FF7697A0</color>
-    <color name="primary_900">#FF4A707A</color>
+    <!-- Dark Theme Colors -->
+    <color name="primary_200">#B3B4C1</color>
+    <color name="primary_500">#FF1E2029</color>
+    <color name="primary_700">#121523</color>
+
+    <color name="secondary_200">#C4A8FF</color>
+    <color name="secondary_700">#FF9A6AFF</color>
 
 
 </resources>

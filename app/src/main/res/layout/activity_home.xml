@@ -278,7 +278,7 @@
                     app:cardElevation="@dimen/four_dp">
 
                     <RelativeLayout
-                        android:id="@+id/home_calendar"
+                        android:id="@+id/home_subject"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:onClick="cardViewClicked"
@@ -678,11 +678,11 @@
             </GridLayout>
 
             <Button
+                android:layout_marginHorizontal="@dimen/eight_dp"
                 android:id="@+id/enquiry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginHorizontal="@dimen/four_dp"
                 android:drawableEnd="@drawable/ic_enq"
                 android:paddingHorizontal="@dimen/thirty_two_dp"
                 android:text="@string/enquiry"

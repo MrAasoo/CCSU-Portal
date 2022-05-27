@@ -63,6 +63,13 @@ public interface RetroApi {
             @Query("assi_id") String assiId
     );
 
+
+    @GET("student_subjects.php")
+    Call<JsonObject> getSubjectList(
+            @Query("std_id") String stdId
+    );
+
+
     @GET("feedback.php")
     Call<JsonObject> feedback(
             @Query("std_id") String stdId,

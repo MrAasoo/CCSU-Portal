@@ -3,11 +3,9 @@
 
 
     <!--Application Default -->
-    <color name="primary_100">#FFBCE6FF</color>
     <color name="primary_200">#FF88CDF6</color>
     <color name="primary_500">#4093C5</color>
     <color name="primary_700">#FF2D82B5</color>
-    <color name="primary_900">#FF015C92</color>
 
     <color name="secondary_200">#FFFFC396</color>
     <color name="secondary_700">#FFFF6D00</color>

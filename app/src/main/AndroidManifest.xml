@@ -19,6 +19,11 @@
         android:theme="@style/Theme.CollegePortal"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+
+        <activity
+            android:name=".activity.SubjectListActivity"
+            android:configChanges="orientation"
+            android:label="@string/subjects" />
         <activity
             android:name=".activity.FeedbackActivity"
             android:configChanges="orientation"
