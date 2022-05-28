@@ -22,8 +22,8 @@ import java.util.List;
 
 public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.ViewHolder> {
 
-    private Context mContext;
-    private List<Assignment> mList;
+    private final Context mContext;
+    private final List<Assignment> mList;
 
     public AssignmentAdapter(Context mContext, List<Assignment> mList) {
         this.mContext = mContext;
@@ -42,14 +42,14 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         // Card Animation
-        holder.cardHolder.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade_transition_animation));
+        holder.cardView.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.fade_transition_animation));
 
         // Values
         holder.assiTitle.setText(mList.get(position).getAssiTitle());
         holder.assiMessage.setText(mList.get(position).getAssiDetails());
         holder.assiDate.setText(String.format(mContext.getString(R.string.assignment_date), mList.get(position).getAssiDate()));
 
-        holder.cardHolder.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(mContext, "Assignment ID : " + mList.get(holder.getAdapterPosition()).getAssiId(), Toast.LENGTH_SHORT).show();
@@ -68,7 +68,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView assiTitle, assiMessage, assiDate;
-        CardView cardHolder;
+        CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,7 +76,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
             assiTitle = itemView.findViewById(R.id.assi_title);
             assiMessage = itemView.findViewById(R.id.assi_details);
             assiDate = itemView.findViewById(R.id.assi_date);
-            cardHolder = itemView.findViewById(R.id.holder);
+            cardView = itemView.findViewById(R.id.holder);
 
         }
     }

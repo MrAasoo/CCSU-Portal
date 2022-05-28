@@ -69,7 +69,7 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="messages">Messages</string>
-    <string name="clubs">Clubs</string>
+    <string name="club">Clubs</string>
     <string name="discussion">Class Discussion</string>
     <string name="mails">Student Mails</string>
     <string name="dialog_message">Dialog message</string>
@@ -107,10 +107,12 @@
     <string name="assignment_faculty">By - %1$s</string>
     <string name="student_branch_text">%1$s - %2$s</string>
     <string name="post_date_placeholder">Post : %1$s</string>
+    <string name="created_on_place_holder">Created on : %1$s</string>
+    <string name="join_on_place_holder">Joined on : %1$s</string>
 
 
     <string name="our_values_text">Respect. Collaboration. Excellence. Integrity. Innovation</string>
-    <string name="error">Something went wrong.r\nPlease try again...</string>
+    <string name="error">Something went wrong.r\nPlease try again …</string>
     <string name="news_bullets">News Bullets</string>
     <string name="message">Message</string>
     <string name="enter_your_query">Enter your query (MAX 160)</string>
@@ -119,5 +121,8 @@
     <string name="subject_name">Subject name</string>
     <string name="subject_code">Subject Code</string>
     <string name="subject_teacher">Subject Teacher</string>
+    <string name="campus_map">Campus Map</string>
+    <string name="application_theme">Application theme</string>
+    <string name="join_clubs">Join Clubs</string>
 
 </resources>

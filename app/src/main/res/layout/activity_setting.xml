@@ -14,8 +14,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,12 +30,10 @@
             android:padding="@dimen/sixteen_dp">
 
             <TextView
+                style="@style/AppOptionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/four_dp"
-                android:padding="@dimen/eight_dp"
-                android:text="Application theme"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:text="@string/application_theme" />
 
             <RadioGroup
                 android:id="@+id/radio_group_theme"
@@ -50,25 +48,28 @@
                     android:id="@+id/radio_default"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/primary_500"
+                    android:buttonTint="@color/secondary_700"
                     android:checked="true"
-                    android:text="@string/system_default" />
+                    android:text="@string/system_default"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 <RadioButton
                     android:id="@+id/radio_light"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/primary_500"
+                    android:buttonTint="@color/secondary_700"
                     android:checked="false"
-                    android:text="@string/light" />
+                    android:text="@string/light"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 <RadioButton
                     android:id="@+id/radio_dark"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/primary_500"
+                    android:buttonTint="@color/secondary_700"
                     android:checked="false"
-                    android:text="@string/dark" />
+                    android:text="@string/dark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             </RadioGroup>
 
@@ -80,14 +81,12 @@
                 android:background="@drawable/background_gradient_dark" />
 
             <androidx.appcompat.widget.SwitchCompat
+                style="@style/AppOptionText"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_margin="@dimen/four_dp"
                 android:layout_weight="1"
                 android:padding="@dimen/eight_dp"
-                android:text="@string/notification"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/primary_500" />
+                android:text="@string/notification" />
 
             <View
                 android:layout_width="match_parent"
@@ -98,11 +97,11 @@
 
             <TextView
                 android:id="@+id/setting_terms"
+                style="@style/AppOptionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/AppOptionText"
                 android:text="@string/terms_of_uses"
-                android:textColor="@color/primary_500"
+                android:textColor="@color/blue"
                 android:textStyle="italic" />
 
             <TextView
@@ -111,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/privacy_policy"
-                android:textColor="@color/primary_500"
+                android:textColor="@color/blue"
                 android:textStyle="italic" />
 
             <View

@@ -429,7 +429,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Clubs -->
+                <!-- Club -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="@dimen/card_height"
@@ -462,7 +462,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/clubs"
+                            android:text="@string/club"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -504,6 +504,46 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="@dimen/eight_dp"
                             android:text="@string/contact_us"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Campus Map -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/card_height"
+                    android:layout_rowWeight="3"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    app:cardCornerRadius="@dimen/eight_dp"
+                    app:cardElevation="@dimen/four_dp">
+
+                    <RelativeLayout
+                        android:id="@+id/home_campus_map"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:onClick="cardViewClicked"
+                        android:orientation="vertical"
+                        android:padding="@dimen/eight_dp">
+
+                        <ImageView
+                            android:layout_width="@dimen/card_image_width"
+                            android:layout_height="@dimen/card_image_height"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/thirty_two_dp"
+                            android:background="@drawable/ic_map"
+                            android:backgroundTint="@color/secondary_700"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/eight_dp"
+                            android:text="@string/campus_map"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -678,11 +718,11 @@
             </GridLayout>
 
             <Button
-                android:layout_marginHorizontal="@dimen/eight_dp"
                 android:id="@+id/enquiry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/eight_dp"
                 android:drawableEnd="@drawable/ic_enq"
                 android:paddingHorizontal="@dimen/thirty_two_dp"
                 android:text="@string/enquiry"

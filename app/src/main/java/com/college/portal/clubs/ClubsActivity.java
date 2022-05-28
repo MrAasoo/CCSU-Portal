@@ -1,4 +1,4 @@
-package com.college.portal.activity;
+package com.college.portal.clubs;
 
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 
@@ -10,17 +10,26 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
+import com.college.portal.clubs.adapter.ClubsPagerAdapter;
 import com.college.portal.services.NetworkServices;
+import com.google.android.material.tabs.TabLayout;
 
 public class ClubsActivity extends AppCompatActivity {
+
+
+    public static ViewPager mViewPager;
+    private TabLayout mTabLayout;
 
     //For Network
     private IntentFilter mIntentFilter;
     private InternetBroadcastReceiver mInternetBroadcastReceiver;
+    private ClubsPagerAdapter mClubsPagerAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +50,18 @@ public class ClubsActivity extends AppCompatActivity {
         startService(serviceIntent);
 
 
-        //TODO : CLUBS
+        //For fragments
+        mTabLayout = findViewById(R.id.tabs);
+        mViewPager = findViewById(R.id.view_pager);
+
+        mClubsPagerAdapter = new ClubsPagerAdapter(getSupportFragmentManager());
+        mClubsPagerAdapter.addFragment(new ClubFragment(), "Club");
+        mClubsPagerAdapter.addFragment(new AllClubFragment(), "All Club");
+
+        mViewPager.setAdapter(mClubsPagerAdapter);
+        mTabLayout.setupWithViewPager(mViewPager);
+
+
     }
 
 
@@ -59,7 +79,6 @@ public class ClubsActivity extends AppCompatActivity {
 
         //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
-
     }
 
     //For appbar back press
@@ -67,10 +86,19 @@ public class ClubsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mViewPager.getCurrentItem() == 0) {
+            super.onBackPressed();
+        } else {
+            mViewPager.setCurrentItem(0, true);
         }
     }
 }

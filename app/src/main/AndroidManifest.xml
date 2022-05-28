@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.college.portal">
+
     <!-- Application Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -20,6 +21,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
 
+        <activity
+            android:name=".clubs.ClubPageActivity"
+            android:configChanges="orientation"
+            android:label="@string/club" />
+        <activity
+            android:name=".clubs.ClubsActivity"
+            android:configChanges="orientation"
+            android:label="@string/club" />
         <activity
             android:name=".activity.SubjectListActivity"
             android:configChanges="orientation"
@@ -59,10 +68,6 @@
         <activity
             android:name=".activity.NoInternetActivity"
             android:configChanges="orientation" />
-        <activity
-            android:name=".activity.ClubsActivity"
-            android:configChanges="orientation"
-            android:label="@string/clubs" />
         <activity
             android:name=".activity.LibraryActivity"
             android:configChanges="orientation"

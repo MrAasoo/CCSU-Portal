@@ -126,8 +126,7 @@ public class AssignmentListActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                //Log.i("Response
-                // ..00string", response.body().toString());
+                //Log.i("Response String", response.body().toString());
                 //Toast.makeText()
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
@@ -135,8 +134,8 @@ public class AssignmentListActivity extends AppCompatActivity {
                         //Log.i("onSuccess", response.body().toString());
 
 
-                        String jsonresponse = response.body().toString();
-                        writeRecycler(jsonresponse);
+                        String jsonResponse = response.body().toString();
+                        writeRecycler(jsonResponse);
 
                     } else {
                         Log.i("onEmptyResponse", "Returned empty response");
@@ -153,10 +152,10 @@ public class AssignmentListActivity extends AppCompatActivity {
         });
     }
 
-    private void writeRecycler(String jsonresponse) {
+    private void writeRecycler(String jsonResponse) {
         try {
             //getting the whole json object from the response
-            JSONObject obj = new JSONObject(jsonresponse);
+            JSONObject obj = new JSONObject(jsonResponse);
             if (obj.optBoolean("status")) {
 
                 JSONArray dataArray = obj.getJSONArray("data");

@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
+import com.college.portal.clubs.ClubsActivity;
 import com.college.portal.model.StudentPref;
 import com.college.portal.services.NetworkServices;
 import com.college.portal.sharedpreferences.SharedPrefManager;

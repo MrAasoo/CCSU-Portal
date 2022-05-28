@@ -14,7 +14,7 @@ public interface RetroApi {
     // 000WebHost
     //String BASE_URL = "https://studentcollegeportal.000webhostapp.com/";
     // Mobile
-    String BASE_URL = "http://192.168.43.126/collegeportalapi/";
+    //String BASE_URL = "http://192.168.43.180/collegeportalapi/";
     // Emulator
     // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
 
@@ -25,6 +25,8 @@ public interface RetroApi {
     String NEWS_IMAGES = "images/news_images/";
     String COLLEGE_IMAGES = "images/college_images/";
     String COLLEGE_VIDEOS = "videos/college_videos/";
+    String CLUB_LOGO = "images/club_images/logo/";
+    String CLUB_BACKGROUND = "images/club_images/background/";
 
     @GET("login.php")
     Call<LoginResponse> studentLogin(
@@ -75,6 +77,13 @@ public interface RetroApi {
             @Query("std_id") String stdId,
             @Query("std_password") String stdPassword,
             @Query("feedback_message") String feedbackMessage
+    );
+
+
+    @GET("college_clubs.php")
+    Call<JsonObject> getCollegeClub(
+            @Query("std_id") String stdId,
+            @Query("club_id") String clubId
     );
 
 }

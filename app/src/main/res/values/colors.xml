@@ -4,7 +4,7 @@
 
     <!--Application Default -->
     <color name="primary_200">#FF88CDF6</color>
-    <color name="primary_500">#4093C5</color>
+    <color name="primary_500">#FF4093C5</color>
     <color name="primary_700">#FF2D82B5</color>
 
     <color name="secondary_200">#FFFFC396</color>
@@ -13,6 +13,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FFFF0000</color>
+    <color name="blue">#FF2962FF</color>
 
     <color name="transparent">#00000000</color>
     <color name="transparent_light">#40000000</color>
