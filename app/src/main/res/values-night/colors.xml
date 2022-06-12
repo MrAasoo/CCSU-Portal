@@ -9,5 +9,6 @@
     <color name="secondary_200">#FFBD9DFF</color>
     <color name="secondary_700">#FF9A6AFF</color>
 
+    <color name="sign_in_edit_text">#FF2C2C2C</color>
 
 </resources>

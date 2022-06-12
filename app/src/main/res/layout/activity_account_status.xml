@@ -7,7 +7,7 @@
     android:background="@drawable/background_gradient_dark"
     android:backgroundTint="@color/primary_500"
     android:orientation="vertical"
-    tools:context=".activity.AccountStatus">
+    tools:context=".modules.AccountStatus">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

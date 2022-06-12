@@ -2,10 +2,11 @@
 
     <string name="app_name">St.Portal</string>
 
-    <string name="college_name">College Name</string>
-    <string name="college_phrase">College Phrase</string>
+    <string name="college_name">Welcome to\nNational Institute of Science &amp; Technology</string>
+    <string name="college_name_short">Welcome to NIST</string>
+    <string name="college_phrase">\"विद्यैव सर्वधनम्\"</string>
 
-    <string name="student_sign_in">Students Sign In</string>
+    <string name="student_sign_in">Welcome to Student Portal</string>
     <string name="sign_in">Sign In</string>
     <string name="college_id">Your ID</string>
     <string name="password">* * * * * *</string>
@@ -26,9 +27,10 @@
     <string name="copyright_text">© 2021 Himanshu Srivastava \nAndroid Application Development\nAll rights reserved.</string>
     <string name="copyrights_title">Copyrights</string>
     <string name="app_info">App Info</string>
-    <string name="terms_of_uses">Terms of Uses</string>
+    <string name="terms_of_uses">Terms of Use</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="student_s_image">Student\'s Image</string>
+    <string name="home">Home</string>
     <string name="good_night_msg">Good Night …</string>
     <string name="good_evening_msg">Good evening …</string>
     <string name="good_afternoon_msg">Good afternoon …</string>
@@ -41,7 +43,7 @@
     <string name="assignment">Assignments</string>
     <string name="college_news">News/Updates</string>
     <string name="notification">Notification</string>
-    <string name="class_notices">Noticeboard</string>
+    <string name="class_notices">Notice board</string>
     <string name="contact_us">Contact Us</string>
     <string name="about_us">About Us</string>
     <string name="settings">Settings</string>
@@ -71,22 +73,22 @@
     <string name="messages">Messages</string>
     <string name="club">Clubs</string>
     <string name="discussion">Class Discussion</string>
-    <string name="mails">Student Mails</string>
+    <string name="mails">Mails</string>
     <string name="dialog_message">Dialog message</string>
     <string name="dialog_title">Dialog title</string>
     <string name="student_name">Student Name</string>
     <string name="attendance">Attendance</string>
     <string name="subjects">Subjects</string>
-    <string name="sign_in_msg">Please sign in with your</string>
-    <string name="student_college_id">Student College ID</string>
+    <string name="sign_in_msg">Sign in</string>
+    <string name="student_college_id">College ID</string>
     <string name="and">and</string>
     <string name="password_text">Password</string>
     <string name="your_account">Your account</string>
     <string name="e_books">E-Books</string>
     <string name="blogs">Blogs</string>
-    <string name="magazine">E-Magazine</string>
+    <string name="magazine">E-Magazines</string>
     <string name="lectures">Lectures</string>
-    <string name="my_library">My College Library</string>
+    <string name="my_library">E - Library</string>
     <string name="assignment_name">Assignment Name</string>
     <string name="news_title">News Title</string>
     <string name="student_department">Department</string>
@@ -97,12 +99,13 @@
     <string name="call">Call</string>
     <string name="chat">Chat</string>
     <string name="enquiry">Enquiry</string>
+    <string name="date">Date</string>
 
 
     <!-- Place Holder Strings -->
     <string name="assignment_due_date">Submit before : %1$s</string>
     <string name="assignment_date">Assignment Date : %1$s</string>
-    <string name="date">Date : %1$s</string>
+    <string name="date_place_holder">Date : %1$s</string>
     <string name="address_placeholder">City : %1$s\nDistrict : %2$s</string>
     <string name="assignment_faculty">By - %1$s</string>
     <string name="student_branch_text">%1$s - %2$s</string>
@@ -124,5 +127,17 @@
     <string name="campus_map">Campus Map</string>
     <string name="application_theme">Application theme</string>
     <string name="join_clubs">Join Clubs</string>
+    <string name="club_name">Club Name</string>
+    <string name="club_motive">Club Motive</string>
+    <string name="club_started_on">Club Started on</string>
+    <string name="members">Members</string>
+    <string name="total_members">Total Members</string>
+    <string name="background_image">background image</string>
+    <string name="events">Events</string>
+    <string name="announcements">Announcements</string>
+    <string name="join_now">Join now</string>
+    <string name="cancel_request">Cancel Request</string>
+    <string name="leave">Leave</string>
+    <string name="title_activity_campus_map">Campus Map</string>
 
 </resources>

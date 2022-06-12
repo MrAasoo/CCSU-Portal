@@ -9,8 +9,9 @@
 
 
     <dimen name="card_height">160dp</dimen>
-    <dimen name="card_image_width">40dp</dimen>
-    <dimen name="card_image_height">40dp</dimen>
+    <dimen name="card_height_zone">120dp</dimen>
+    <dimen name="home_page_image_width">40dp</dimen>
+    <dimen name="home_page_image_height">40dp</dimen>
     <dimen name="sign_width">0dp</dimen>
     <dimen name="status_card_width">0dp</dimen>
     <dimen name="dialog_width">340dp</dimen>

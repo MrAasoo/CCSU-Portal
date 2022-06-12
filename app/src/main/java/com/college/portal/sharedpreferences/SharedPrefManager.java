@@ -3,13 +3,13 @@ package com.college.portal.sharedpreferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.college.portal.model.StudentPref;
+import com.college.portal.modules.model.StudentPref;
 
 public class SharedPrefManager {
 
     private static final String SHARED_PREF_NAME = "student_pref";
     private static SharedPrefManager mInstance;
-    private Context mContext;
+    private final Context mContext;
 
     public SharedPrefManager(Context context) {
         this.mContext = context;

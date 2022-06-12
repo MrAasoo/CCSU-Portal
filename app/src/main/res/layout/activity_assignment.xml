@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.AssignmentActivity">
+    tools:context=".modules.studentzone.AssignmentActivity">
 
     <include layout="@layout/app_bar" />
 
@@ -53,6 +53,12 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Menu"
             android:textColor="@color/secondary_700" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:layout_marginBottom="@dimen/eight_dp"
+            android:background="@drawable/background_gradient_dark" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -78,7 +84,20 @@
         android:layout_marginHorizontal="@dimen/eight_dp"
         android:text="Download"
         android:textAllCaps="false"
-        android:visibility="visible"
+        android:visibility="gone"
+        app:cornerRadius="@dimen/sixteen_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/open_btn"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginHorizontal="@dimen/eight_dp"
+        android:text="Open"
+        android:textAllCaps="false"
+        android:visibility="gone"
         app:cornerRadius="@dimen/sixteen_dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

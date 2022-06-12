@@ -7,7 +7,7 @@
     android:background="@color/black"
     android:paddingHorizontal="@dimen/video_view_container_horizontal_padding"
     android:paddingBottom="@dimen/video_view_container_bottom_padding"
-    tools:context=".activity.CollegeGalleryVideoActivity">
+    tools:context=".modules.gallery.CollegeGalleryVideoActivity">
 
     <FrameLayout
         android:layout_width="0dp"

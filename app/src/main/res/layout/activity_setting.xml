@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.SettingActivity">
+    tools:context=".modules.SettingActivity">
 
     <include
         layout="@layout/app_bar"
@@ -73,20 +73,6 @@
 
             </RadioGroup>
 
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_margin="@dimen/eight_dp"
-                android:background="@drawable/background_gradient_dark" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                style="@style/AppOptionText"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:padding="@dimen/eight_dp"
-                android:text="@string/notification" />
 
             <View
                 android:layout_width="match_parent"

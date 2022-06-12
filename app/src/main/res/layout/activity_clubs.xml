@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".clubs.ClubsActivity">
+    tools:context=".modules.clubs.ClubsActivity">
 
 
     <com.google.android.material.appbar.AppBarLayout

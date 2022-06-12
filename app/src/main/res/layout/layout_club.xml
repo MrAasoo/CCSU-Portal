@@ -32,7 +32,7 @@
                 android:id="@+id/club_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/news_title"
+                android:hint="@string/club_name"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textStyle="bold" />

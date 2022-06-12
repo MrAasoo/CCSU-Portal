@@ -1,141 +1,350 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.HomeActivity">
+    tools:context=".modules.HomeActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar_layout"
+    <include
+        layout="@layout/app_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/scrolling_appbar_height"
-        android:background="@drawable/background_2"
-        android:fitsSystemWindows="true"
-        android:theme="@style/Theme.CollegePortal">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:title="Student Name">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <!-- User Image -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/image"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_centerHorizontal="true"
-                    app:cardCornerRadius="80dp"
-                    app:cardElevation="@dimen/eight_dp"
-                    app:layout_collapseMode="parallax">
-
-                    <RelativeLayout
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:background="@drawable/background_gradient_light">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="130dp"
-                            android:layout_height="130dp"
-                            android:layout_centerInParent="true"
-                            app:cardCornerRadius="70dp">
-
-                            <ImageView
-                                android:id="@+id/std_image"
-                                android:layout_width="130dp"
-                                android:layout_height="130dp"
-                                android:contentDescription="@string/student_s_image"
-                                android:elevation="@dimen/eight_dp"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/ic_app_icon" />
-                        </androidx.cardview.widget.CardView>
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/eight_dp">
 
                 <TextView
                     android:id="@+id/greet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/image"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="@dimen/sixteen_dp"
+                    android:layout_marginStart="@dimen/sixteen_dp"
+                    android:fontFamily="sans-serif-black"
                     android:hint="@string/welcome"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-            </RelativeLayout>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textStyle="bold" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+                <!-- Name -->
+                <TextView
+                    android:id="@+id/std_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sixteen_dp"
+                    android:layout_marginBottom="@dimen/sixteen_dp"
+                    android:fontFamily="sans-serif-black"
+                    android:maxLines="2"
+                    android:text="@string/student_name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
+                <!-- ID Branch Image details -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/eight_dp"
+                    app:cardCornerRadius="@dimen/sixteen_dp"
+                    app:cardElevation="@dimen/four_dp">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/eight_dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/sixteen_dp">
 
-            <!-- ID Branch -->
+                        <include layout="@layout/profile_image" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <TextView
+                                android:id="@+id/std_department"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/student_department"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                            <TextView
+                                android:id="@+id/std_branch"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/student_branch"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                            <TextView
+                                android:id="@+id/std_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/student_id"
+                                android:textAlignment="viewStart"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <!-- Student Zone -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/sixteen_dp"
-                app:cardCornerRadius="@dimen/sixteen_dp"
+                app:cardCornerRadius="@dimen/eight_dp"
                 app:cardElevation="@dimen/four_dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="@dimen/eight_dp">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/std_department"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:hint="@string/student_department"
+                        android:layout_marginStart="@dimen/eight_dp"
+                        android:padding="@dimen/eight_dp"
+                        android:text="Student Zone"
+                        android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/secondary_700" />
+                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/std_branch"
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:hint="@string/student_branch"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/secondary_700" />
+                        android:layout_height="2dp"
+                        android:layout_marginHorizontal="@dimen/eight_dp"
+                        android:background="@drawable/background_gradient_dark" />
 
-                    <TextView
-                        android:id="@+id/std_id"
+                    <GridLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:hint="@string/student_id"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/secondary_700" />
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="@integer/grid_column_count_students"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/four_dp">
+
+
+                        <!-- Profile -->
+                        <RelativeLayout
+                            android:id="@+id/home_profile"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/card_height_zone"
+                            android:layout_rowWeight="3"
+                            android:layout_columnWeight="1"
+                            android:onClick="cardViewClicked"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/home_page_image_width"
+                                android:layout_height="@dimen/home_page_image_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/thirty_two_dp"
+                                android:background="@drawable/ic_profile"
+                                android:backgroundTint="@color/secondary_700" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/eight_dp"
+                                android:text="@string/students_profile"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+
+                        <!-- Assignment -->
+                        <RelativeLayout
+                            android:id="@+id/home_assignment"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/card_height_zone"
+                            android:layout_rowWeight="3"
+                            android:layout_columnWeight="1"
+                            android:onClick="cardViewClicked"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/home_page_image_width"
+                                android:layout_height="@dimen/home_page_image_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/thirty_two_dp"
+                                android:background="@drawable/ic_assignment"
+                                android:backgroundTint="@color/secondary_700" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/eight_dp"
+                                android:text="@string/assignment"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+
+                        <!-- Attendance -->
+                        <!--
+                        <RelativeLayout
+                            android:id="@+id/home_attendance"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/card_height"
+                            android:layout_rowWeight="3"
+                            android:layout_columnWeight="1"
+                            android:onClick="cardViewClicked"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/home_page_image_width"
+                                android:layout_height="@dimen/home_page_image_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/thirty_two_dp"
+                                android:background="@drawable/ic_attendance"
+                                android:backgroundTint="@color/secondary_700"
+                                android:tintMode="add" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/eight_dp"
+                                android:text="@string/attendance"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        </RelativeLayout>
+                        -->
+
+                        <!-- Subjects -->
+                        <RelativeLayout
+                            android:id="@+id/home_subject"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/card_height_zone"
+                            android:layout_rowWeight="3"
+                            android:layout_columnWeight="1"
+                            android:onClick="cardViewClicked"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/home_page_image_width"
+                                android:layout_height="@dimen/home_page_image_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/thirty_two_dp"
+                                android:background="@drawable/ic_calendar"
+                                android:backgroundTint="@color/secondary_700" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/eight_dp"
+                                android:text="@string/subjects"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+
+                        <!-- Messages -->
+                        <RelativeLayout
+                            android:id="@+id/home_messages"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/card_height_zone"
+                            android:layout_rowWeight="3"
+                            android:layout_columnWeight="1"
+                            android:onClick="cardViewClicked"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/home_page_image_width"
+                                android:layout_height="@dimen/home_page_image_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/thirty_two_dp"
+                                android:background="@drawable/ic_messages"
+                                android:backgroundTint="@color/secondary_700" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/eight_dp"
+                                android:text="@string/messages"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+
+                        <!-- Mails -->
+                        <!--
+                        <RelativeLayout
+                            android:id="@+id/home_mails"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/card_height"
+                            android:layout_rowWeight="3"
+                            android:layout_columnWeight="1"
+                            android:onClick="cardViewClicked"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/home_page_image_width"
+                                android:layout_height="@dimen/home_page_image_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/thirty_two_dp"
+                                android:background="@drawable/ic_mails"
+                                android:backgroundTint="@color/secondary_700"
+                                android:scaleType="centerCrop"
+                                android:tintMode="screen" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/eight_dp"
+                                android:text="@string/mails"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        </RelativeLayout>
+-->
+                    </GridLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -148,163 +357,6 @@
                 android:columnCount="@integer/grid_column_count"
                 android:orientation="horizontal"
                 android:padding="@dimen/four_dp">
-
-                <!-- Profile -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_profile"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_profile"
-                            android:backgroundTint="@color/secondary_700"
-                            android:tintMode="add" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/students_profile"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Assignment -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_assignment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_assignment"
-                            android:backgroundTint="@color/secondary_700"
-                            android:tintMode="add" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/assignment"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Attendance -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_attendance"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_attendance"
-                            android:backgroundTint="@color/secondary_700"
-                            android:tintMode="add" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/attendance"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Subjects -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_subject"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_calendar"
-                            android:backgroundTint="@color/secondary_700"
-                            android:tintMode="add" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/subjects"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
 
                 <!-- Library -->
                 <androidx.cardview.widget.CardView
@@ -325,8 +377,8 @@
                         android:padding="@dimen/eight_dp">
 
                         <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
+                            android:layout_width="@dimen/home_page_image_width"
+                            android:layout_height="@dimen/home_page_image_height"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="@dimen/thirty_two_dp"
                             android:background="@drawable/ic_lib"
@@ -340,88 +392,6 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="@dimen/eight_dp"
                             android:text="@string/library"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- News -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_news"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_news"
-                            android:backgroundTint="@color/secondary_700"
-                            android:scaleType="centerCrop"
-                            android:tintMode="screen" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/college_news"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Messages -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_notifications"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_notification"
-                            android:backgroundTint="@color/secondary_700"
-                            android:scaleType="centerCrop"
-                            android:tintMode="screen" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/messages"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -448,8 +418,8 @@
                         android:padding="@dimen/eight_dp">
 
                         <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
+                            android:layout_width="@dimen/home_page_image_width"
+                            android:layout_height="@dimen/home_page_image_height"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="@dimen/thirty_two_dp"
                             android:background="@drawable/ic_club"
@@ -470,7 +440,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Contact US -->
+                <!-- News/Updates -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="@dimen/card_height"
@@ -481,7 +451,7 @@
                     app:cardElevation="@dimen/four_dp">
 
                     <RelativeLayout
-                        android:id="@+id/home_contact"
+                        android:id="@+id/home_news"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:onClick="cardViewClicked"
@@ -489,11 +459,11 @@
                         android:padding="@dimen/eight_dp">
 
                         <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
+                            android:layout_width="@dimen/home_page_image_width"
+                            android:layout_height="@dimen/home_page_image_height"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_contact"
+                            android:background="@drawable/ic_news"
                             android:backgroundTint="@color/secondary_700"
                             android:scaleType="centerCrop"
                             android:tintMode="screen" />
@@ -503,211 +473,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/contact_us"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Campus Map -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_campus_map"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_map"
-                            android:backgroundTint="@color/secondary_700"
-                            android:scaleType="centerCrop" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/campus_map"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- About US-->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_about_us"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_about"
-                            android:backgroundTint="@color/secondary_700"
-                            android:scaleType="centerCrop"
-                            android:tintMode="screen" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/about_us"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- College Gallery-->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_college_gallery"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_gallery"
-                            android:backgroundTint="@color/secondary_700"
-                            android:scaleType="centerCrop"
-                            android:tintMode="screen" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/college_gallery"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Settings -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_settings"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_settings"
-                            android:backgroundTint="@color/secondary_700"
-                            android:scaleType="centerCrop"
-                            android:tintMode="screen" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/settings"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Logout -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_rowWeight="3"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/sixteen_dp"
-                    app:cardCornerRadius="@dimen/eight_dp"
-                    app:cardElevation="@dimen/four_dp">
-
-                    <RelativeLayout
-                        android:id="@+id/home_logout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="cardViewClicked"
-                        android:orientation="vertical"
-                        android:padding="@dimen/eight_dp">
-
-                        <ImageView
-                            android:layout_width="@dimen/card_image_width"
-                            android:layout_height="@dimen/card_image_height"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/thirty_two_dp"
-                            android:background="@drawable/ic_logout"
-                            android:backgroundTint="@color/secondary_700"
-                            android:scaleType="centerCrop"
-                            android:tintMode="screen" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/eight_dp"
-                            android:text="@string/logout"
+                            android:text="@string/college_news"
                             android:textAlignment="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -717,20 +483,86 @@
 
             </GridLayout>
 
-            <Button
-                android:id="@+id/enquiry"
-                android:layout_width="wrap_content"
+            <!-- College Corner-->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginHorizontal="@dimen/eight_dp"
-                android:drawableEnd="@drawable/ic_enq"
-                android:paddingHorizontal="@dimen/thirty_two_dp"
-                android:text="@string/enquiry"
-                android:textAllCaps="false"
-                app:cornerRadius="@dimen/sixteen_dp" />
+                android:orientation="vertical"
+                android:padding="@dimen/eight_dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/eight_dp"
+                    android:text="Campus Corner"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginHorizontal="@dimen/eight_dp"
+                    android:background="@drawable/background_gradient_dark" />
+
+                <!-- Campus Map -->
+                <TextView
+                    android:id="@+id/home_campus_map"
+                    style="@style/AppOptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/sixteen_dp"
+                    android:onClick="cardViewClicked"
+                    android:text="@string/campus_map"
+                    app:drawableStartCompat="@drawable/ic_map" />
+
+                <!-- Contact US -->
+                <TextView
+                    android:id="@+id/home_contact"
+                    style="@style/AppOptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/sixteen_dp"
+                    android:onClick="cardViewClicked"
+                    android:text="@string/contact_us"
+                    app:drawableStartCompat="@drawable/ic_contact" />
+
+                <!-- About US -->
+                <TextView
+                    android:id="@+id/home_about_us"
+                    style="@style/AppOptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/sixteen_dp"
+                    android:onClick="cardViewClicked"
+                    android:text="@string/about_us"
+                    app:drawableStartCompat="@drawable/ic_about" />
+
+                <!-- College Gallery -->
+                <TextView
+                    android:id="@+id/home_college_gallery"
+                    style="@style/AppOptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/sixteen_dp"
+                    android:onClick="cardViewClicked"
+                    android:text="@string/college_gallery"
+                    app:drawableStartCompat="@drawable/ic_gallery" />
+
+                <!-- Enquiry -->
+                <Button
+                    android:id="@+id/enquiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    android:drawableStart="@drawable/ic_enq"
+                    android:text="@string/enquiry"
+                    android:textAllCaps="false"
+                    app:cornerRadius="@dimen/sixteen_dp" />
+            </LinearLayout>
 
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 package com.college.portal.api;
 
 
-import com.college.portal.model.InfoResponse;
-import com.college.portal.model.LoginResponse;
+import com.college.portal.modules.model.InfoResponse;
+import com.college.portal.modules.model.LoginResponse;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -14,7 +14,8 @@ public interface RetroApi {
     // 000WebHost
     //String BASE_URL = "https://studentcollegeportal.000webhostapp.com/";
     // Mobile
-    //String BASE_URL = "http://192.168.43.180/collegeportalapi/";
+    String BASE_URL = "http://192.168.43.41/collegeportalapi/";
+    //String BASE_URL = "http://192.168.244.128/collegeportalapi/";
     // Emulator
     // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
 
@@ -27,6 +28,7 @@ public interface RetroApi {
     String COLLEGE_VIDEOS = "videos/college_videos/";
     String CLUB_LOGO = "images/club_images/logo/";
     String CLUB_BACKGROUND = "images/club_images/background/";
+    String ASSIGNMENT_FILE_PATH = BASE_URL + "files/assignments/";
 
     @GET("login.php")
     Call<LoginResponse> studentLogin(
@@ -82,8 +84,26 @@ public interface RetroApi {
 
     @GET("college_clubs.php")
     Call<JsonObject> getCollegeClub(
-            @Query("std_id") String stdId,
-            @Query("club_id") String clubId
+            @Query("std_id") String stdId
     );
+
+    @GET("college_clubs_info.php")
+    Call<JsonObject> getCollegeClubInfo(
+            @Query("std_id") String stdId,
+            @Query("club_id") String clubId,
+            @Query("req") String req
+    );
+
+    @GET("college_club_members.php")
+    Call<JsonObject> getCollegeClubMember(
+            @Query("std_id") String stdId,
+            @Query("club_id") String clubId,
+            @Query("req") Integer req,
+            @Query("sr_no") String srNo
+    );
+
+
+    @GET("campus_map.php")
+    Call<JsonObject> getCampusMap();
 
 }

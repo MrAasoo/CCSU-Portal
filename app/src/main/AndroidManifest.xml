@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.college.portal">
-
     <!-- Application Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -11,10 +10,14 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CollegePortal"
@@ -22,105 +25,141 @@
         tools:targetApi="m">
 
         <activity
-            android:name=".clubs.ClubPageActivity"
+            android:name=".modules.campusmap.CampusMapListActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/title_activity_campus_map" />
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBK-p0DQPhUUaVFf9xvFvDrDiJpl8dYcNE" />
+
+        <activity
+            android:name=".modules.campusmap.CampusMapActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/title_activity_campus_map" />
+        <activity
+            android:name=".modules.clubs.ClubPageActivity"
             android:configChanges="orientation"
             android:label="@string/club" />
         <activity
-            android:name=".clubs.ClubsActivity"
+            android:name=".modules.clubs.ClubsActivity"
             android:configChanges="orientation"
             android:label="@string/club" />
         <activity
-            android:name=".activity.SubjectListActivity"
+            android:name=".modules.studentzone.SubjectListActivity"
             android:configChanges="orientation"
             android:label="@string/subjects" />
         <activity
-            android:name=".activity.FeedbackActivity"
+            android:name=".modules.FeedbackActivity"
             android:configChanges="orientation"
             android:label="@string/feedback" />
         <activity
-            android:name=".activity.CollegeGalleryActivity"
+            android:name=".modules.gallery.CollegeGalleryActivity"
             android:configChanges="orientation"
             android:label="@string/college_gallery" />
         <activity
-            android:name=".activity.EnquiryActivity"
+            android:name=".modules.EnquiryActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.VisionMissionActivity"
+            android:name=".modules.VisionMissionActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.CollegeGalleryImageActivity"
+            android:name=".modules.gallery.CollegeGalleryImageActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.CollegeGalleryImageListActivity"
+            android:name=".modules.gallery.CollegeGalleryImageListActivity"
             android:configChanges="orientation"
             android:label="@string/photos" />
         <activity
-            android:name=".activity.CollegeGalleryVideoActivity"
+            android:name=".modules.gallery.CollegeGalleryVideoActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.CollegeGalleryVideoListActivity"
+            android:name=".modules.gallery.CollegeGalleryVideoListActivity"
             android:configChanges="orientation"
             android:label="@string/videos" />
         <activity
-            android:name=".activity.AboutUsActivity"
+            android:name=".modules.AboutUsActivity"
             android:configChanges="orientation"
             android:label="@string/about_us" />
         <activity
-            android:name=".activity.NoInternetActivity"
+            android:name=".modules.NoInternetActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.LibraryActivity"
+            android:name=".modules.library.LibraryActivity"
             android:configChanges="orientation"
             android:label="@string/library" />
         <activity
-            android:name=".activity.ContactUsActivity"
+            android:name=".modules.ContactUsActivity"
             android:configChanges="orientation"
             android:label="@string/contact_us" />
         <activity
-            android:name=".activity.MessagesActivity"
+            android:name=".modules.studentzone.MessagesActivity"
             android:configChanges="orientation"
             android:label="@string/messages" />
         <activity
-            android:name=".activity.NewsActivity"
+            android:name=".modules.NewsActivity"
             android:configChanges="orientation"
             android:label="@string/college_news" />
         <activity
-            android:name=".activity.NewsListActivity"
+            android:name=".modules.NewsListActivity"
             android:configChanges="orientation"
             android:label="@string/college_news" />
         <activity
-            android:name=".activity.WebViewActivity"
+            android:name=".modules.WebViewActivity"
             android:configChanges="orientation" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.college.portal.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
+
         <activity
-            android:name=".activity.AssignmentActivity"
+            android:name=".modules.studentzone.AssignmentActivity"
             android:configChanges="orientation"
             android:label="@string/assignment" />
         <activity
-            android:name=".activity.AssignmentListActivity"
+            android:name=".modules.studentzone.AssignmentListActivity"
             android:configChanges="orientation"
             android:label="@string/assignment" />
         <activity
-            android:name=".activity.SettingActivity"
+            android:name=".modules.SettingActivity"
             android:configChanges="orientation"
             android:label="@string/settings" />
         <activity
-            android:name=".activity.AppInfoActivity"
+            android:name=".modules.AppInfoActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.ProfileActivity"
+            android:name=".modules.studentzone.ProfileActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.AccountStatus"
+            android:name=".modules.AccountStatus"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.HomeActivity"
+            android:name=".modules.HomeActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".activity.SignInActivity"
-            android:configChanges="orientation" />
+            android:name=".modules.SignInActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SplashScreen"
-            android:configChanges="orientation"
+            android:name=".modules.SplashScreen"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

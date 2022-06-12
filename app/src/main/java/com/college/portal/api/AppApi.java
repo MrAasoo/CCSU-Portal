@@ -8,17 +8,30 @@ public interface AppApi {
     int STUDENT_ACCOUNT_NOT_VERIFIED = 203;
     int STUDENT_ACCOUNT_BLOCKED = 204;
 
-
     String ACCOUNT_STATUS = "status";
     String ACCOUNT_MESSAGE = "message";
     String PAGE_URL = "page_url";
+
+
+    // Club
+    String GET_CLUB_DATA = "1";
+    String IS_STUDENT_CLUB_MEMBER = "2";
+    String GET_STUDENT_CLUB_STATUS = "3";
+
+    String CLUB_ID = "club_id";
+
+
+    int JOIN_CLUB = 2010;
+    int CANCEL_REQ = 2020;
+    int LEAVE_CLUB = 2030;
+
 
     //Assignment
     String ASSIGNMENT_LIST = "0";
     String ASSIGNMENT_ID = "assignment_id";
 
 
-    //Application
+    //Application Network
     String INTERNET_BROADCAST_ACTION = "check_internet";
     String ONLINE_STATUS = "online_status";
 
@@ -32,7 +45,7 @@ public interface AppApi {
 
     String NEWS_ID = "news_id";
 
-    // About Us
+    // About Us - College Gallery
     int GALLERY_TYPE_IMAGE = 1;
     int GALLERY_TYPE_VIDEO = 2;
 
