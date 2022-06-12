@@ -2,6 +2,9 @@ package com.college.portal.api;
 
 public interface AppApi {
 
+    // storage permission
+    int STORAGE_PERMISSION = 1400;
+
     // Sign In
     int STUDENT_ID_NOT_FOUND = 201;
     int STUDENT_PASSWORD_DO_NOT_MATCH = 202;

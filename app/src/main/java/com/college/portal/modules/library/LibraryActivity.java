@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +21,7 @@ import com.college.portal.services.NetworkServices;
 
 public class LibraryActivity extends AppCompatActivity {
 
-    private TextView eBooks, eMagazine, myCollegeLibrary;
+    private TextView eBooks, eMagazine, myCollegeLibrary, more_eBooks;
 
     //For Network
     private IntentFilter mIntentFilter;
@@ -49,19 +48,24 @@ public class LibraryActivity extends AppCompatActivity {
         // Library stuff
         eBooks = findViewById(R.id.library_ebook);
         eMagazine = findViewById(R.id.library_e_magazine);
+        more_eBooks = findViewById(R.id.more_e_books);
         myCollegeLibrary = findViewById(R.id.library_my_library);
 
         eBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), getString(R.string.e_books), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LibraryActivity.this, BookListActivity.class);
+                intent.putExtra("req_type", "ebook");
+                startActivity(intent);
             }
         });
 
         eMagazine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), getString(R.string.magazine), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LibraryActivity.this, BookListActivity.class);
+                intent.putExtra("req_type", "emag");
+                startActivity(intent);
             }
         });
 
@@ -69,6 +73,14 @@ public class LibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ndl.iitkgp.ac.in"));
+                startActivity(browserIntent);
+            }
+        });
+
+        more_eBooks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.pdfdrive.com"));
                 startActivity(browserIntent);
             }
         });

@@ -1,9 +1,13 @@
-package com.college.portal.modules.studentzone;
+package com.college.portal.modules.library;
 
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -14,20 +18,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
+import com.college.portal.api.AppApi;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
-import com.college.portal.modules.SignInActivity;
-import com.college.portal.modules.model.StudentPref;
-import com.college.portal.modules.studentzone.adapter.SubjectAdapter;
-import com.college.portal.modules.studentzone.model.Subject;
+import com.college.portal.modules.library.adapter.BooksAdapter;
+import com.college.portal.modules.library.model.Books;
 import com.college.portal.services.NetworkServices;
-import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -40,20 +44,30 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SubjectListActivity extends AppCompatActivity {
+public class BookListActivity extends AppCompatActivity {
+
 
     protected RecyclerView recyclerView;
-    protected SubjectAdapter mAdapter;
-    protected ArrayList<Subject> mList;
+    protected BooksAdapter mAdapter;
+    protected ArrayList<Books> mList;
 
     //For Network
     private IntentFilter mIntentFilter;
     private InternetBroadcastReceiver mInternetBroadcastReceiver;
 
+    public static void requestStoragePermission(int requestCode, Activity mActivity) {
+        ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
+    }
+
+    public static boolean hasStoragePermission(Context mContext) {
+        return (ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) &&
+                (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subject_list);
+        setContentView(R.layout.activity_book_list);
 
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
@@ -73,23 +87,12 @@ public class SubjectListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         mList = new ArrayList<>();
-        mAdapter = new SubjectAdapter(SubjectListActivity.this, mList);
+        mAdapter = new BooksAdapter(BookListActivity.this, BookListActivity.this, mList);
         recyclerView.setAdapter(mAdapter);
 
-        SharedPrefManager instance = SharedPrefManager.getInstance(SubjectListActivity.this);
-        if (instance.isLoggedIn()) {
-            StudentPref studentPref = instance.getStudentInfo();
-            getSubjectList(studentPref.getStdId());
-        } else {
-            toLoginActivity();
-        }
-    }
+        getBookList(getIntent().getStringExtra("req_type"));
 
 
-    private void toLoginActivity() {
-        Intent intent = new Intent(SubjectListActivity.this, SignInActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
     }
 
     @Override
@@ -97,7 +100,6 @@ public class SubjectListActivity extends AppCompatActivity {
         super.onPause();
         unregisterReceiver(mInternetBroadcastReceiver);
     }
-
 
     @Override
     protected void onResume() {
@@ -109,10 +111,22 @@ public class SubjectListActivity extends AppCompatActivity {
 
     }
 
-    private void getSubjectList(String stdId) {
+    //For appbar back press
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void getBookList(String req_type) {
 
         final ProgressDialogInterface progressDialog = new ProgressDialogInterface(
-                SubjectListActivity.this,
+                BookListActivity.this,
                 getString(R.string.progress_loading_message));
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         progressDialog.setCancelable(false);
@@ -122,7 +136,7 @@ public class SubjectListActivity extends AppCompatActivity {
 
         Call<JsonObject> call = RetrofitClient.getInstance()
                 .getRetroApi()
-                .getSubjectList(stdId);
+                .getELibraryItemsList(req_type);
 
         call.enqueue(new Callback<JsonObject>() {
             @Override
@@ -160,17 +174,19 @@ public class SubjectListActivity extends AppCompatActivity {
 
                 JSONArray dataArray = obj.getJSONArray("data");
                 for (int i = 0; i < dataArray.length(); i++) {
-                    Subject subject = new Subject();
+                    Books book = new Books();
                     JSONObject jsonObject = dataArray.getJSONObject(i);
 
-                    if (!jsonObject.getString("subject_code").equals("null")) {
-                        subject.setSubjectCode(jsonObject.getString("subject_code"));
-                        subject.setSubjectName(jsonObject.getString("subject_name"));
-                        subject.setFacultyName(jsonObject.getString("faculty_name"));
+                    if (!jsonObject.getString("srno").equals("null")) {
+                        book.setBookTitle(jsonObject.getString("book_title"));
+                        book.setBookAuthor(jsonObject.getString("book_author"));
+                        book.setPublisher(jsonObject.getString("publisher"));
+                        book.setPublishDate(jsonObject.getString("publish_date"));
+                        book.setBookPath(jsonObject.getString("book_path"));
 
-                        mList.add(subject);
+                        mList.add(book);
                     } else {
-                        Toast.makeText(this, "No Subject found.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "No Books found.", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -184,15 +200,17 @@ public class SubjectListActivity extends AppCompatActivity {
         }
     }
 
-    //For appbar back press
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == AppApi.STORAGE_PERMISSION) {
+            // Checking whether user granted the permission or not.
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Showing the toast message
+                Toast.makeText(BookListActivity.this, "Phone Permission Granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(BookListActivity.this, "Phone Permission Denied", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

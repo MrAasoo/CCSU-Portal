@@ -84,11 +84,12 @@
     <string name="and">and</string>
     <string name="password_text">Password</string>
     <string name="your_account">Your account</string>
-    <string name="e_books">E-Books</string>
+    <string name="e_books">eBooks</string>
     <string name="blogs">Blogs</string>
-    <string name="magazine">E-Magazines</string>
+    <string name="magazine">eMagazines</string>
     <string name="lectures">Lectures</string>
-    <string name="my_library">E - Library</string>
+    <string name="my_library">eLibrary</string>
+    <string name="more_e_books_txt">Get more eBooks</string>
     <string name="assignment_name">Assignment Name</string>
     <string name="news_title">News Title</string>
     <string name="student_department">Department</string>
@@ -112,6 +113,7 @@
     <string name="post_date_placeholder">Post : %1$s</string>
     <string name="created_on_place_holder">Created on : %1$s</string>
     <string name="join_on_place_holder">Joined on : %1$s</string>
+    <string name="publish_on_placeholder">Published on : %1$s</string>
 
 
     <string name="our_values_text">Respect. Collaboration. Excellence. Integrity. Innovation</string>
@@ -139,5 +141,10 @@
     <string name="cancel_request">Cancel Request</string>
     <string name="leave">Leave</string>
     <string name="title_activity_campus_map">Campus Map</string>
+    <string name="book_name">Book Name</string>
+    <string name="author_name">Author name</string>
+    <string name="download">Download</string>
+    <string name="open">Open</string>
+    <string name="publisher">Publisher</string>
 
 </resources>

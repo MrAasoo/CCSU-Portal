@@ -12,9 +12,9 @@ import retrofit2.http.Query;
 public interface RetroApi {
 
     // 000WebHost
-    //String BASE_URL = "https://studentcollegeportal.000webhostapp.com/";
+    String BASE_URL = "https://studentcollegeportal.000webhostapp.com/";
     // Mobile
-    String BASE_URL = "http://192.168.43.41/collegeportalapi/";
+    //String BASE_URL = "http://192.168.43.41/collegeportalapi/";
     //String BASE_URL = "http://192.168.244.128/collegeportalapi/";
     // Emulator
     // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
@@ -29,6 +29,7 @@ public interface RetroApi {
     String CLUB_LOGO = "images/club_images/logo/";
     String CLUB_BACKGROUND = "images/club_images/background/";
     String ASSIGNMENT_FILE_PATH = BASE_URL + "files/assignments/";
+    String EBOOKS_FILE_PATH = BASE_URL + "files/books/";
 
     @GET("login.php")
     Call<LoginResponse> studentLogin(
@@ -102,8 +103,12 @@ public interface RetroApi {
             @Query("sr_no") String srNo
     );
 
-
     @GET("campus_map.php")
     Call<JsonObject> getCampusMap();
+
+    @GET("e_library.php")
+    Call<JsonObject> getELibraryItemsList(
+            @Query("req_type") String reqType
+    );
 
 }

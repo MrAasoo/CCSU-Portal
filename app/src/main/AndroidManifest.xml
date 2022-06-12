@@ -23,7 +23,9 @@
         android:theme="@style/Theme.CollegePortal"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
+        <activity
+            android:name=".modules.library.BookListActivity"
+            android:exported="false" />
         <activity
             android:name=".modules.campusmap.CampusMapListActivity"
             android:configChanges="orientation"
@@ -159,8 +161,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.SplashScreen"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

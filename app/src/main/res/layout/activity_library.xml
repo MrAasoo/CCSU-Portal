@@ -57,6 +57,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/my_library" />
 
+            <TextView
+                android:id="@+id/more_e_books"
+                style="@style/DrawableNextTintSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/more_e_books_txt" />
+
         </LinearLayout>
 
     </ScrollView>

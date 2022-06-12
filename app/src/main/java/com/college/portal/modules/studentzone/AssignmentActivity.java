@@ -48,9 +48,6 @@ import retrofit2.Response;
 
 public class AssignmentActivity extends AppCompatActivity {
 
-    private static final int STORAGE_PERMISSION = 1400;
-    private static final String STORAGE_PERMISSION_TAG = "STORAGE_PERMISSION_TAG";
-
     private TextView assiTitle, assiDetails, assiDate, assiDueDate, assiFaculty;
     private Button downloadBtn, openBtn;
 
@@ -199,7 +196,7 @@ public class AssignmentActivity extends AppCompatActivity {
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         startActivity(intent);
                     } else {
-                        requestStoragePermission(STORAGE_PERMISSION);
+                        requestStoragePermission(AppApi.STORAGE_PERMISSION);
                     }
                 }
             });
@@ -239,7 +236,7 @@ public class AssignmentActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == STORAGE_PERMISSION) {
+        if (requestCode == AppApi.STORAGE_PERMISSION) {
             // Checking whether user granted the permission or not.
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Showing the toast message
