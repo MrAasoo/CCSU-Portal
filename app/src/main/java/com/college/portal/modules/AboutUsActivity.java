@@ -2,8 +2,6 @@ package com.college.portal.modules;
 
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.PAGE_URL;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.HISTORY_URL;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -19,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
+import com.college.portal.api.RetroApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 
@@ -86,7 +85,7 @@ public class AboutUsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent webIntent = new Intent(AboutUsActivity.this, WebViewActivity.class);
-                webIntent.putExtra(PAGE_URL, BASE_URL + HISTORY_URL);
+                webIntent.putExtra(PAGE_URL, RetroApi.HISTORY_URL);
                 startActivity(webIntent);
             }
         });

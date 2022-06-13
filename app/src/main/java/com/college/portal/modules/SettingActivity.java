@@ -4,9 +4,6 @@ import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.MODE_DARK;
 import static com.college.portal.api.AppApi.MODE_LIGHT;
 import static com.college.portal.api.AppApi.PAGE_URL;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.PRIVACY_URL;
-import static com.college.portal.api.RetroApi.TERMS_URL;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -25,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.api.RetroApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 import com.college.portal.sharedpreferences.ThemePrefManager;
@@ -112,7 +110,7 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent webTermsIntent = new Intent(SettingActivity.this, WebViewActivity.class);
-                webTermsIntent.putExtra(PAGE_URL, BASE_URL + TERMS_URL);
+                webTermsIntent.putExtra(PAGE_URL, RetroApi.TERMS_URL);
                 startActivity(webTermsIntent);
             }
         });
@@ -121,7 +119,7 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent webTermsIntent = new Intent(SettingActivity.this, WebViewActivity.class);
-                webTermsIntent.putExtra(PAGE_URL, BASE_URL + PRIVACY_URL);
+                webTermsIntent.putExtra(PAGE_URL, RetroApi.PRIVACY_URL);
                 startActivity(webTermsIntent);
             }
         });

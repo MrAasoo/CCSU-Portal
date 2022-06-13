@@ -1,8 +1,6 @@
 package com.college.portal.modules.adapter;
 
 import static com.college.portal.api.AppApi.NEWS_ID;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.NEWS_IMAGES;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.college.portal.R;
+import com.college.portal.api.RetroApi;
 import com.college.portal.modules.NewsActivity;
 import com.college.portal.modules.model.News;
 import com.squareup.picasso.Picasso;
@@ -64,7 +63,7 @@ public class NewsSliderAdapter extends PagerAdapter {
         news_title.setText(mNewsSlideList.get(position).getnTitle());
         news_subtitle.setText(mNewsSlideList.get(position).getnSubtitle());
 
-        Picasso.get().load(BASE_URL + NEWS_IMAGES + mNewsSlideList.get(position).getnImage()).placeholder(R.drawable.place_holder).into(news_image);
+        Picasso.get().load(RetroApi.NEWS_IMAGES + mNewsSlideList.get(position).getnImage()).placeholder(R.drawable.place_holder).into(news_image);
 
         news_image.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,7 +11,7 @@
     <item
         android:id="@+id/home_logout"
         android:icon="@drawable/ic_logout"
-        android:title="@string/logout"
+        android:title="@string/logout_text"
         app:showAsAction="ifRoom" />
 
 </menu>

@@ -1,9 +1,8 @@
 package com.college.portal.modules;
 
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.STUDENT_IMAGES;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -16,11 +15,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.api.RetroApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.modules.campusmap.CampusMapListActivity;
 import com.college.portal.modules.clubs.ClubsActivity;
@@ -86,7 +87,7 @@ public class HomeActivity extends AppCompatActivity {
         stdId.setText(studentPref.getStdId());
 
         Picasso.get()
-                .load(BASE_URL + STUDENT_IMAGES + studentPref.getStdImage())
+                .load(RetroApi.STUDENT_IMAGES + studentPref.getStdImage())
                 .placeholder(R.drawable.ic_app_icon)
                 .into(stdImage);
 
@@ -202,8 +203,27 @@ public class HomeActivity extends AppCompatActivity {
                 break;
 
             case R.id.home_logout:
-                SharedPrefManager.getInstance(getApplicationContext()).clearStudent();
-                toLoginActivity();
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setIcon(R.drawable.ic_app_icon)
+                        .setTitle(getString(R.string.logout_text))
+                        .setMessage("Are you sure to logout?")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SharedPrefManager.getInstance(getApplicationContext()).clearStudent();
+                                toLoginActivity();
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setCancelable(false);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
                 break;
         }
         return super.onOptionsItemSelected(item);

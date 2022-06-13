@@ -12,22 +12,22 @@ import retrofit2.http.Query;
 public interface RetroApi {
 
     // 000WebHost
-    String BASE_URL = "https://studentcollegeportal.000webhostapp.com/";
+    //String BASE_URL = "https://studentcollegeportal.000webhostapp.com/";
     // Mobile
-    //String BASE_URL = "http://192.168.43.41/collegeportalapi/";
+    String BASE_URL = "http://192.168.43.41/collegeportalapi/";
     //String BASE_URL = "http://192.168.244.128/collegeportalapi/";
     // Emulator
     // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
 
-    String TERMS_URL = "termsdoc.html";
-    String PRIVACY_URL = "privacydoc.html";
-    String HISTORY_URL = "history.php";
-    String STUDENT_IMAGES = "images/student_images/";
-    String NEWS_IMAGES = "images/news_images/";
-    String COLLEGE_IMAGES = "images/college_images/";
-    String COLLEGE_VIDEOS = "videos/college_videos/";
-    String CLUB_LOGO = "images/club_images/logo/";
-    String CLUB_BACKGROUND = "images/club_images/background/";
+    String TERMS_URL = BASE_URL + "termsdoc.html";
+    String PRIVACY_URL = BASE_URL + "privacydoc.html";
+    String HISTORY_URL = BASE_URL + "history.php";
+    String STUDENT_IMAGES = BASE_URL + "images/student_images/";
+    String NEWS_IMAGES = BASE_URL + "images/news_images/";
+    String COLLEGE_IMAGES = BASE_URL + "images/college_images/";
+    String COLLEGE_VIDEOS = BASE_URL + "videos/college_videos/";
+    String CLUB_LOGO = BASE_URL + "images/club_images/logo/";
+    String CLUB_BACKGROUND = BASE_URL + "images/club_images/background/";
     String ASSIGNMENT_FILE_PATH = BASE_URL + "files/assignments/";
     String EBOOKS_FILE_PATH = BASE_URL + "files/books/";
 

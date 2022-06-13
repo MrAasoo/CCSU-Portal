@@ -3,8 +3,6 @@ package com.college.portal.modules;
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 import static com.college.portal.api.AppApi.NEWS_ID;
 import static com.college.portal.api.AppApi.NEWS_SLIDER_YES;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.NEWS_IMAGES;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -24,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
+import com.college.portal.api.RetroApi;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
@@ -166,7 +165,7 @@ public class NewsActivity extends AppCompatActivity {
                 newsSubtitle.setText(jsonObject.getString("n_subtitle"));
                 newsDetail.setText(jsonObject.getString("n_detail"));
                 if (!jsonObject.getString("n_image").isEmpty()) {
-                    Picasso.get().load(BASE_URL + NEWS_IMAGES + jsonObject.getString("n_image")).placeholder(R.drawable.place_holder).into(newsImage);
+                    Picasso.get().load(RetroApi.NEWS_IMAGES + jsonObject.getString("n_image")).placeholder(R.drawable.place_holder).into(newsImage);
                 } else {
                     newsImage.setVisibility(View.GONE);
                 }

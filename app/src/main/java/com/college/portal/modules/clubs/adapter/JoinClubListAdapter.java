@@ -51,7 +51,7 @@ public class JoinClubListAdapter extends RecyclerView.Adapter<JoinClubListAdapte
         holder.clubName.setText(club.getClubName());
         holder.clubDate.setText(String.format(mContext.getString(R.string.join_on_place_holder), club.getJoinDate()));
         if (!club.getClubLogo().equals("null"))
-            Picasso.get().load(RetroApi.BASE_URL + RetroApi.CLUB_LOGO + club.getClubLogo()).placeholder(R.drawable.club_logo_placeholder).into(holder.logoImage);
+            Picasso.get().load(RetroApi.CLUB_LOGO + club.getClubLogo()).placeholder(R.drawable.club_logo_placeholder).into(holder.logoImage);
         else
             holder.logoImage.setImageResource(R.drawable.club_logo_placeholder);
 

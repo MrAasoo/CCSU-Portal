@@ -1,8 +1,6 @@
 package com.college.portal.modules.studentzone;
 
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.STUDENT_IMAGES;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -22,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.college.portal.AlertDialogInterface;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.api.RetroApi;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.modules.SignInActivity;
@@ -93,7 +92,7 @@ public class ProfileActivity extends AppCompatActivity {
         stdId.setText(studentPref.getStdId());
 
         Picasso.get()
-                .load(BASE_URL + STUDENT_IMAGES + studentPref.getStdImage())
+                .load(RetroApi.STUDENT_IMAGES + studentPref.getStdImage())
                 .placeholder(R.drawable.ic_app_icon)
                 .into(stdImage);
 

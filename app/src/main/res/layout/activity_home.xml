@@ -169,9 +169,8 @@
                                 android:layout_width="@dimen/home_page_image_width"
                                 android:layout_height="@dimen/home_page_image_height"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/thirty_two_dp"
-                                android:background="@drawable/ic_profile"
-                                android:backgroundTint="@color/secondary_700" />
+                                android:layout_marginTop="@dimen/eight_dp"
+                                android:background="@drawable/ic_profile" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -200,9 +199,8 @@
                                 android:layout_width="@dimen/home_page_image_width"
                                 android:layout_height="@dimen/home_page_image_height"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/thirty_two_dp"
-                                android:background="@drawable/ic_assignment"
-                                android:backgroundTint="@color/secondary_700" />
+                                android:layout_marginTop="@dimen/eight_dp"
+                                android:background="@drawable/ic_assignment" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -264,9 +262,8 @@
                                 android:layout_width="@dimen/home_page_image_width"
                                 android:layout_height="@dimen/home_page_image_height"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/thirty_two_dp"
-                                android:background="@drawable/ic_calendar"
-                                android:backgroundTint="@color/secondary_700" />
+                                android:layout_marginTop="@dimen/eight_dp"
+                                android:background="@drawable/ic_subject" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -295,9 +292,8 @@
                                 android:layout_width="@dimen/home_page_image_width"
                                 android:layout_height="@dimen/home_page_image_height"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/thirty_two_dp"
-                                android:background="@drawable/ic_messages"
-                                android:backgroundTint="@color/secondary_700" />
+                                android:layout_marginTop="@dimen/eight_dp"
+                                android:background="@drawable/ic_messages" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -508,10 +504,9 @@
                 <!-- Campus Map -->
                 <TextView
                     android:id="@+id/home_campus_map"
-                    style="@style/AppOptionText"
+                    style="@style/AppHomeOptionsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/sixteen_dp"
                     android:onClick="cardViewClicked"
                     android:text="@string/campus_map"
                     app:drawableStartCompat="@drawable/ic_map" />
@@ -519,10 +514,9 @@
                 <!-- Contact US -->
                 <TextView
                     android:id="@+id/home_contact"
-                    style="@style/AppOptionText"
+                    style="@style/AppHomeOptionsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/sixteen_dp"
                     android:onClick="cardViewClicked"
                     android:text="@string/contact_us"
                     app:drawableStartCompat="@drawable/ic_contact" />
@@ -530,10 +524,9 @@
                 <!-- About US -->
                 <TextView
                     android:id="@+id/home_about_us"
-                    style="@style/AppOptionText"
+                    style="@style/AppHomeOptionsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/sixteen_dp"
                     android:onClick="cardViewClicked"
                     android:text="@string/about_us"
                     app:drawableStartCompat="@drawable/ic_about" />
@@ -541,10 +534,9 @@
                 <!-- College Gallery -->
                 <TextView
                     android:id="@+id/home_college_gallery"
-                    style="@style/AppOptionText"
+                    style="@style/AppHomeOptionsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/sixteen_dp"
                     android:onClick="cardViewClicked"
                     android:text="@string/college_gallery"
                     app:drawableStartCompat="@drawable/ic_gallery" />

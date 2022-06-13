@@ -293,12 +293,12 @@ public class ClubPageActivity extends AppCompatActivity {
                     totalMembers.setText(obj.getString("total_members"));
 
                     if (!jsonObject.getString("club_logo").equals("null"))
-                        Picasso.get().load(RetroApi.BASE_URL + RetroApi.CLUB_LOGO + jsonObject.getString("club_logo")).placeholder(R.drawable.club_logo_placeholder).into(clubLogo);
+                        Picasso.get().load(RetroApi.CLUB_LOGO + jsonObject.getString("club_logo")).placeholder(R.drawable.club_logo_placeholder).into(clubLogo);
                     else
                         clubLogo.setImageResource(R.drawable.club_logo_placeholder);
 
                     if (!jsonObject.getString("club_background_image").equals("null"))
-                        Picasso.get().load(RetroApi.BASE_URL + RetroApi.CLUB_BACKGROUND + jsonObject.getString("club_background_image")).placeholder(R.drawable.place_holder).into(clubBgImage);
+                        Picasso.get().load(RetroApi.CLUB_BACKGROUND + jsonObject.getString("club_background_image")).placeholder(R.drawable.place_holder).into(clubBgImage);
                     else
                         clubBgImage.setImageResource(R.drawable.place_holder);
 

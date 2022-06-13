@@ -8,9 +8,6 @@ import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_BLOCKED;
 import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_NOT_VERIFIED;
 import static com.college.portal.api.AppApi.STUDENT_ID_NOT_FOUND;
 import static com.college.portal.api.AppApi.STUDENT_PASSWORD_DO_NOT_MATCH;
-import static com.college.portal.api.RetroApi.BASE_URL;
-import static com.college.portal.api.RetroApi.PRIVACY_URL;
-import static com.college.portal.api.RetroApi.TERMS_URL;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -32,6 +29,7 @@ import com.college.portal.AlertDialogInterface;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
+import com.college.portal.api.RetroApi;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.modules.model.LoginResponse;
@@ -112,7 +110,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent webTermsIntent = new Intent(SignInActivity.this, WebViewActivity.class);
-                webTermsIntent.putExtra(PAGE_URL, BASE_URL + TERMS_URL);
+                webTermsIntent.putExtra(PAGE_URL, RetroApi.TERMS_URL);
                 startActivity(webTermsIntent);
             }
         });
@@ -121,7 +119,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent webTermsIntent = new Intent(SignInActivity.this, WebViewActivity.class);
-                webTermsIntent.putExtra(PAGE_URL, BASE_URL + PRIVACY_URL);
+                webTermsIntent.putExtra(PAGE_URL, RetroApi.PRIVACY_URL);
                 startActivity(webTermsIntent);
             }
         });

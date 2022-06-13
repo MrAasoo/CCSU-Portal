@@ -33,6 +33,13 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
     </style>
 
+    <!-- Application Option Text -->
+    <style name="AppHomeOptionsText" parent="DefaultMarginPadding">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">@dimen/sixteen_dp</item>
+    </style>
+
     <!--Application option text with drawable-->
     <style name="DrawableNextTintSecondary" parent="AppOptionText">
         <item name="drawableEndCompat">@drawable/ic_next</item>
