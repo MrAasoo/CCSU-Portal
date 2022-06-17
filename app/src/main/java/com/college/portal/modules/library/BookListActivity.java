@@ -23,6 +23,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.college.portal.AlertDialogInterface;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
@@ -75,6 +76,18 @@ public class BookListActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        switch (getIntent().getStringExtra(AppApi.LIBRARY_REQ)) {
+            case AppApi.E_BOOK:
+                getSupportActionBar().setTitle(R.string.e_books);
+                break;
+            case AppApi.E_MAG:
+                getSupportActionBar().setTitle(R.string.e_magazine);
+                break;
+            default:
+                getSupportActionBar().setTitle(R.string.library);
+        }
+
         //Network broadcast
         mInternetBroadcastReceiver = new InternetBroadcastReceiver();
         mIntentFilter = new IntentFilter();
@@ -91,7 +104,6 @@ public class BookListActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
         getBookList(getIntent().getStringExtra("req_type"));
-
 
     }
 
@@ -192,8 +204,15 @@ public class BookListActivity extends AppCompatActivity {
 
                 mAdapter.notifyDataSetChanged();
             } else {
-                // TODO : No subjects found
-                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+                AlertDialogInterface dialog = new AlertDialogInterface(BookListActivity.this,
+                        "No result found!",
+                        "Please try again later...",
+                        R.drawable.ic_app_icon);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.setCancelable(false);
+                dialog.create();
+                dialog.show();
+                dialog.dismissAlertDialog();
             }
         } catch (JSONException e) {
             e.printStackTrace();

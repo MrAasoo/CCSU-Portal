@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AlertDialogInterface;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
@@ -107,26 +108,49 @@ public class FeedbackActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     if (response.body() != null) {
                         //Log.i("onSuccess", response.body().toString());
-                        String jsonresponse = response.body().toString();
+                        String jsonResponse = response.body().toString();
                         try {
-                            JSONObject jsonObject = new JSONObject(jsonresponse);
+                            JSONObject jsonObject = new JSONObject(jsonResponse);
                             if (jsonObject.optBoolean(AppApi.STATUS)) {
-                                // TODO : Feedback -> SUBMITTED
-                                if (jsonObject.optInt("message") == FEEDBACK_SUBMITTED)
-                                    Toast.makeText(FeedbackActivity.this, "Feedback submitted successfully", Toast.LENGTH_SHORT).show();
+                                // Feedback -> SUBMITTED
+                                if (jsonObject.optInt("message") == FEEDBACK_SUBMITTED) {
+                                    AlertDialogInterface dialog = new AlertDialogInterface(FeedbackActivity.this,
+                                            "Feedback",
+                                            "Feedback submitted successfully...",
+                                            android.R.drawable.stat_sys_upload_done);
+                                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                                    dialog.setCancelable(false);
+                                    dialog.create();
+                                    dialog.show();
+                                    dialog.dismissAlertDialog();
+                                }
                             } else {
+                                String title = "";
+                                String message = "";
+                                int icon = R.drawable.ic_app_icon;
                                 switch (jsonObject.optInt("message")) {
-
-                                    // TODO : Feedback -> NOT SUBMITTED
+                                    //Feedback -> NOT SUBMITTED
                                     case FEEDBACK_SUBMISSION_FAILED:
-                                        Toast.makeText(FeedbackActivity.this, "Feedback not submitted", Toast.LENGTH_SHORT).show();
+                                        title = "Feedback not submitted";
+                                        message = "Feedback submission failed... Try again later.";
+                                        icon = android.R.drawable.ic_dialog_alert;
                                         break;
 
-                                    // TODO : Feedback -> AUTH FAIL
+                                    // Feedback -> AUTH FAIL
                                     case ACCOUNT_SIGN_IN_FAIL:
-                                        Toast.makeText(FeedbackActivity.this, "Unable to connect", Toast.LENGTH_SHORT).show();
+
+                                        title = "Feedback not submitted";
+                                        message = "Something went wrong... Try again later";
+                                        icon = android.R.drawable.ic_dialog_info;
                                         break;
                                 }
+
+                                AlertDialogInterface dialog = new AlertDialogInterface(FeedbackActivity.this, title, message, icon);
+                                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                                dialog.setCancelable(false);
+                                dialog.create();
+                                dialog.show();
+                                dialog.dismissAlertDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

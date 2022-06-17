@@ -24,6 +24,32 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".modules.classroom.ClassDiscussionActivity"
+            android:exported="false"
+            android:label="@string/discussion" />
+        <activity
+            android:name=".modules.clubs.ClubMemberListActivity"
+            android:exported="false"
+            android:label="@string/members" />
+        <activity
+            android:name=".modules.clubs.ClubEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".modules.clubs.ClubEventListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".modules.classroom.NoticeBoardListActivity"
+            android:exported="false"
+            android:label="@string/notice_board" />
+        <activity
+            android:name=".modules.classroom.NoticeBoardActivity"
+            android:exported="false"
+            android:label="@string/notice_board" />
+        <activity
+            android:name=".modules.classroom.ClassRoomActivity"
+            android:configChanges="orientation"
+            android:label="@string/classroom" />
+        <activity
             android:name=".modules.library.BookListActivity"
             android:exported="false" />
         <activity
@@ -60,7 +86,7 @@
             android:configChanges="orientation"
             android:label="@string/club" />
         <activity
-            android:name=".modules.studentzone.SubjectListActivity"
+            android:name=".modules.student_zone.SubjectListActivity"
             android:configChanges="orientation"
             android:label="@string/subjects" />
         <activity
@@ -107,15 +133,11 @@
             android:configChanges="orientation"
             android:label="@string/contact_us" />
         <activity
-            android:name=".modules.studentzone.MessagesActivity"
-            android:configChanges="orientation"
-            android:label="@string/messages" />
-        <activity
-            android:name=".modules.NewsActivity"
+            android:name=".modules.news_updates.NewsActivity"
             android:configChanges="orientation"
             android:label="@string/college_news" />
         <activity
-            android:name=".modules.NewsListActivity"
+            android:name=".modules.news_updates.NewsListActivity"
             android:configChanges="orientation"
             android:label="@string/college_news" />
         <activity
@@ -133,11 +155,11 @@
         </provider>
 
         <activity
-            android:name=".modules.studentzone.AssignmentActivity"
+            android:name=".modules.student_zone.AssignmentActivity"
             android:configChanges="orientation"
             android:label="@string/assignment" />
         <activity
-            android:name=".modules.studentzone.AssignmentListActivity"
+            android:name=".modules.student_zone.AssignmentListActivity"
             android:configChanges="orientation"
             android:label="@string/assignment" />
         <activity
@@ -148,7 +170,7 @@
             android:name=".modules.AppInfoActivity"
             android:configChanges="orientation" />
         <activity
-            android:name=".modules.studentzone.ProfileActivity"
+            android:name=".modules.student_zone.ProfileActivity"
             android:configChanges="orientation" />
         <activity
             android:name=".modules.AccountStatus"

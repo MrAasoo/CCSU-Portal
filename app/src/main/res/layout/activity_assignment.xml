@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modules.studentzone.AssignmentActivity">
+    tools:context=".modules.student_zone.AssignmentActivity">
 
     <include layout="@layout/app_bar" />
 
@@ -65,11 +65,12 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:layout_marginBottom="?attr/actionBarSize"
                 android:id="@+id/assi_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/eight_dp"
-                android:hint="Assignment details"
+                android:hint="@string/assignment_details"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 

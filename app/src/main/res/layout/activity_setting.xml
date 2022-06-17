@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/terms_of_uses"
-                android:textColor="@color/blue"
+                android:textColor="@color/secondary_700"
                 android:textStyle="italic" />
 
             <TextView
@@ -96,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/privacy_policy"
-                android:textColor="@color/blue"
+                android:textColor="@color/secondary_700"
                 android:textStyle="italic" />
 
             <View

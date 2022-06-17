@@ -22,11 +22,28 @@ public interface AppApi {
     String GET_STUDENT_CLUB_STATUS = "3";
 
     String CLUB_ID = "club_id";
+    String CLUB_EVENT = "event";
+    String CLUB_ANNOUNCEMENT = "announcement";
+    String CLUB_REQ = "req_type";
+    String CLUB_EVENT_ID = "club_event_id";
+    String IS_ADMIN = "is_admin";
+    String STD_ID = "std_id";
+    String CLUB_MEMBER = "2";
+    String CLUB_ADMIN = "1";
 
+    String MEMBER_YES = "1";
+    String MEMBER_NO = "2";
+    String MEMBER_BLOCKED = "3";
 
+    int CLUB_MEMBER_LIST = 201;
+    int CLUB_MEMBER_LIST_ADMIN = 202;
     int JOIN_CLUB = 2010;
     int CANCEL_REQ = 2020;
     int LEAVE_CLUB = 2030;
+    int ACCEPT_MEMBER = 2040;
+    int REMOVE_MEMBER = 2050;
+    int BLOCK_MEMBER = 2060;
+    int UNBLOCK_MEMBER = 2070;
 
 
     //Assignment
@@ -70,4 +87,14 @@ public interface AppApi {
     String SMS_ADDRESS = "address";
     String SMS_BODY = "sms_body";
     String STATUS = "status";
+
+    // Message ~ Noticeboard, Class Discussion
+    String NOTICE_ID = "notice_id";
+    String NOTICE_BOARD_ID = "0";
+
+    // Library
+    String E_MAG = "emag";
+    String E_BOOK = "ebook";
+    String LIBRARY_REQ = "req_type";
+
 }

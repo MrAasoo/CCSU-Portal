@@ -19,6 +19,12 @@ public interface RetroApi {
     // Emulator
     // String BASE_URL = "http://10.0.2.2:80/collegeportalapi/";
 
+
+    // Library
+    String MY_COLLEGE_LIBRARY_URL = "https://ndl.iitkgp.ac.in";
+    String MORE_E_BOOKS_URL = "https://www.pdfdrive.com";
+
+    // Portal URL
     String TERMS_URL = BASE_URL + "termsdoc.html";
     String PRIVACY_URL = BASE_URL + "privacydoc.html";
     String HISTORY_URL = BASE_URL + "history.php";
@@ -30,6 +36,9 @@ public interface RetroApi {
     String CLUB_BACKGROUND = BASE_URL + "images/club_images/background/";
     String ASSIGNMENT_FILE_PATH = BASE_URL + "files/assignments/";
     String EBOOKS_FILE_PATH = BASE_URL + "files/books/";
+    String NOTICEBOARD_FILE_PATH = BASE_URL + "files/notices/";
+    String EVENT_IMAGE = BASE_URL + "images/club_images/event_announcement/";
+    String NEWS_FILE_PATH = BASE_URL + "files/college_events/";
 
     @GET("login.php")
     Call<LoginResponse> studentLogin(
@@ -103,6 +112,13 @@ public interface RetroApi {
             @Query("sr_no") String srNo
     );
 
+    @GET("club_events.php")
+    Call<JsonObject> getClubEvents(
+            @Query("event_id") String srNo,
+            @Query("event_type") String req,
+            @Query("club_id") String clubId
+    );
+
     @GET("campus_map.php")
     Call<JsonObject> getCampusMap();
 
@@ -111,4 +127,13 @@ public interface RetroApi {
             @Query("req_type") String reqType
     );
 
+    @GET("notice_board.php")
+    Call<JsonObject> getNoticeBoard(
+            @Query("notice_id") String noticeId,
+            @Query("department_id") String departmentId,
+            @Query("branch_id") String branchId
+    );
+
+    @GET("discussion_room_info.php")
+    Call<JsonObject> getClassroomDiscussionList(@Query("std_id") String stdId);
 }

@@ -43,7 +43,7 @@
     <string name="assignment">Assignments</string>
     <string name="college_news">News/Updates</string>
     <string name="notification">Notification</string>
-    <string name="class_notices">Notice board</string>
+    <string name="notice_board">Notice Board</string>
     <string name="contact_us">Contact Us</string>
     <string name="about_us">About Us</string>
     <string name="settings">Settings</string>
@@ -70,8 +70,8 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="messages">Messages</string>
-    <string name="club">Clubs</string>
-    <string name="discussion">Class Discussion</string>
+    <string name="club">Club</string>
+    <string name="discussion">Discussion</string>
     <string name="mails">Mails</string>
     <string name="dialog_message">Dialog message</string>
     <string name="dialog_title">Dialog title</string>
@@ -85,7 +85,7 @@
     <string name="your_account">Your account</string>
     <string name="e_books">eBooks</string>
     <string name="blogs">Blogs</string>
-    <string name="magazine">eMagazines</string>
+    <string name="e_magazine">eMagazines</string>
     <string name="lectures">Lectures</string>
     <string name="my_library">eLibrary</string>
     <string name="more_e_books_txt">Get more eBooks</string>
@@ -106,6 +106,8 @@
     <string name="assignment_due_date">Submit before : %1$s</string>
     <string name="assignment_date">Assignment Date : %1$s</string>
     <string name="date_place_holder">Date : %1$s</string>
+    <string name="event_post_date">Posted on : %1$s</string>
+    <string name="event_date">Organized on : %1$s</string>
     <string name="address_placeholder">City : %1$s\nDistrict : %2$s</string>
     <string name="assignment_faculty">By - %1$s</string>
     <string name="student_branch_text">%1$s - %2$s</string>
@@ -127,7 +129,9 @@
     <string name="subject_teacher">Subject Teacher</string>
     <string name="campus_map">Campus Map</string>
     <string name="application_theme">Application theme</string>
-    <string name="join_clubs">Join Clubs</string>
+
+    <!-- Club -->
+    <string name="join_club">Join Club</string>
     <string name="club_name">Club Name</string>
     <string name="club_motive">Club Motive</string>
     <string name="club_started_on">Club Started on</string>
@@ -139,11 +143,24 @@
     <string name="join_now">Join now</string>
     <string name="cancel_request">Cancel Request</string>
     <string name="leave">Leave</string>
+    <string name="event_motive">Event motive</string>
+    <string name="event_topic">Event topic</string>
+
     <string name="title_activity_campus_map">Campus Map</string>
     <string name="book_name">Book Name</string>
     <string name="author_name">Author name</string>
     <string name="download">Download</string>
     <string name="open">Open</string>
     <string name="publisher">Publisher</string>
+    <string name="notice_title">Notice Title</string>
+    <string name="notice_message">Notice Message</string>
+    <string name="classroom">Classroom</string>
+    <string name="club_event_image">Club event image</string>
+    <string name="assignment_details">Assignment details</string>
+    <string name="remove">Remove</string>
+    <string name="block">Block</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="un_block">Unblock</string>
 
 </resources>

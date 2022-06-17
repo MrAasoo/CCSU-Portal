@@ -2,7 +2,7 @@ package com.college.portal.modules.model;
 
 import android.annotation.SuppressLint;
 
-import com.college.portal.modules.studentzone.model.StudentInfo;
+import com.college.portal.modules.student_zone.model.StudentInfo;
 import com.google.gson.annotations.Expose;
 
 public class InfoResponse {

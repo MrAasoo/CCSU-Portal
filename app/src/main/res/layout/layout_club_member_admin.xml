@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/four_dp"
+    android:orientation="vertical"
+    android:padding="@dimen/eight_dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/profile_image_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/image"
+            android:orientation="vertical"
+            android:padding="@dimen/four_dp">
+
+            <TextView
+                android:id="@+id/is_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Club admin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="italic"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/std_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:hint="@string/student_name"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:id="@+id/std_branch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/student_branch"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/join_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/date"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/is_member"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/remove_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/four_dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_border"
+            android:elevation="@dimen/eight_dp"
+            android:text="@string/remove"
+            android:textAllCaps="false"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/block_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/four_dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_border"
+            android:elevation="@dimen/eight_dp"
+            android:text="@string/block"
+            android:textAllCaps="false"
+            android:textColor="@color/red" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/cancel_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/four_dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_border"
+            android:elevation="@dimen/eight_dp"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/accept_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/four_dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_border"
+            android:elevation="@dimen/eight_dp"
+            android:text="@string/accept"
+            android:textAllCaps="false"
+            android:textColor="@color/green" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/is_blocked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="2">
+
+
+        <Button
+            android:id="@+id/remove_member_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/four_dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_border"
+            android:elevation="@dimen/eight_dp"
+            android:text="@string/remove"
+            android:textAllCaps="false"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/unblock_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/four_dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_border"
+            android:elevation="@dimen/eight_dp"
+            android:text="@string/un_block"
+            android:textAllCaps="false"
+            android:textColor="@color/green" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,6 +2,7 @@ package com.college.portal.modules.clubs;
 
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -42,12 +44,14 @@ import retrofit2.Response;
 public class ClubPageActivity extends AppCompatActivity {
 
     private TextView clubMotive, clubStartDate, totalMembers, joinDate;
+    private TextView clubEvents, clubMembers, clubAnnouncements;
     private ImageView clubLogo, clubBgImage;
     private LinearLayout isNotMember, isMember;
 
     private Button joinNow, cancelRequest, leaveClub;
 
     private String stdId = "0", clubId = "0", srNo = "0";
+    private boolean isAdmin = false;
 
     //For Network
     private IntentFilter mIntentFilter;
@@ -112,6 +116,12 @@ public class ClubPageActivity extends AppCompatActivity {
         leaveClub = findViewById(R.id.leave_club);
         joinNow = findViewById(R.id.join_now);
         cancelRequest = findViewById(R.id.cancel_request);
+
+        //is members tv
+        clubEvents = findViewById(R.id.club_events);
+        clubMembers = findViewById(R.id.club_members);
+        clubAnnouncements = findViewById(R.id.club_announcements);
+
     }
 
     private void initClickListener() {
@@ -119,23 +129,118 @@ public class ClubPageActivity extends AppCompatActivity {
         joinNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clubMemberRequest(stdId, clubId, AppApi.JOIN_CLUB, srNo);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ClubPageActivity.this);
+                builder.setIcon(R.drawable.ic_app_icon)
+                        .setTitle(getString(R.string.join_club) + "!")
+                        .setMessage("Do you want to join club?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                clubMemberRequest(stdId, clubId, AppApi.JOIN_CLUB, srNo);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setCancelable(false);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
             }
         });
 
         cancelRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clubMemberRequest(stdId, clubId, AppApi.CANCEL_REQ, srNo);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ClubPageActivity.this);
+                builder.setIcon(R.drawable.ic_app_icon)
+                        .setTitle(getString(R.string.cancel_request) + "!")
+                        .setMessage("Are you sure to want cancel request?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                clubMemberRequest(stdId, clubId, AppApi.CANCEL_REQ, srNo);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setCancelable(false);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
             }
         });
 
         leaveClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clubMemberRequest(stdId, clubId, AppApi.LEAVE_CLUB, srNo);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ClubPageActivity.this);
+                builder.setIcon(R.drawable.ic_app_icon)
+                        .setTitle(getString(R.string.leave) + "!")
+                        .setMessage("Are you sure to want leave club?")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                clubMemberRequest(stdId, clubId, AppApi.LEAVE_CLUB, srNo);
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setCancelable(false);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+
+        });
+
+        clubEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClubPageActivity.this, ClubEventListActivity.class);
+                intent.putExtra(AppApi.CLUB_REQ, AppApi.CLUB_EVENT);
+                intent.putExtra(AppApi.CLUB_ID, clubId);
+                startActivity(intent);
             }
         });
+
+        clubAnnouncements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClubPageActivity.this, ClubEventListActivity.class);
+                intent.putExtra(AppApi.CLUB_REQ, AppApi.CLUB_ANNOUNCEMENT);
+                intent.putExtra(AppApi.CLUB_ID, clubId);
+                startActivity(intent);
+            }
+        });
+
+        clubMembers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClubPageActivity.this, ClubMemberListActivity.class);
+                intent.putExtra(AppApi.IS_ADMIN, isAdmin);
+                intent.putExtra(AppApi.CLUB_ID, clubId);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private void clubMemberRequest(String stdId, String clubId, int req, String srNo) {
@@ -178,9 +283,11 @@ public class ClubPageActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 //Log.i("Response String", response.body().toString());
-                //Toast.makeText()
+
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
+
+
                         //Log.i("onSuccess", response.body().toString());
 
                         String jsonResponse = response.body().toString();
@@ -212,15 +319,16 @@ public class ClubPageActivity extends AppCompatActivity {
     }
 
     private void getStudentStatus(String jsonResponse) {
-
+        Log.i("onSuccess", jsonResponse);
         try {
             JSONObject obj = new JSONObject(jsonResponse);
             if (obj.optBoolean("status")) {
                 JSONArray dataArray = obj.getJSONArray("data");
                 JSONObject jsonObject = dataArray.getJSONObject(0);
-                if (!jsonObject.getString("club_id").equals("null")) {
-                    joinDate.setText(String.format(getString(R.string.join_on_place_holder), jsonObject.getString("join_date")));
-                }
+
+                joinDate.setText(String.format(getString(R.string.join_on_place_holder), jsonObject.getString("join_date")));
+                if (jsonObject.getString("member_type").equals(AppApi.CLUB_ADMIN))
+                    isAdmin = true;
             }
         } catch (JSONException e) {
             Log.e("catch", "isStudentClubMember: " + e.getMessage());

@@ -16,6 +16,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.api.AppApi;
+import com.college.portal.api.RetroApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 
@@ -55,7 +57,7 @@ public class LibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LibraryActivity.this, BookListActivity.class);
-                intent.putExtra("req_type", "ebook");
+                intent.putExtra(AppApi.LIBRARY_REQ, AppApi.E_BOOK);
                 startActivity(intent);
             }
         });
@@ -64,7 +66,7 @@ public class LibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LibraryActivity.this, BookListActivity.class);
-                intent.putExtra("req_type", "emag");
+                intent.putExtra(AppApi.LIBRARY_REQ, AppApi.E_MAG);
                 startActivity(intent);
             }
         });
@@ -72,7 +74,7 @@ public class LibraryActivity extends AppCompatActivity {
         myCollegeLibrary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ndl.iitkgp.ac.in"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(RetroApi.MY_COLLEGE_LIBRARY_URL));
                 startActivity(browserIntent);
             }
         });
@@ -80,7 +82,7 @@ public class LibraryActivity extends AppCompatActivity {
         more_eBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.pdfdrive.com"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(RetroApi.MORE_E_BOOKS_URL));
                 startActivity(browserIntent);
             }
         });

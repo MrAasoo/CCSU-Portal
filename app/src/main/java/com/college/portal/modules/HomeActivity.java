@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,14 +23,15 @@ import com.college.portal.R;
 import com.college.portal.api.RetroApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.modules.campusmap.CampusMapListActivity;
+import com.college.portal.modules.classroom.ClassRoomActivity;
 import com.college.portal.modules.clubs.ClubsActivity;
 import com.college.portal.modules.gallery.CollegeGalleryActivity;
 import com.college.portal.modules.library.LibraryActivity;
 import com.college.portal.modules.model.StudentPref;
-import com.college.portal.modules.studentzone.AssignmentListActivity;
-import com.college.portal.modules.studentzone.MessagesActivity;
-import com.college.portal.modules.studentzone.ProfileActivity;
-import com.college.portal.modules.studentzone.SubjectListActivity;
+import com.college.portal.modules.news_updates.NewsListActivity;
+import com.college.portal.modules.student_zone.AssignmentListActivity;
+import com.college.portal.modules.student_zone.ProfileActivity;
+import com.college.portal.modules.student_zone.SubjectListActivity;
 import com.college.portal.services.NetworkServices;
 import com.college.portal.sharedpreferences.SharedPrefManager;
 import com.squareup.picasso.Picasso;
@@ -43,7 +43,6 @@ public class HomeActivity extends AppCompatActivity {
     //Views and Variables
     private ImageView stdImage;
     private TextView stdName, stdDepartment, stdBranch, stdId, greet;
-    private Button enquiry;
 
     //For Network
     private IntentFilter mIntentFilter;
@@ -73,7 +72,6 @@ public class HomeActivity extends AppCompatActivity {
         stdDepartment = findViewById(R.id.std_department);
         stdBranch = findViewById(R.id.std_branch);
         stdId = findViewById(R.id.std_id);
-        enquiry = findViewById(R.id.enquiry);
 
         //Time of day
         greet = findViewById(R.id.greet);
@@ -93,6 +91,8 @@ public class HomeActivity extends AppCompatActivity {
 
         //Log.i("HomeActivity", "onCreate:--- image url  ----> " + BASE_URL + STUDENT_IMAGES + studentPref.getStdImage());
 
+
+        TextView enquiry = findViewById(R.id.enquiry);
         enquiry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,11 +149,15 @@ public class HomeActivity extends AppCompatActivity {
                 break;
 
             case R.id.home_messages:
-                startActivity(new Intent(getApplicationContext(), MessagesActivity.class));
+                startActivity(new Intent(getApplicationContext(), ClassRoomActivity.class));
                 break;
 /*
             case R.id.home_mails:
                 startActivity(new Intent(getApplicationContext(), MailListActivity.class));
+                break;
+
+            case R.id.home_message:
+                startActivity(new Intent(getApplicationContext(), MessageActivity.class));
                 break;
 */
             case R.id.home_library:

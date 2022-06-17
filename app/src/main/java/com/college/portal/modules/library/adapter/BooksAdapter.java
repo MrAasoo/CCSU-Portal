@@ -112,7 +112,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
                     if (BookListActivity.hasStoragePermission(mContext)) {
                         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(RetroApi.EBOOKS_FILE_PATH + assi_path + ""));
                         //Log.i("URI", "onClick: " + Uri.parse(RetroApi.ASSIGNMENT_FILE_PATH + assi_path + ""));
-                        request.setTitle("Downloading " + assi_path);
+                        request.setTitle(assi_path);
                         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI
                                 | DownloadManager.Request.NETWORK_MOBILE);
                         request.setMimeType("application/pdf");

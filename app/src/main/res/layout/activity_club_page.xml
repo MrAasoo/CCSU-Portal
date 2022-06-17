@@ -145,24 +145,35 @@
 
                 <TextView
                     android:id="@+id/club_events"
-                    style="@style/DrawableNextTintSecondary"
+                    style="@style/AppHomeOptionsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/events" />
-
-                <TextView
-                    android:id="@+id/club_members"
-                    style="@style/DrawableNextTintSecondary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/members" />
+                    android:text="@string/events"
+                    app:drawableLeftCompat="@drawable/ic_event" />
 
                 <TextView
                     android:id="@+id/club_announcements"
-                    style="@style/DrawableNextTintSecondary"
+                    style="@style/AppHomeOptionsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/announcements" />
+                    android:text="@string/announcements"
+                    app:drawableLeftCompat="@drawable/ic_announcements" />
+
+                <TextView
+                    android:id="@+id/club_messages"
+                    style="@style/AppHomeOptionsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/messages"
+                    app:drawableLeftCompat="@drawable/ic_messages" />
+
+                <TextView
+                    android:id="@+id/club_members"
+                    style="@style/AppHomeOptionsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/members"
+                    app:drawableLeftCompat="@drawable/ic_members" />
 
             </LinearLayout>
 

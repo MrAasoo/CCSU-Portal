@@ -21,6 +21,7 @@
     <color name="transparent_medium">#80000000</color>
 
     <color name="sign_in_edit_text">#FFFFFFFF</color>
+    <color name="green">#FF00C853</color>
 
 
 </resources>
