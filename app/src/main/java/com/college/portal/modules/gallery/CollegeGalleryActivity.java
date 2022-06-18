@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +20,7 @@ import com.college.portal.services.NetworkServices;
 
 public class CollegeGalleryActivity extends AppCompatActivity {
 
-    private TextView tvPhotos, tvVideos;
+    private RelativeLayout tvPhotos, tvVideos;
 
     //For Network
     private IntentFilter mIntentFilter;

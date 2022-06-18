@@ -179,10 +179,10 @@ public class ClassDiscussionActivity extends AppCompatActivity {
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject jsonObject = dataArray.getJSONObject(i);
 
-                    if (!jsonObject.getString("room_id").equals("null")) {
+                    if (!jsonObject.getString("room_key").equals("null")) {
 
                         DiscussionRoom notice = new DiscussionRoom(
-                                jsonObject.getString("room_id"),
+                                jsonObject.getString("room_key"),
                                 jsonObject.getString("room_name"));
 
                         mList.add(notice);

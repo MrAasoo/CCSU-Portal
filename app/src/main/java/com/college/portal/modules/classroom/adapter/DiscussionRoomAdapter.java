@@ -1,18 +1,20 @@
 package com.college.portal.modules.classroom.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.college.portal.R;
+import com.college.portal.api.AppApi;
+import com.college.portal.modules.classroom.ClassroomMessagesActivity;
 import com.college.portal.modules.classroom.module.DiscussionRoom;
 
 import java.util.List;
@@ -48,12 +50,10 @@ public class DiscussionRoomAdapter extends RecyclerView.Adapter<DiscussionRoomAd
         holder.cardHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(mContext, NoticeBoardActivity.class);
-//                intent.putExtra(AppApi.NOTICE_ID, mList.get(holder.getAdapterPosition()).getNoticeId());
-//                mContext.startActivity(intent);
-
-                Toast.makeText(mContext, "Room id : " + room.getRoomId(), Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(mContext, ClassroomMessagesActivity.class);
+                intent.putExtra(AppApi.ROOM_KEY, room.getRoomKey());
+                intent.putExtra(AppApi.ROOM_NAME, room.getRoomName());
+                mContext.startActivity(intent);
             }
         });
     }
@@ -76,4 +76,6 @@ public class DiscussionRoomAdapter extends RecyclerView.Adapter<DiscussionRoomAd
 
         }
     }
+
+
 }

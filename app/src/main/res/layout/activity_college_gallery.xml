@@ -1,50 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".modules.gallery.CollegeGalleryActivity">
 
 
-    <include
-        layout="@layout/app_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include layout="@layout/app_bar" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
+
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/sixteen_dp">
+            android:alignmentMode="alignMargins"
+            android:columnCount="@integer/grid_column_count">
 
-            <!--Photos-->
-            <TextView
-                android:id="@+id/about_photo"
-                style="@style/DrawableNextTintSecondary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/photos" />
+            <!-- Photos -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/card_height"
+                android:layout_rowWeight="3"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/sixteen_dp"
+                app:cardCornerRadius="@dimen/eight_dp"
+                app:cardElevation="@dimen/four_dp">
 
-            <!--Videos-->
-            <TextView
-                android:id="@+id/about_video"
-                style="@style/DrawableNextTintSecondary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/videos" />
+                <RelativeLayout
+                    android:id="@+id/about_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/college_photos">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/sixteen_dp"
+                        android:layout_marginTop="@dimen/sixteen_dp"
+                        android:text="@string/photos"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Club -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/card_height"
+                android:layout_rowWeight="3"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/sixteen_dp"
+                app:cardCornerRadius="@dimen/eight_dp"
+                app:cardElevation="@dimen/four_dp">
+
+                <RelativeLayout
+                    android:id="@+id/about_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/college_videos">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/sixteen_dp"
+                        android:layout_marginTop="@dimen/sixteen_dp"
+                        android:text="@string/videos"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
 
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

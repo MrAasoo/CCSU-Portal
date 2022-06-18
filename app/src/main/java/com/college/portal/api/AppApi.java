@@ -30,6 +30,8 @@ public interface AppApi {
     String STD_ID = "std_id";
     String CLUB_MEMBER = "2";
     String CLUB_ADMIN = "1";
+    String CLUB_KEY = "club_key";
+    String CLUB_NAME = "club_name";
 
     String MEMBER_YES = "1";
     String MEMBER_NO = "2";
@@ -90,11 +92,12 @@ public interface AppApi {
 
     // Message ~ Noticeboard, Class Discussion
     String NOTICE_ID = "notice_id";
+    String ROOM_KEY = "room_key";
+    String ROOM_NAME = "room_name";
     String NOTICE_BOARD_ID = "0";
 
     // Library
     String E_MAG = "emag";
     String E_BOOK = "ebook";
     String LIBRARY_REQ = "req_type";
-
 }

@@ -11,4 +11,9 @@
 
     <color name="sign_in_edit_text">#FF2C2C2C</color>
 
+    <color name="send_msg_bg">#A8344863</color>
+    <color name="send_msg_bg_border">#A5AEBA</color>
+    <color name="receive_msg_bg">#424242</color>
+    <color name="receive_msg_bg_border">#737373</color>
+
 </resources>

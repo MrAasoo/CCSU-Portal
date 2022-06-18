@@ -25,6 +25,7 @@
         app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
         <TextView
+            android:textColor="@color/secondary_700"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/copyrights_title"
@@ -44,11 +45,11 @@
             android:layout_marginBottom="@dimen/sixteen_dp"
             android:text="@string/copyright_text"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/primary_500" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
 
         <TextView
+            android:textColor="@color/secondary_700"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/thirty_two_dp"
@@ -68,8 +69,7 @@
             android:layout_height="wrap_content"
             android:text="Version info"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/primary_500" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

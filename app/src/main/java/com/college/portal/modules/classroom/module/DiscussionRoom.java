@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class DiscussionRoom {
 
-    @SerializedName("room_id")
+    @SerializedName("room_key")
     @Expose
-    private String roomId;
+    private String roomKey;
 
     @SerializedName("room_name")
     @Expose
@@ -17,17 +17,17 @@ public class DiscussionRoom {
     public DiscussionRoom() {
     }
 
-    public DiscussionRoom(String roomId, String roomName) {
-        this.roomId = roomId;
+    public DiscussionRoom(String roomKey, String roomName) {
+        this.roomKey = roomKey;
         this.roomName = roomName;
     }
 
-    public String getRoomId() {
-        return roomId;
+    public String getRoomKey() {
+        return roomKey;
     }
 
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
+    public void setRoomKey(String roomKey) {
+        this.roomKey = roomKey;
     }
 
     public String getRoomName() {

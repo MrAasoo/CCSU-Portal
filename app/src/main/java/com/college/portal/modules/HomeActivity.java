@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -34,6 +35,11 @@ import com.college.portal.modules.student_zone.ProfileActivity;
 import com.college.portal.modules.student_zone.SubjectListActivity;
 import com.college.portal.services.NetworkServices;
 import com.college.portal.sharedpreferences.SharedPrefManager;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
@@ -47,6 +53,14 @@ public class HomeActivity extends AppCompatActivity {
     //For Network
     private IntentFilter mIntentFilter;
     private InternetBroadcastReceiver mInternetBroadcastReceiver;
+
+
+    //Firebase
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+
+    // User
+    private StudentPref studentPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +79,11 @@ public class HomeActivity extends AppCompatActivity {
         Intent serviceIntent = new Intent(this, NetworkServices.class);
         startService(serviceIntent);
 
+        // Firebase user
+        mAuth = FirebaseAuth.getInstance();
+
         //student pref
-        StudentPref studentPref = SharedPrefManager.getInstance(HomeActivity.this).getStudentInfo();
+        studentPref = SharedPrefManager.getInstance(HomeActivity.this).getStudentInfo();
 
         //Views
         stdDepartment = findViewById(R.id.std_department);
@@ -99,6 +116,35 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, EnquiryActivity.class));
             }
         });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mUser = mAuth.getCurrentUser();
+        if (mUser == null) {
+            mAuth.createUserWithEmailAndPassword(studentPref.getStdId() + "@stportal.com", studentPref.getStdPassword())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(HomeActivity.this, "FirebaseAuth Successful", Toast.LENGTH_SHORT).show();
+                                mUser = mAuth.getCurrentUser();
+                            } else {
+                                mAuth.signInWithEmailAndPassword(studentPref.getStdId() + "@stportal.com", studentPref.getStdPassword())
+                                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                Toast.makeText(HomeActivity.this, "FirebaseAuth Successful", Toast.LENGTH_SHORT).show();
+                                                mUser = mAuth.getCurrentUser();
+                                            }
+                                        });
+                            }
+                        }
+                    });
+        }
 
     }
 
@@ -214,6 +260,7 @@ public class HomeActivity extends AppCompatActivity {
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                FirebaseAuth.getInstance().signOut();
                                 SharedPrefManager.getInstance(getApplicationContext()).clearStudent();
                                 toLoginActivity();
                                 dialog.dismiss();

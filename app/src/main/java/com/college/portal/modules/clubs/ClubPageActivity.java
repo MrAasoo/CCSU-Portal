@@ -44,13 +44,11 @@ import retrofit2.Response;
 public class ClubPageActivity extends AppCompatActivity {
 
     private TextView clubMotive, clubStartDate, totalMembers, joinDate;
-    private TextView clubEvents, clubMembers, clubAnnouncements;
+    private TextView clubEvents, clubMembers, clubAnnouncements, clubMessages;
     private ImageView clubLogo, clubBgImage;
     private LinearLayout isNotMember, isMember;
-
     private Button joinNow, cancelRequest, leaveClub;
-
-    private String stdId = "0", clubId = "0", srNo = "0";
+    private String stdId = "0", clubId = "0", srNo = "0", clubKey, clubName;
     private boolean isAdmin = false;
 
     //For Network
@@ -121,6 +119,7 @@ public class ClubPageActivity extends AppCompatActivity {
         clubEvents = findViewById(R.id.club_events);
         clubMembers = findViewById(R.id.club_members);
         clubAnnouncements = findViewById(R.id.club_announcements);
+        clubMessages = findViewById(R.id.club_messages);
 
     }
 
@@ -236,6 +235,16 @@ public class ClubPageActivity extends AppCompatActivity {
                 Intent intent = new Intent(ClubPageActivity.this, ClubMemberListActivity.class);
                 intent.putExtra(AppApi.IS_ADMIN, isAdmin);
                 intent.putExtra(AppApi.CLUB_ID, clubId);
+                startActivity(intent);
+            }
+        });
+
+        clubMessages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClubPageActivity.this, ClubMessagesActivity.class);
+                intent.putExtra(AppApi.CLUB_KEY, clubKey);
+                intent.putExtra(AppApi.CLUB_NAME, clubName);
                 startActivity(intent);
             }
         });
@@ -395,7 +404,9 @@ public class ClubPageActivity extends AppCompatActivity {
 
                 if (!jsonObject.getString("club_id").equals("null")) {
 
-                    getSupportActionBar().setTitle(jsonObject.getString("club_name"));
+                    clubName = jsonObject.getString("club_name");
+                    clubKey = jsonObject.getString("club_key");
+                    getSupportActionBar().setTitle(clubName);
                     clubMotive.setText(jsonObject.getString("club_motive"));
                     clubStartDate.setText(jsonObject.getString("club_start_date"));
                     totalMembers.setText(obj.getString("total_members"));

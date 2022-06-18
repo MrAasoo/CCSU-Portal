@@ -23,6 +23,15 @@
         android:theme="@style/Theme.CollegePortal"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+
+        <activity
+            android:name=".modules.clubs.ClubMessagesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.classroom.ClassroomMessagesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.classroom.ClassDiscussionActivity"
             android:exported="false"

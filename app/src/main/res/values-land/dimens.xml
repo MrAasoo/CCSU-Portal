@@ -7,5 +7,6 @@
     <dimen name="video_view_container_bottom_padding">0dp</dimen>
     <dimen name="image_view_bottom_margin">0dp</dimen>
     <dimen name="enq_button_width">420dp</dimen>
+    <dimen name="fab_margin">48dp</dimen>
 
 </resources>
