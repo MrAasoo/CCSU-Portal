@@ -5,14 +5,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.BuildConfig;
 import com.college.portal.R;
 
-public class AppInfoActivity extends AppCompatActivity {
+public class AppInfoActivity extends AppCompat {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class AppInfoActivity extends AppCompatActivity {
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(getString(R.string.app_name));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

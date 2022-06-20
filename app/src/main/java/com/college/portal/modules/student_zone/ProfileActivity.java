@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -14,10 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.RetroApi;
@@ -36,7 +37,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompat {
 
     //Variables and Views
     private CollapsingToolbarLayout mToolBar;
@@ -155,7 +156,8 @@ public class ProfileActivity extends AppCompatActivity {
                                 R.drawable.ic_app_icon);
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                         dialog.setCancelable(false);
-                        dialog.create();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                            dialog.create();
                         dialog.show();
                         dialog.dismissAlertDialog();
                         //Toast.makeText(ProfileActivity.this, "No Data found!", Toast.LENGTH_SHORT).show();

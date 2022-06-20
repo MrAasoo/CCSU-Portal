@@ -17,9 +17,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
@@ -41,7 +41,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ClubPageActivity extends AppCompatActivity {
+public class ClubPageActivity extends AppCompat {
 
     private TextView clubMotive, clubStartDate, totalMembers, joinDate;
     private TextView clubEvents, clubMembers, clubAnnouncements, clubMessages;

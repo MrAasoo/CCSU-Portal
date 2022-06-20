@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:text="@string/our_mission"
                 android:textAlignment="center"
                 app:drawableTopCompat="@drawable/ic_mission" />
 
@@ -47,7 +46,6 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/our_vision"
                 android:textAlignment="center"
                 app:drawableTopCompat="@drawable/ic_vision" />
 
@@ -59,7 +57,6 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/our_values"
                 android:textAlignment="center"
                 app:drawableTopCompat="@drawable/ic_values" />
 
@@ -71,7 +68,6 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/history"
                 android:textAlignment="center"
                 app:drawableTopCompat="@drawable/ic_history" />
 

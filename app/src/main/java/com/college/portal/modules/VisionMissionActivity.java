@@ -5,13 +5,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
 
-public class VisionMissionActivity extends AppCompatActivity {
+public class VisionMissionActivity extends AppCompat {
 
     // For system ui
     private View decorView;

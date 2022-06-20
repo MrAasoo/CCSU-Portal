@@ -12,11 +12,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
@@ -43,7 +43,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
-public class ClassroomMessagesActivity extends AppCompatActivity {
+public class ClassroomMessagesActivity extends AppCompat {
 
     private final DatabaseReference reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://college-portal-353009-default-rtdb.firebaseio.com/");
     //user data

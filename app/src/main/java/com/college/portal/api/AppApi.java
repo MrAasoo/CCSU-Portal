@@ -27,7 +27,6 @@ public interface AppApi {
     String CLUB_REQ = "req_type";
     String CLUB_EVENT_ID = "club_event_id";
     String IS_ADMIN = "is_admin";
-    String STD_ID = "std_id";
     String CLUB_MEMBER = "2";
     String CLUB_ADMIN = "1";
     String CLUB_KEY = "club_key";

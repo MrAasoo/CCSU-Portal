@@ -12,12 +12,12 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
@@ -40,7 +40,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CollegeGalleryImageListActivity extends AppCompatActivity {
+public class CollegeGalleryImageListActivity extends AppCompat {
 
     //Image list
     private RecyclerView recyclerView;
@@ -59,6 +59,7 @@ public class CollegeGalleryImageListActivity extends AppCompatActivity {
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(getString(R.string.photos));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

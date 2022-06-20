@@ -12,11 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
@@ -36,7 +37,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ClubEventActivity extends AppCompatActivity {
+public class ClubEventActivity extends AppCompat {
 
     private ImageView eventImage;
     private TextView eventTopic, eventMotive, eventPostDate, eventDate;
@@ -171,19 +172,19 @@ public class ClubEventActivity extends AppCompatActivity {
 
                     switch (jsonObject.getString("event_type")) {
                         case AppApi.CLUB_EVENT:
-                            getSupportActionBar().setTitle(R.string.events);
+                            getSupportActionBar().setTitle(getString(R.string.events));
                             break;
                         case AppApi.CLUB_ANNOUNCEMENT:
-                            getSupportActionBar().setTitle(R.string.announcements);
+                            getSupportActionBar().setTitle(getString(R.string.announcements));
                             break;
                         default:
-                            getSupportActionBar().setTitle(R.string.club);
+                            getSupportActionBar().setTitle(getString(R.string.club));
                     }
 
                 }
 
             } else {
-
+                Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -46,7 +46,6 @@ public class SignInActivity extends AppCompat {
 
     //view objects
     private EditText stdId, stdPassword;
-    private TextView forgotPassBtn;
     private Button signInBtn;
 
     //For Network
@@ -83,7 +82,7 @@ public class SignInActivity extends AppCompat {
         });
 
         //Forgot Password
-        forgotPassBtn = findViewById(R.id.forgot_password);
+        TextView forgotPassBtn = findViewById(R.id.forgot_password);
         forgotPassBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

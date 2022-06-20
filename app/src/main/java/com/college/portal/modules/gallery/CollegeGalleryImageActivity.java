@@ -10,8 +10,7 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
@@ -19,7 +18,7 @@ import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 import com.squareup.picasso.Picasso;
 
-public class CollegeGalleryImageActivity extends AppCompatActivity {
+public class CollegeGalleryImageActivity extends AppCompat {
 
     // For System ui
     private View decorView;

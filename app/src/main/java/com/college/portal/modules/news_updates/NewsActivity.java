@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -118,7 +119,8 @@ public class NewsActivity extends AppCompatActivity {
                 getString(R.string.progress_loading_message));
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         progressDialog.setCancelable(false);
-        progressDialog.create();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            progressDialog.create();
         progressDialog.show();
 
 
@@ -166,13 +168,13 @@ public class NewsActivity extends AppCompatActivity {
                 String title = jsonObject.getString("n_type");
                 switch (title) {
                     case "0":
-                        getSupportActionBar().setTitle("News");
+                        getSupportActionBar().setTitle(getString(R.string.news));
                         break;
                     case "1":
-                        getSupportActionBar().setTitle("Notice");
+                        getSupportActionBar().setTitle(getString(R.string.notice));
                         break;
                     case "2":
-                        getSupportActionBar().setTitle("Event");
+                        getSupportActionBar().setTitle(getString(R.string.events));
                         break;
                     default:
                         getSupportActionBar().setTitle(getString(R.string.college_news));

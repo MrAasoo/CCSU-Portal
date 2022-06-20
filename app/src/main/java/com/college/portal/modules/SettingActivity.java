@@ -99,17 +99,17 @@ public class SettingActivity extends AppCompat {
         langGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                LocalManager langManager = new LocalManager(SettingActivity.this);
+
 
                 switch (checkedId) {
                     case R.id.radio_english:
-                        langPrefManager.SetLanguage(LanguagePrefManager.ENGLISH);
-                        langManager.updateResources(LanguagePrefManager.ENGLISH);
+                        new LanguagePrefManager(SettingActivity.this).SetLanguage(LanguagePrefManager.ENGLISH);
+                        LocalManager.setNewLocale(getBaseContext(), LanguagePrefManager.ENGLISH);
                         recreate();
                         break;
                     case R.id.radio_hindi:
-                        langPrefManager.SetLanguage(LanguagePrefManager.HINDI);
-                        langManager.updateResources(LanguagePrefManager.HINDI);
+                        new LanguagePrefManager(SettingActivity.this).SetLanguage(LanguagePrefManager.HINDI);
+                        LocalManager.setNewLocale(getBaseContext(), LanguagePrefManager.HINDI);
                         recreate();
                         break;
                 }
@@ -220,4 +220,5 @@ public class SettingActivity extends AppCompat {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }

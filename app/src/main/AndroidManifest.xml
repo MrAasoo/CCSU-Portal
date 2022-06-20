@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.college.portal">
+
     <!-- Application Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -34,12 +35,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.classroom.ClassDiscussionActivity"
-            android:exported="false"
-            android:label="@string/discussion" />
+            android:exported="false" />
         <activity
             android:name=".modules.clubs.ClubMemberListActivity"
-            android:exported="false"
-            android:label="@string/members" />
+            android:exported="false" />
         <activity
             android:name=".modules.clubs.ClubEventActivity"
             android:exported="false" />
@@ -48,24 +47,20 @@
             android:exported="false" />
         <activity
             android:name=".modules.classroom.NoticeBoardListActivity"
-            android:exported="false"
-            android:label="@string/notice_board" />
+            android:exported="false" />
         <activity
             android:name=".modules.classroom.NoticeBoardActivity"
-            android:exported="false"
-            android:label="@string/notice_board" />
+            android:exported="false" />
         <activity
             android:name=".modules.classroom.ClassRoomActivity"
-            android:configChanges="orientation"
-            android:label="@string/classroom" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.library.BookListActivity"
             android:exported="false" />
         <activity
             android:name=".modules.campus_map.CampusMapListActivity"
             android:configChanges="orientation"
-            android:exported="false"
-            android:label="@string/title_activity_campus_map" />
+            android:exported="false" />
         <!--
              Before you run your application, you need a Google Maps API key.
 
@@ -74,7 +69,7 @@
                 https://developers.google.com/maps/documentation/android-sdk/get-api-key
 
              Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             project's local.properties file (e.g. MAPS_API_KEY= AizaSyBK- ...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
         <meta-data
@@ -84,28 +79,22 @@
         <activity
             android:name=".modules.campus_map.CampusMapActivity"
             android:configChanges="orientation"
-            android:exported="false"
-            android:label="@string/title_activity_campus_map" />
+            android:exported="false" />
         <activity
             android:name=".modules.clubs.ClubPageActivity"
-            android:configChanges="orientation"
-            android:label="@string/club" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.clubs.ClubsActivity"
-            android:configChanges="orientation"
-            android:label="@string/club" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.student_zone.SubjectListActivity"
-            android:configChanges="orientation"
-            android:label="@string/subjects" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.FeedbackActivity"
-            android:configChanges="orientation"
-            android:label="@string/feedback" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.gallery.CollegeGalleryActivity"
-            android:configChanges="orientation"
-            android:label="@string/college_gallery" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.EnquiryActivity"
             android:configChanges="orientation" />
@@ -117,38 +106,31 @@
             android:configChanges="orientation" />
         <activity
             android:name=".modules.gallery.CollegeGalleryImageListActivity"
-            android:configChanges="orientation"
-            android:label="@string/photos" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.gallery.CollegeGalleryVideoActivity"
             android:configChanges="orientation" />
         <activity
             android:name=".modules.gallery.CollegeGalleryVideoListActivity"
-            android:configChanges="orientation"
-            android:label="@string/videos" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.AboutUsActivity"
-            android:configChanges="orientation"
-            android:label="@string/about_us" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.NoInternetActivity"
             android:configChanges="orientation" />
         <activity
             android:name=".modules.library.LibraryActivity"
-            android:configChanges="orientation"
-            android:label="@string/library" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.ContactUsActivity"
-            android:configChanges="orientation"
-            android:label="@string/contact_us" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.news_updates.NewsActivity"
-            android:configChanges="orientation"
-            android:label="@string/college_news" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.news_updates.NewsListActivity"
-            android:configChanges="orientation"
-            android:label="@string/college_news" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.WebViewActivity"
             android:configChanges="orientation" />
@@ -165,16 +147,13 @@
 
         <activity
             android:name=".modules.student_zone.AssignmentActivity"
-            android:configChanges="orientation"
-            android:label="@string/assignment" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.student_zone.AssignmentListActivity"
-            android:configChanges="orientation"
-            android:label="@string/assignment" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.SettingActivity"
-            android:configChanges="orientation"
-            android:label="@string/settings" />
+            android:configChanges="orientation" />
         <activity
             android:name=".modules.AppInfoActivity"
             android:configChanges="orientation" />
@@ -203,8 +182,7 @@
 
         <service
             android:name=".services.NetworkServices"
-            android:enabled="true"
-            android:exported="true" />
+            android:enabled="true" />
     </application>
 
 </manifest>

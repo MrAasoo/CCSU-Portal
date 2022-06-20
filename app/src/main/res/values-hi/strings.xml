@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="college_name">Sir Chhotu Ram Institute of Engineering &amp; Technology, Meerut\nमें आपका स्वागत है</string>
@@ -182,5 +183,7 @@
     <string name="enq_message_title">क्या आपके पास पूछने के लिए कोई प्रश्न है?</string>
     <string name="no_data_found">कोई डेटा नहीं मिला!</string>
     <string name="no_data_message">पुनः प्रयास करें या प्रशासन से संपर्क करें।</string>
+    <string name="news">समाचार</string>
+    <string name="notice">सूचना</string>
 
 </resources>

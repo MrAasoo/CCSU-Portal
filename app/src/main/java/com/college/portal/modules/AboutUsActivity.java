@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
@@ -21,7 +21,7 @@ import com.college.portal.api.RetroApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 
-public class AboutUsActivity extends AppCompatActivity {
+public class AboutUsActivity extends AppCompat {
 
     private TextView tvMission, tvVision, tvValues, tvHistory;
 
@@ -37,6 +37,7 @@ public class AboutUsActivity extends AppCompatActivity {
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(getString(R.string.about_us));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -52,6 +53,11 @@ public class AboutUsActivity extends AppCompatActivity {
         tvVision = findViewById(R.id.about_vision);
         tvValues = findViewById(R.id.about_values);
         tvHistory = findViewById(R.id.about_history);
+
+        tvMission.setText(getString(R.string.our_mission));
+        tvVision.setText(getString(R.string.our_vision));
+        tvValues.setText(getString(R.string.our_values));
+        tvHistory.setText(getString(R.string.history));
 
         //Click listeners for text views
         tvMission.setOnClickListener(new View.OnClickListener() {

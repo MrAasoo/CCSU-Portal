@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name" translatable="false">St.Portal</string>
@@ -166,7 +167,7 @@
     <string name="version_info" translatable="false">Version info</string>
     <string name="classroom_text">A Short Multimedia Text Set About Classroom.</string>
     <string name="feedback_text">What would you like to improve?</string>
-    <string name="feedback_edit_text_hint">Write your comment here... MAX 500</string>
+    <string name="feedback_edit_text_hint">Write your comment here … MAX 500</string>
     <string name="campus_corner">Campus Corner</string>
     <string name="student_zone">Student Zone</string>
     <string name="connection">Connection</string>
@@ -210,5 +211,7 @@
     <string name="enq_message_title">Do you have any query to ask?</string>
     <string name="no_data_found">No Data Found!</string>
     <string name="no_data_message">Try to refresh or Contact to administration.</string>
+    <string name="news">News</string>
+    <string name="notice">Notice</string>
 
 </resources>

@@ -11,15 +11,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 
-public class WebViewActivity extends AppCompatActivity {
+public class WebViewActivity extends AppCompat {
 
     private WebView webView;
 
@@ -35,6 +35,7 @@ public class WebViewActivity extends AppCompatActivity {
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(getString(R.string.college_name_short));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -52,7 +53,6 @@ public class WebViewActivity extends AppCompatActivity {
         }
         webView = findViewById(R.id.web_view);
         webView.setWebViewClient(new WebViewClient());
-        //webView.loadUrl(getResources().getString(R.string.link_dummydata));
         webView.loadUrl(url);
 
     }
@@ -79,13 +79,9 @@ public class WebViewActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if (webView.canGoBack()) {
-                    webView.goBack();
-                    return true;
-                } else {
-                    this.finish();
-                    return true;
-                }
+                if (webView.canGoBack()) webView.goBack();
+                else this.finish();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

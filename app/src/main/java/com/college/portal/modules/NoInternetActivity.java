@@ -15,13 +15,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 
-public class NoInternetActivity extends AppCompatActivity {
+public class NoInternetActivity extends AppCompat {
 
     Button btnTryAgain, btnOnData, btnOnWifi;
 
@@ -46,7 +45,7 @@ public class NoInternetActivity extends AppCompatActivity {
                             R.drawable.ic_nointernet);
                     alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                     alertDialog.setCancelable(false);
-                    alertDialog.create();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) alertDialog.create();
                     alertDialog.show();
                     alertDialog.dismissAlertDialog();
                 }
@@ -107,7 +106,8 @@ public class NoInternetActivity extends AppCompatActivity {
                     R.drawable.ic_nointernet);
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             alertDialog.setCancelable(false);
-            alertDialog.create();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                alertDialog.create();
             alertDialog.show();
             alertDialog.dismissAlertDialog();
         }

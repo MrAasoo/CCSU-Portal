@@ -10,23 +10,15 @@ public class LanguagePrefManager {
 
     private static final String LANGUAGE_PREF_NAME = "app_language";
     private static final String LANGUAGE_NAME = "language";
-    private static LanguagePrefManager mInstance;
     private final Context mContext;
 
     public LanguagePrefManager(Context mContext) {
         this.mContext = mContext;
     }
 
-    public static synchronized LanguagePrefManager getInstance(Context context) {
-        if (mInstance == null) {
-            mInstance = new LanguagePrefManager(context);
-        }
-        return mInstance;
-    }
-
     public String getLanguage() {
         SharedPreferences preferences = mContext.getSharedPreferences(LANGUAGE_PREF_NAME, Context.MODE_PRIVATE);
-        return preferences.getString(LANGUAGE_NAME, "en");
+        return preferences.getString(LANGUAGE_NAME, ENGLISH);
     }
 
     public void SetLanguage(String lang) {

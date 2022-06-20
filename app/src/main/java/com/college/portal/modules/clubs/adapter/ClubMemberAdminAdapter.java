@@ -164,7 +164,7 @@ public class ClubMemberAdminAdapter extends RecyclerView.Adapter<ClubMemberAdmin
                         try {
                             JSONObject obj = new JSONObject(jsonResponse);
                             if (obj.optBoolean("status")) {
-                                switch (Integer.valueOf(obj.optString("result"))) {
+                                switch (Integer.parseInt(obj.optString("result"))) {
                                     case AppApi.REMOVE_MEMBER:
                                         Toast.makeText(mContext, "Member removed!", Toast.LENGTH_SHORT).show();
                                         break;
@@ -185,7 +185,7 @@ public class ClubMemberAdminAdapter extends RecyclerView.Adapter<ClubMemberAdmin
                                         break;
                                 }
                             } else {
-                                switch (Integer.valueOf(obj.optString("result"))) {
+                                switch (Integer.parseInt(obj.optString("result"))) {
                                     case AppApi.REMOVE_MEMBER:
                                         Toast.makeText(mContext, "Removing member failed!", Toast.LENGTH_SHORT).show();
                                         elseView.setVisibility(View.VISIBLE);

@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -24,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
@@ -45,7 +45,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BookListActivity extends AppCompatActivity {
+public class BookListActivity extends AppCompat {
 
 
     protected RecyclerView recyclerView;
@@ -79,13 +79,13 @@ public class BookListActivity extends AppCompatActivity {
 
         switch (getIntent().getStringExtra(AppApi.LIBRARY_REQ)) {
             case AppApi.E_BOOK:
-                getSupportActionBar().setTitle(R.string.e_books);
+                getSupportActionBar().setTitle(getString(R.string.e_books));
                 break;
             case AppApi.E_MAG:
-                getSupportActionBar().setTitle(R.string.e_magazine);
+                getSupportActionBar().setTitle(getString(R.string.e_magazine));
                 break;
             default:
-                getSupportActionBar().setTitle(R.string.library);
+                getSupportActionBar().setTitle(getString(R.string.library));
         }
 
         //Network broadcast

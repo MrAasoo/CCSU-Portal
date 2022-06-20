@@ -73,7 +73,9 @@ public class SplashScreen extends AppCompat {
         //view and layout
         logoImage = findViewById(R.id.logo_image);
         collegeText = findViewById(R.id.collage_text);
+        collegeText.setText(getResources().getString(R.string.college_name));
         phraseText = findViewById(R.id.phrase_text);
+        phraseText.setText(R.string.college_phrase);
         linearLayout = findViewById(R.id.linearLayout);
 
         //Animation

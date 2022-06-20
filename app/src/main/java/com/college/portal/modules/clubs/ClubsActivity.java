@@ -1,25 +1,24 @@
 package com.college.portal.modules.clubs;
 
-import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
-
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
+import com.college.portal.api.AppApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.modules.clubs.adapter.ClubsPagerAdapter;
 import com.college.portal.services.NetworkServices;
 import com.google.android.material.tabs.TabLayout;
 
-public class ClubsActivity extends AppCompatActivity {
+public class ClubsActivity extends AppCompat {
 
 
     public static ViewPager mViewPager;
@@ -39,13 +38,14 @@ public class ClubsActivity extends AppCompatActivity {
         //Toolbar
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(getString(R.string.club));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Network broadcast
         mInternetBroadcastReceiver = new InternetBroadcastReceiver();
         mIntentFilter = new IntentFilter();
-        mIntentFilter.addAction(INTERNET_BROADCAST_ACTION);
+        mIntentFilter.addAction(AppApi.INTERNET_BROADCAST_ACTION);
         Intent serviceIntent = new Intent(this, NetworkServices.class);
         startService(serviceIntent);
 

@@ -16,15 +16,14 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.AppApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
 import com.college.portal.services.NetworkServices;
 
-public class CollegeGalleryVideoActivity extends AppCompatActivity {
+public class CollegeGalleryVideoActivity extends AppCompat {
 
     // For System ui
     private View decorView;

@@ -11,14 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.sharedpreferences.SharedPrefManager;
 
 
-public class AccountStatus extends AppCompatActivity {
+public class AccountStatus extends AppCompat {
 
 
     @Override
