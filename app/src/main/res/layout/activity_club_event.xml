@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
+        android:paddingBottom="@dimen/eight_dp"
         app:layout_constraintBottom_toTopOf="@id/download_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,7 @@
                 android:contentDescription="@string/club_event_image"
                 android:elevation="@dimen/four_dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/place_holder_image" />
+                android:src="@drawable/place_holder" />
 
             <TextView
                 android:id="@+id/event_post_date"

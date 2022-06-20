@@ -1,21 +1,21 @@
 <resources>
 
-    <string name="app_name">St.Portal</string>
+    <string name="app_name" translatable="false">St.Portal</string>
 
     <string name="college_name">Welcome to\nSir Chhotu Ram Institute of Engineering &amp; Technology, Meerut</string>
-    <string name="college_name_short">Welcome to SCRIET</string>
-    <string name="college_phrase">\"विद्यैव सर्वधनम्\"</string>
+    <string name="college_name_short">Welcome to S C R I E T</string>
+    <string name="college_phrase" translatable="false">\"विद्यैव सर्वधनम्\"</string>
 
     <string name="student_sign_in">Welcome to Student Portal</string>
     <string name="sign_in">Sign In</string>
     <string name="college_id">Your ID</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="password">* * * * * *</string>
-    <string name="signing_failed_title">Signing Failed!</string>
+    <string name="password" translatable="false">* * * * * *</string>
+    <string name="signing_failed_title">Signing in failed!</string>
     <string name="logout_text">Logout</string>
     <string name="exit_text">Exit</string>
-    <string name="ok_text">OK</string>
-    <string name="no_internet_title">No Internet!</string>
+    <string name="ok">OK</string>
+    <string name="no_internet_title">No Internet</string>
     <string name="not_verified_message">Your account has not been verified yet. Please contact to Administration.</string>
     <string name="account_blocked">Your account has been temporarily Blocked. Please contact to Administration.</string>
     <string name="id_not_found_message">You have entered wrong ID. Please check and try again …</string>
@@ -27,9 +27,9 @@
     <string name="copyright_text">© 2021 Himanshu Srivastava \nAndroid Application Development\nAll rights reserved.</string>
     <string name="copyrights_title">Copyrights</string>
     <string name="app_info">App Info</string>
-    <string name="terms_of_uses">Terms of Use</string>
+    <string name="terms_of_service">Terms of Services</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="student_s_image">Student\'s Image</string>
+    <string name="student_s_image" translatable="false">Student\'s Image</string>
     <string name="home">Home</string>
     <string name="good_night_msg">Good Night …</string>
     <string name="good_evening_msg">Good evening …</string>
@@ -37,12 +37,11 @@
     <string name="good_morning_msg">Good morning …</string>
     <string name="morning_msg">Morning\'s Sunshine!</string>
     <string name="welcome">Welcome</string>
-    <string name="student_branch">Student Branch</string>
-    <string name="student_id">Student ID</string>
+    <string name="student_branch" translatable="false">Student Branch</string>
+    <string name="student_id" translatable="false">Student ID</string>
     <string name="students_profile">Profile</string>
     <string name="assignment">Assignments</string>
     <string name="college_news">News/Updates</string>
-    <string name="notification">Notification</string>
     <string name="notice_board">Notice Board</string>
     <string name="contact_us">Contact Us</string>
     <string name="about_us">About Us</string>
@@ -51,8 +50,9 @@
     <string name="our_mission">Our Mission</string>
     <string name="our_vision">Our Vision</string>
     <string name="our_values">Our Values</string>
-    <string name="our_vision_text">Creating a nurturing learning community where excellence is expected of everyone.</string>
-    <string name="our_mission_text">Instill learning as a life-long process by creating an environment where every student has the opportunity to develop their full potential, be empowered with confidence, and be prepared for future challenges in a global society.</string>
+    <string name="our_vision_text" translatable="false">Creating a nurturing learning community where excellence is expected of everyone.</string>
+    <string name="our_mission_text" translatable="false">Instill learning as a life-long process by creating an environment where every student has the opportunity to develop their full potential, be empowered with confidence, and be prepared for future challenges in a global society.</string>
+    <string name="our_values_text" translatable="false">Respect. Collaboration. Excellence. Integrity. Innovation</string>
     <string name="photos">Photos</string>
     <string name="post_description">Post Description</string>
     <string name="college_gallery_photo">College gallery photo</string>
@@ -60,11 +60,11 @@
     <string name="library">Library</string>
     <string name="click_to_view">Click to view</string>
     <string name="contact_number_hint">Contact Number</string>
-    <string name="contact_number_dummy_data">+91 1234567890</string>
-    <string name="email_hint">Email</string>
-    <string name="email_dummy_data">example@domain.com</string>
+    <string name="contact_number_dummy_data" translatable="false">+91 1234567890</string>
+    <string name="email">Email</string>
+    <string name="email_dummy_data" translatable="false">example@domain.com</string>
     <string name="link_hint">Link</string>
-    <string name="link_dummy_data">https://www.example.com</string>
+    <string name="link_dummy_data" translatable="false">https://www.example.com</string>
     <string name="feedback">Feedback</string>
     <string name="system_default">System default</string>
     <string name="light">Light</string>
@@ -82,16 +82,14 @@
     <string name="student_college_id">College ID</string>
     <string name="and">and</string>
     <string name="password_text">Password</string>
-    <string name="your_account">Your account</string>
+    <string name="your_account">Your registration no</string>
     <string name="e_books">eBooks</string>
-    <string name="blogs">Blogs</string>
     <string name="e_magazine">eMagazines</string>
-    <string name="lectures">Lectures</string>
-    <string name="my_library">eLibrary</string>
+    <string name="my_library">National Digital Library of India</string>
     <string name="more_e_books_txt">Get more eBooks</string>
     <string name="assignment_name">Assignment Name</string>
     <string name="news_title">News Title</string>
-    <string name="student_department">Department</string>
+    <string name="department">Department</string>
     <string name="news_subtitle">News Subtitle</string>
     <string name="news_detail">News Details</string>
     <string name="news_image">News Image</string>
@@ -116,11 +114,8 @@
     <string name="join_on_place_holder">Joined on : %1$s</string>
     <string name="publish_on_placeholder">Published on : %1$s</string>
 
-
-    <string name="our_values_text">Respect. Collaboration. Excellence. Integrity. Innovation</string>
     <string name="error">Something went wrong.r\nPlease try again …</string>
-    <string name="news_bullets">News Bullets</string>
-    <string name="message">Message</string>
+    <string name="news_bullets" translatable="false">News Bullets</string>
     <string name="enter_your_query">Enter your query (MAX 160)</string>
     <string name="college_gallery">College Gallery</string>
     <string name="submit">Submit</string>
@@ -137,7 +132,7 @@
     <string name="club_started_on">Club Started on</string>
     <string name="members">Members</string>
     <string name="total_members">Total Members</string>
-    <string name="background_image">background image</string>
+    <string name="background_image" translatable="false">background image</string>
     <string name="events">Events</string>
     <string name="announcements">Announcements</string>
     <string name="join_now">Join now</string>
@@ -147,20 +142,73 @@
     <string name="event_topic">Event topic</string>
 
     <string name="title_activity_campus_map">Campus Map</string>
-    <string name="book_name">Book Name</string>
-    <string name="author_name">Author name</string>
+    <string name="book_name" translatable="false">Book Name</string>
+    <string name="author_name" translatable="false">Author name</string>
     <string name="download">Download</string>
     <string name="open">Open</string>
-    <string name="publisher">Publisher</string>
-    <string name="notice_title">Notice Title</string>
-    <string name="notice_message">Notice Message</string>
+    <string name="publisher" translatable="false">Publisher</string>
+    <string name="notice_title" translatable="false">Notice Title</string>
+    <string name="notice_message" translatable="false">Notice Message</string>
     <string name="classroom">Classroom</string>
-    <string name="club_event_image">Club event image</string>
+    <string name="club_event_image" translatable="false">Club event image</string>
     <string name="assignment_details">Assignment details</string>
     <string name="remove">Remove</string>
     <string name="block">Block</string>
     <string name="cancel">Cancel</string>
     <string name="accept">Accept</string>
     <string name="un_block">Unblock</string>
+    <string name="room_name">Classroom name</string>
+    <string name="chat_text_message_hint">Your message… (MAX 1000)</string>
+    <string name="button_send" translatable="false">Send message</string>
+    <string name="hello">Hello %1$s !</string>
+    <string name="login_failed_message_hint">Login Failed Message</string>
+    <string name="version" translatable="false">Version</string>
+    <string name="version_info" translatable="false">Version info</string>
+    <string name="classroom_text">A Short Multimedia Text Set About Classroom.</string>
+    <string name="feedback_text">What would you like to improve?</string>
+    <string name="feedback_edit_text_hint">Write your comment here... MAX 500</string>
+    <string name="campus_corner">Campus Corner</string>
+    <string name="student_zone">Student Zone</string>
+    <string name="connection">Connection</string>
+    <string name="try_again">Try again</string>
+    <string name="turn_on_data">Turn on data</string>
+    <string name="turn_on_wi_fi">Turn on Wi-FI</string>
+    <string name="swap">Swap!</string>
+    <string name="student_information">Student\'s Personal Information</string>
+    <string name="student_reg">Student registration No.</string>
+    <string name="student_department_name">Department name</string>
+    <string name="branch">Branch</string>
+    <string name="semester_and_year"><![CDATA[Semester & Year]]></string>
+    <string name="session">Session</string>
+    <string name="academic_year">Academic Year</string>
+    <string name="student_parent">Student Parent\'s Information</string>
+    <string name="father_name">Father\'s Name</string>
+    <string name="mother_name">Mother\'s Name</string>
+    <string name="d_o_b">Date of birth</string>
+    <string name="dob">DoB</string>
+    <string name="address_and_contact"><![CDATA[Address & Contact details]]></string>
+    <string name="contact_number">Contact number</string>
+    <string name="student_email">Student email</string>
+    <string name="address">Address</string>
+    <string name="student_address">Student address</string>
+    <string name="postal_pin">Postal PIN</string>
+    <string name="pin_code">PIN Code</string>
+    <string name="Language">Select language</string>
+    <string name="english" translatable="false">English</string>
+    <string name="hindi" translatable="false">हिन्दी</string>
+
+    <string name="logout_message">Are you sure to logout?</string>
+    <string name="forgot_password_message">Note:\nIn case you forgot the password, contact your college administration for the password.</string>
+    <string name="ask_on_call">Ask on call</string>
+    <string name="no">No</string>
+    <string name="call_message">For any query you can contact us on %1$s \nDo you want call now?</string>
+    <string name="enq_messages">Send your query</string>
+    <string name="send">Send</string>
+    <string name="cant_send_empty_message">Can not sent empty message.</string>
+    <string name="permission_granted">Permission Granted</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="enq_message_title">Do you have any query to ask?</string>
+    <string name="no_data_found">No Data Found!</string>
+    <string name="no_data_message">Try to refresh or Contact to administration.</string>
 
 </resources>

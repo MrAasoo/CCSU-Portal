@@ -9,7 +9,7 @@
         style="@style/AppOptionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Do you have any query to ask?" />
+        android:text="@string/enq_message_title" />
 
     <EditText
         style="@style/AppOptionText"

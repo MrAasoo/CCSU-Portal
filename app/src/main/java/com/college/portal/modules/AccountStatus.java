@@ -8,6 +8,7 @@ import static com.college.portal.api.AppApi.STUDENT_ACCOUNT_NOT_VERIFIED;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +20,6 @@ import com.college.portal.sharedpreferences.SharedPrefManager;
 
 public class AccountStatus extends AppCompatActivity {
 
-    //Variables and view
-    private TextView messageView, nameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +29,21 @@ public class AccountStatus extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         int status = 0;
         String name = "Student";
-        if(bundle != null){
-            status = getIntent().getIntExtra(ACCOUNT_STATUS,0);
+        if (bundle != null) {
+            status = getIntent().getIntExtra(ACCOUNT_STATUS, 0);
             name = getIntent().getStringExtra(ACCOUNT_MESSAGE);
         }
 
 
-        messageView = findViewById(R.id.message);
-        nameView = findViewById(R.id.name);
+        //Variables and view
+        TextView messageView = findViewById(R.id.message);
+        TextView nameView = findViewById(R.id.name);
+        Button btnLogout = findViewById(R.id.logout);
+        Button btnExit = findViewById(R.id.exit);
 
 
-        nameView.setText("Hello "+ name +" !");
-        switch (status){
+        nameView.setText(String.format(getString(R.string.hello), name));
+        switch (status) {
             case STUDENT_ACCOUNT_NOT_VERIFIED:
                 messageView.setText(R.string.not_verified_message);
                 break;
@@ -49,6 +51,23 @@ public class AccountStatus extends AppCompatActivity {
                 messageView.setText(R.string.account_blocked);
                 break;
         }
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (SharedPrefManager.getInstance(AccountStatus.this).isLoggedIn()) {
+                    SharedPrefManager.getInstance(AccountStatus.this).clearStudent();
+                }
+                toLoginActivity();
+            }
+        });
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
     }
 
@@ -58,19 +77,6 @@ public class AccountStatus extends AppCompatActivity {
 
         //AppTheme Theme
         AppTheme.setAppTheme(getApplicationContext());
-    }
-
-    public void onClick(View view) {
-        if (view.getId() == R.id.logout) {
-            if (SharedPrefManager.getInstance(AccountStatus.this).isLoggedIn()) {
-                SharedPrefManager.getInstance(AccountStatus.this).clearStudent();
-            }
-            toLoginActivity();
-        }
-
-        if (view.getId() == R.id.exit) {
-            onBackPressed();
-        }
     }
 
     @Override

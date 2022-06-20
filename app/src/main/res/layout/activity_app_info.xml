@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/thirty_two_dp"
-            android:text="Version"
+            android:text="@string/version"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
@@ -67,7 +67,7 @@
             android:id="@+id/about_version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Version info"
+            android:hint="@string/version_info"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 

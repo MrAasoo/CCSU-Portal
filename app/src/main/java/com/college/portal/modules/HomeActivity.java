@@ -12,18 +12,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.RetroApi;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
-import com.college.portal.modules.campusmap.CampusMapListActivity;
+import com.college.portal.modules.campus_map.CampusMapListActivity;
 import com.college.portal.modules.classroom.ClassRoomActivity;
 import com.college.portal.modules.clubs.ClubsActivity;
 import com.college.portal.modules.gallery.CollegeGalleryActivity;
@@ -44,7 +43,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompat {
 
     //Views and Variables
     private ImageView stdImage;
@@ -130,14 +129,14 @@ public class HomeActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(HomeActivity.this, "FirebaseAuth Successful", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(HomeActivity.this, "FirebaseAuth Successful", Toast.LENGTH_SHORT).show();
                                 mUser = mAuth.getCurrentUser();
                             } else {
                                 mAuth.signInWithEmailAndPassword(studentPref.getStdId() + "@stportal.com", studentPref.getStdPassword())
                                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                                Toast.makeText(HomeActivity.this, "FirebaseAuth Successful", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(HomeActivity.this, "FirebaseAuth Successful", Toast.LENGTH_SHORT).show();
                                                 mUser = mAuth.getCurrentUser();
                                             }
                                         });
@@ -179,7 +178,7 @@ public class HomeActivity extends AppCompatActivity {
         return getString(R.string.morning_msg);   // Really early
     }
 
-    public void cardViewClicked(View view) {
+    public void cardViewClicked(@NonNull View view) {
         switch (view.getId()) {
             //Student zone
             case R.id.home_profile:
@@ -256,8 +255,8 @@ public class HomeActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
                 builder.setIcon(R.drawable.ic_app_icon)
                         .setTitle(getString(R.string.logout_text))
-                        .setMessage("Are you sure to logout?")
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        .setMessage(getString(R.string.logout_message))
+                        .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 FirebaseAuth.getInstance().signOut();
@@ -266,7 +265,7 @@ public class HomeActivity extends AppCompatActivity {
                                 dialog.dismiss();
                             }
                         })
-                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();

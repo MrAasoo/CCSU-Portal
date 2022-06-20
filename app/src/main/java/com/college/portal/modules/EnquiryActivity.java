@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,18 +37,18 @@ public class EnquiryActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getString(R.string.enquiry));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ImageView call = findViewById(R.id.call);
-        ImageView message = findViewById(R.id.message);
+        TextView call = findViewById(R.id.call);
+        TextView message = findViewById(R.id.message);
 
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (hasPermissionPhone()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(EnquiryActivity.this);
-                    builder.setTitle("Ask on call");
+                    builder.setTitle(R.string.ask_on_call);
                     builder.setIcon(R.drawable.call_image);
-                    builder.setMessage("For any query you can contact us on\n" + AppApi.PHONE + ".\nDo you want call now?");
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    builder.setMessage(String.format(getString(R.string.call_message), AppApi.PHONE));
+                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent phoneIntent = new Intent(Intent.ACTION_CALL);
@@ -57,7 +57,7 @@ public class EnquiryActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -76,11 +76,11 @@ public class EnquiryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(EnquiryActivity.this);
-                builder.setTitle("Send your query");
+                builder.setTitle(R.string.enq_messages);
                 builder.setIcon(R.drawable.message_image);
                 final View dialogView = getLayoutInflater().inflate(R.layout.layout_sms, null);
                 builder.setView(dialogView);
-                builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         EditText testSms = dialogView.findViewById(R.id.text_sms);
@@ -88,7 +88,7 @@ public class EnquiryActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -110,7 +110,7 @@ public class EnquiryActivity extends AppCompatActivity {
             smsIntent.putExtra(AppApi.SMS_BODY, sms);
             startActivity(smsIntent);
         } else {
-            Toast.makeText(this, "Can not sent empty message.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.cant_send_empty_message, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -130,9 +130,9 @@ public class EnquiryActivity extends AppCompatActivity {
             // Checking whether user granted the permission or not.
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Showing the toast message
-                Toast.makeText(EnquiryActivity.this, "Phone Permission Granted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EnquiryActivity.this, R.string.permission_granted, Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(EnquiryActivity.this, "Phone Permission Denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EnquiryActivity.this, R.string.permission_denied, Toast.LENGTH_SHORT).show();
             }
         }
     }

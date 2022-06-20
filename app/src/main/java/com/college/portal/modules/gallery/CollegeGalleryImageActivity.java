@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +23,7 @@ public class CollegeGalleryImageActivity extends AppCompatActivity {
 
     // For System ui
     private View decorView;
-
-    //views
-    private ImageView galleryImage;
-    private TextView imageDescription, postDate;
-    private RelativeLayout contentHolder;
+    private ScrollView contentHolder;
 
     //For Network
     private IntentFilter mIntentFilter;
@@ -52,9 +48,10 @@ public class CollegeGalleryImageActivity extends AppCompatActivity {
 
         // Views
         contentHolder = findViewById(R.id.content_holder);
-        galleryImage = findViewById(R.id.gallery_image);
-        imageDescription = findViewById(R.id.image_description);
-        postDate = findViewById(R.id.post_date);
+        //views
+        ImageView galleryImage = findViewById(R.id.gallery_image);
+        TextView imageDescription = findViewById(R.id.image_description);
+        TextView postDate = findViewById(R.id.post_date);
 
 
         postDate.setText(String.format(getString(R.string.post_date_placeholder), getIntent().getStringExtra(AppApi.MEDIA_POST)));

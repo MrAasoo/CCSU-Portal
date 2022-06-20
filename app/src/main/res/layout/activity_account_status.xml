@@ -41,7 +41,7 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Hello"
+                android:hint="@string/hello"
                 android:padding="@dimen/eight_dp"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -51,7 +51,7 @@
                 android:id="@+id/message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Login Failed Message"
+                android:hint="@string/login_failed_message_hint"
                 android:padding="@dimen/eight_dp"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -62,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/eight_dp"
                 android:background="@drawable/circular_background"
-                android:onClick="onClick"
                 android:text="@string/logout_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
@@ -72,7 +71,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/eight_dp"
                 android:background="@drawable/circular_background"
-                android:onClick="onClick"
                 android:text="@string/exit_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />
         </LinearLayout>

@@ -23,9 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
@@ -40,22 +39,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends AppCompat {
 
     // constants
     private static final int SPLASH_SCREEN_DELAY = 3000;
     private static final int SPLASH_SCREEN_RESTART_DELAY = 1500;
-
-    // For System ui
-    private View decorView;
-
     // view objects
     Animation topAnim, bottomAnim, fadeInAnim;
     ImageView logoImage;
     TextView collegeText, phraseText;
     LinearLayout linearLayout;
-
-
+    // For System ui
+    private View decorView;
     //For Network
     private IntentFilter mIntentFilter;
     private InternetBroadcastReceiver mInternetBroadcastReceiver;

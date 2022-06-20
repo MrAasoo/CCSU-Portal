@@ -19,10 +19,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="11"
             android:scaleType="fitCenter"
+            android:contentDescription="@string/no_internet_title"
             android:src="@drawable/no_internet" />
 
         <TextView
@@ -31,7 +33,7 @@
             android:layout_weight="1"
             android:fontFamily="serif-monospace"
             android:paddingHorizontal="@dimen/eight_dp"
-            android:text="Swap!"
+            android:text="@string/swap"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
@@ -66,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif-monospace"
                 android:paddingHorizontal="@dimen/eight_dp"
-                android:text="No Internet"
+                android:text="@string/no_internet_title"
                 android:textSize="48sp" />
 
             <TextView
@@ -74,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:paddingHorizontal="@dimen/eight_dp"
-                android:text="Connection"
+                android:text="@string/connection"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="48sp" />
 
@@ -84,7 +86,7 @@
                 android:layout_marginTop="@dimen/sixteen_dp"
                 android:fontFamily="monospace"
                 android:paddingHorizontal="@dimen/eight_dp"
-                android:text="Please check your internet connection and try again."
+                android:text="@string/no_internet_message"
                 android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
             <Button
@@ -93,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_margin="@dimen/eight_dp"
-                android:text="Try again"
+                android:text="@string/try_again"
                 app:cornerRadius="@dimen/sixteen_dp" />
 
             <Button
@@ -102,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginHorizontal="@dimen/eight_dp"
-                android:text="Turn on data"
+                android:text="@string/turn_on_data"
                 app:cornerRadius="@dimen/sixteen_dp" />
 
             <Button
@@ -111,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_margin="@dimen/eight_dp"
-                android:text="Turn on Wi-FI"
+                android:text="@string/turn_on_wi_fi"
                 app:cornerRadius="@dimen/sixteen_dp" />
 
         </LinearLayout>

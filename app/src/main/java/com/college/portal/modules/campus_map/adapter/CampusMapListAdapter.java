@@ -1,4 +1,4 @@
-package com.college.portal.modules.campusmap.adapter;
+package com.college.portal.modules.campus_map.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.college.portal.R;
-import com.college.portal.modules.campusmap.CampusMapActivity;
-import com.college.portal.modules.campusmap.model.CampusMap;
+import com.college.portal.modules.campus_map.CampusMapActivity;
+import com.college.portal.modules.campus_map.model.CampusMap;
 
 import java.util.List;
 

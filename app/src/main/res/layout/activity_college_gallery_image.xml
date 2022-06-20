@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/black"
+    tools:context=".modules.gallery.CollegeGalleryImageActivity">
 
     <ImageView
         android:id="@+id/gallery_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/college_gallery_photo"
         android:scaleType="fitCenter"
         android:src="@drawable/place_holder"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,48 +19,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
+
+    <ScrollView
         android:id="@+id/content_holder"
-        android:layout_height="160dp"
         android:layout_width="match_parent"
+        android:layout_height="160dp"
         android:layout_marginBottom="@dimen/image_view_bottom_margin"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            android:layout_marginStart="@dimen/thirty_two_dp"
+            android:layout_marginEnd="@dimen/thirty_two_dp"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="@dimen/eight_dp">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/post_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent_medium"
-                android:orientation="vertical"
-                android:padding="@dimen/eight_dp">
+                android:hint="@string/post_date_placeholder"
+                android:paddingHorizontal="@dimen/eight_dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/white" />
 
-                <TextView
-                    android:id="@+id/post_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/post_date_placeholder"
-                    android:paddingHorizontal="@dimen/eight_dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/image_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent_medium"
+                android:hint="@string/post_description"
+                android:paddingHorizontal="@dimen/eight_dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textColor="@color/white" />
 
-                <TextView
-                    android:id="@+id/image_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/post_description"
-                    android:paddingHorizontal="@dimen/eight_dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Menu"
-                    android:textColor="@color/white" />
+        </LinearLayout>
 
-            </LinearLayout>
-
-        </ScrollView>
-
-    </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,22 +39,30 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/four_dp"
+            android:layout_marginStart="@dimen/eight_dp"
+            android:layout_marginTop="@dimen/four_dp"
+            android:layout_marginEnd="@dimen/four_dp"
+            android:layout_marginBottom="@dimen/four_dp"
             android:layout_toStartOf="@id/send_msg"
-            android:hint="Your message... (MAX 1000)"
+            android:autofillHints=""
             android:inputType="text"
             android:maxLength="1000"
+            android:hint="@string/chat_text_message_hint"
             android:maxLines="3" />
 
         <ImageButton
             android:id="@+id/send_msg"
-            android:layout_width="60dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/eight_dp"
+            android:layout_marginStart="@dimen/eight_dp"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:layout_marginEnd="@dimen/eight_dp"
+            android:layout_marginBottom="@dimen/eight_dp"
             android:background="@color/transparent"
             android:scaleType="fitCenter"
+            android:contentDescription="@string/button_send"
             android:src="@drawable/ic_send" />
 
     </RelativeLayout>

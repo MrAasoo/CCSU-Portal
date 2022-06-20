@@ -189,14 +189,14 @@ public class ClubPageActivity extends AppCompatActivity {
                 builder.setIcon(R.drawable.ic_app_icon)
                         .setTitle(getString(R.string.leave) + "!")
                         .setMessage("Are you sure to want leave club?")
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
                                 clubMemberRequest(stdId, clubId, AppApi.LEAVE_CLUB, srNo);
                             }
                         })
-                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();

@@ -23,9 +23,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.college.portal.AlertDialogInterface;
+import com.college.portal.AppCompat;
 import com.college.portal.AppTheme;
 import com.college.portal.ProgressDialogInterface;
 import com.college.portal.R;
@@ -42,7 +41,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompat {
 
 
     //view objects
@@ -159,7 +158,7 @@ public class SignInActivity extends AppCompatActivity {
 
     // On Forgot password clicked
     private void onForgotPasswordClick() {
-        showAlertDialog("Forgot password ?", "Note:\nIn case you forgot the password, contact your college administration for the password");
+        showAlertDialog(getString(R.string.forgot_password), getString(R.string.forgot_password_message));
     }
 
 

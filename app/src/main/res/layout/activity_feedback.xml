@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What would you like to improve?"
+            android:text="@string/feedback_text"
             android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
         <EditText
@@ -37,7 +37,8 @@
             android:layout_height="140dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Add your comment here... MAX 500"
+            android:autofillHints=""
+            android:hint="@string/feedback_edit_text_hint"
             android:inputType="textMultiLine" />
 
         <Button

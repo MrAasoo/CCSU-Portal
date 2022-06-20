@@ -36,12 +36,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:paddingTop="@dimen/thirty_two_dp"
             android:id="@+id/media_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/post_description"
             android:maxLines="@integer/photo_description_lines"
+            android:paddingTop="@dimen/thirty_two_dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/white"
             android:textStyle="bold" />

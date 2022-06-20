@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -65,7 +65,7 @@ public class DiscussionRoomAdapter extends RecyclerView.Adapter<DiscussionRoomAd
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        LinearLayout cardHolder;
+        RelativeLayout cardHolder;
         TextView roomName;
 
         public ViewHolder(@NonNull View itemView) {

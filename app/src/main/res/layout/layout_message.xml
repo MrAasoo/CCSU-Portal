@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/view"
-            android:hint="@string/message" />
+            android:hint="@string/messages" />
 
 
     </RelativeLayout>
@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/view_"
-            android:hint="@string/message" />
+            android:hint="@string/messages" />
 
 
     </RelativeLayout>

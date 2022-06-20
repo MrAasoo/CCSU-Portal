@@ -1,4 +1,4 @@
-package com.college.portal.modules.campusmap.model;
+package com.college.portal.modules.campus_map.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

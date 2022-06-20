@@ -1,4 +1,4 @@
-package com.college.portal.modules.campusmap;
+package com.college.portal.modules.campus_map;
 
 import android.os.Bundle;
 

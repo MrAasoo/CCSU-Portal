@@ -20,47 +20,62 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
+        <GridLayout
+            android:alignmentMode="alignBounds"
+            android:columnCount="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:padding="@dimen/sixteen_dp">
-
-            <!-- TODO Update Card background with images -->
 
             <!--Our Mission-->
             <TextView
                 android:id="@+id/about_mission"
-                style="@style/DrawableNextTintSecondary"
-                android:layout_width="match_parent"
+                style="@style/AppTitleText"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/our_mission" />
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:text="@string/our_mission"
+                android:textAlignment="center"
+                app:drawableTopCompat="@drawable/ic_mission" />
 
             <!--Our Vision-->
             <TextView
+                style="@style/AppTitleText"
+                android:layout_width="wrap_content"
                 android:id="@+id/about_vision"
-                style="@style/DrawableNextTintSecondary"
-                android:layout_width="match_parent"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/our_vision" />
+                android:text="@string/our_vision"
+                android:textAlignment="center"
+                app:drawableTopCompat="@drawable/ic_vision" />
 
-            <!--History-->
+            <!--Our Values-->
             <TextView
+                style="@style/AppTitleText"
+                android:layout_width="wrap_content"
                 android:id="@+id/about_values"
-                style="@style/DrawableNextTintSecondary"
-                android:layout_width="match_parent"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/our_values" />
+                android:text="@string/our_values"
+                android:textAlignment="center"
+                app:drawableTopCompat="@drawable/ic_values" />
 
             <!--History-->
             <TextView
+                style="@style/AppTitleText"
+                android:layout_width="wrap_content"
                 android:id="@+id/about_history"
-                style="@style/DrawableNextTintSecondary"
-                android:layout_width="match_parent"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
                 android:layout_height="wrap_content"
-                android:text="@string/history" />
+                android:text="@string/history"
+                android:textAlignment="center"
+                app:drawableTopCompat="@drawable/ic_history" />
 
-        </LinearLayout>
+        </GridLayout>
 
     </ScrollView>
 

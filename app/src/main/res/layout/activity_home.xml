@@ -88,7 +88,7 @@
                                 android:id="@+id/std_department"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/student_department"
+                                android:hint="@string/department"
                                 android:textAlignment="viewStart"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/eight_dp"
                         android:padding="@dimen/eight_dp"
-                        android:text="Student Zone"
+                        android:text="@string/student_zone"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
@@ -170,7 +170,8 @@
                                 android:layout_height="@dimen/home_page_image_height"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="@dimen/eight_dp"
-                                android:background="@drawable/ic_profile" />
+                                android:background="@drawable/ic_profile"
+                                android:contentDescription="@string/students_profile" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -200,7 +201,8 @@
                                 android:layout_height="@dimen/home_page_image_height"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="@dimen/eight_dp"
-                                android:background="@drawable/ic_assignment" />
+                                android:background="@drawable/ic_assignment"
+                                android:contentDescription="@string/assignment" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -213,6 +215,69 @@
                                 android:textSize="12sp" />
 
                         </RelativeLayout>
+
+                        <!-- Subjects -->
+                        <RelativeLayout
+                            android:id="@+id/home_subject"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/card_height_zone"
+                            android:layout_rowWeight="3"
+                            android:layout_columnWeight="1"
+                            android:onClick="cardViewClicked"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/home_page_image_width"
+                                android:layout_height="@dimen/home_page_image_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/eight_dp"
+                                android:background="@drawable/ic_subject"
+                                android:contentDescription="@string/subjects" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/eight_dp"
+                                android:text="@string/subjects"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+
+                        <!-- Messages -->
+                        <RelativeLayout
+                            android:id="@+id/home_messages"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/card_height_zone"
+                            android:layout_rowWeight="3"
+                            android:layout_columnWeight="1"
+                            android:onClick="cardViewClicked"
+                            android:orientation="vertical"
+                            android:padding="@dimen/eight_dp">
+
+                            <ImageView
+                                android:layout_width="@dimen/home_page_image_width"
+                                android:layout_height="@dimen/home_page_image_height"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/eight_dp"
+                                android:background="@drawable/ic_classroom"
+                                android:contentDescription="@string/classroom" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/eight_dp"
+                                android:text="@string/classroom"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+
 
                         <!-- Attendance -->
                         <!--
@@ -246,66 +311,6 @@
 
                         </RelativeLayout>
                         -->
-
-                        <!-- Subjects -->
-                        <RelativeLayout
-                            android:id="@+id/home_subject"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/card_height_zone"
-                            android:layout_rowWeight="3"
-                            android:layout_columnWeight="1"
-                            android:onClick="cardViewClicked"
-                            android:orientation="vertical"
-                            android:padding="@dimen/eight_dp">
-
-                            <ImageView
-                                android:layout_width="@dimen/home_page_image_width"
-                                android:layout_height="@dimen/home_page_image_height"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/eight_dp"
-                                android:background="@drawable/ic_subject" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginBottom="@dimen/eight_dp"
-                                android:text="@string/subjects"
-                                android:textAlignment="center"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
-                                android:textSize="12sp" />
-
-                        </RelativeLayout>
-
-                        <!-- Messages -->
-                        <RelativeLayout
-                            android:id="@+id/home_messages"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/card_height_zone"
-                            android:layout_rowWeight="3"
-                            android:layout_columnWeight="1"
-                            android:onClick="cardViewClicked"
-                            android:orientation="vertical"
-                            android:padding="@dimen/eight_dp">
-
-                            <ImageView
-                                android:layout_width="@dimen/home_page_image_width"
-                                android:layout_height="@dimen/home_page_image_height"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/eight_dp"
-                                android:background="@drawable/ic_classroom" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginBottom="@dimen/eight_dp"
-                                android:text="@string/classroom"
-                                android:textAlignment="center"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
-                                android:textSize="12sp" />
-
-                        </RelativeLayout>
 
                         <!-- Mails -->
                         <!--
@@ -458,7 +463,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/eight_dp"
-                    android:text="Campus Corner"
+                    android:text="@string/campus_corner"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="bold" />

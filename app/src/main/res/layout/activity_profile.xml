@@ -74,7 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Student's Personal Information"
+                        android:text="@string/student_information"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
@@ -90,7 +90,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Student Id"
+                        android:text="@string/student_reg"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -98,7 +98,7 @@
                         android:id="@+id/std_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Student Id"
+                        android:hint="@string/student_id"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -108,7 +108,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Department"
+                        android:text="@string/department"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -116,7 +116,7 @@
                         android:id="@+id/std_dep"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Student department"
+                        android:hint="@string/student_department_name"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -126,7 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Branch"
+                        android:text="@string/branch"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -134,7 +134,7 @@
                         android:id="@+id/std_branch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Student branch"
+                        android:hint="@string/student_branch"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -144,7 +144,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Sem/Year"
+                        android:text="@string/semester_and_year"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -152,7 +152,7 @@
                         android:id="@+id/std_sem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Student Sem"
+                        android:hint="@string/semester_and_year"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -162,7 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Session"
+                        android:text="@string/session"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -170,7 +170,7 @@
                         android:id="@+id/std_session"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Academic Year"
+                        android:hint="@string/academic_year"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -197,7 +197,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Student Parent's Information"
+                        android:text="@string/student_parent"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
@@ -213,7 +213,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Father's Name"
+                        android:text="@string/father_name"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -221,7 +221,7 @@
                         android:id="@+id/std_father"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Father's name"
+                        android:hint="@string/father_name"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -230,7 +230,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Mother's Name"
+                        android:text="@string/mother_name"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -238,7 +238,7 @@
                         android:id="@+id/std_mother"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Mother's name"
+                        android:hint="@string/mother_name"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -248,7 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Date of Birth"
+                        android:text="@string/d_o_b"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -256,7 +256,7 @@
                         android:id="@+id/std_dob"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Student DoB"
+                        android:hint="@string/dob"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -281,7 +281,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Student Address &amp; Contact"
+                        android:text="@string/address_and_contact"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
@@ -297,7 +297,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Contact No."
+                        android:text="@string/contact_number"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -305,7 +305,7 @@
                         android:id="@+id/std_contact"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Student Contact no"
+                        android:hint="@string/contact_number"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -315,7 +315,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Email"
+                        android:text="@string/email"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -323,7 +323,7 @@
                         android:id="@+id/std_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Student email"
+                        android:hint="@string/student_email"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -333,7 +333,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Address"
+                        android:text="@string/address"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -341,7 +341,7 @@
                         android:id="@+id/std_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Student address"
+                        android:hint="@string/student_address"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -351,7 +351,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/eight_dp"
-                        android:text="Postal PIN"
+                        android:text="@string/postal_pin"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -359,7 +359,7 @@
                         android:id="@+id/std_pin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="PIN Code"
+                        android:hint="@string/pin_code"
                         android:padding="@dimen/eight_dp"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />

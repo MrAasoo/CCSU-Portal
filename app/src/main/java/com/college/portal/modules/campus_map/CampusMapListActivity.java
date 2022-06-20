@@ -1,4 +1,4 @@
-package com.college.portal.modules.campusmap;
+package com.college.portal.modules.campus_map;
 
 import static com.college.portal.api.AppApi.INTERNET_BROADCAST_ACTION;
 
@@ -21,8 +21,8 @@ import com.college.portal.AppTheme;
 import com.college.portal.R;
 import com.college.portal.api.RetrofitClient;
 import com.college.portal.broadcasts.InternetBroadcastReceiver;
-import com.college.portal.modules.campusmap.adapter.CampusMapListAdapter;
-import com.college.portal.modules.campusmap.model.CampusMap;
+import com.college.portal.modules.campus_map.adapter.CampusMapListAdapter;
+import com.college.portal.modules.campus_map.model.CampusMap;
 import com.college.portal.services.NetworkServices;
 import com.google.gson.JsonObject;
 

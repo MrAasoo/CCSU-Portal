@@ -73,10 +73,45 @@
 
             </RadioGroup>
 
+            <TextView
+                style="@style/AppOptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Language" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/eight_dp"
+                android:checkedButton="@id/radio_default"
+                android:elevation="@dimen/eight_dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_english"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/secondary_700"
+                    android:checked="true"
+                    android:text="@string/english"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <RadioButton
+                    android:id="@+id/radio_hindi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/secondary_700"
+                    android:checked="false"
+                    android:text="@string/hindi"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+            </RadioGroup>
+
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_margin="@dimen/eight_dp"
                 android:background="@drawable/background_gradient_dark" />
 
@@ -86,7 +121,7 @@
                 style="@style/AppOptionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/terms_of_uses"
+                android:text="@string/terms_of_service"
                 android:textColor="@color/secondary_700"
                 android:textStyle="italic" />
 
@@ -101,7 +136,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_margin="@dimen/eight_dp"
                 android:background="@drawable/background_gradient_dark" />
 

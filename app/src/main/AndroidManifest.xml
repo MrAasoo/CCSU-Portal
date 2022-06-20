@@ -62,7 +62,7 @@
             android:name=".modules.library.BookListActivity"
             android:exported="false" />
         <activity
-            android:name=".modules.campusmap.CampusMapListActivity"
+            android:name=".modules.campus_map.CampusMapListActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/title_activity_campus_map" />
@@ -82,7 +82,7 @@
             android:value="AIzaSyBK-p0DQPhUUaVFf9xvFvDrDiJpl8dYcNE" />
 
         <activity
-            android:name=".modules.campusmap.CampusMapActivity"
+            android:name=".modules.campus_map.CampusMapActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/title_activity_campus_map" />

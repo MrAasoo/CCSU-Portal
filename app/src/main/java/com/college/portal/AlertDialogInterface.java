@@ -14,14 +14,17 @@ public class AlertDialogInterface extends Dialog {
 
 
     // Objects and Variables
-    private String title, message;
-    private int icon;
+    private final String title;
+    private final String message;
+    private final int icon;
     private ImageView dialogIcon;
     private TextView dialogTitle, dialogMessage;
     private Button btnOk, btnExit, btnBack;
+    private final Context context;
 
     public AlertDialogInterface(@NonNull Context context, String title, String message, int icon) {
         super(context);
+        this.context = context;
         this.title = title;
         this.message = message;
         this.icon = icon;
@@ -48,7 +51,7 @@ public class AlertDialogInterface extends Dialog {
 
     public void dismissAlertDialog(){
         btnOk.setVisibility(View.VISIBLE);
-        btnOk.setText("OK");
+        btnOk.setText(context.getString(R.string.ok));
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

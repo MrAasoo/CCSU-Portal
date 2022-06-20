@@ -150,8 +150,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                     } else { //if error
                         AlertDialogInterface dialog = new AlertDialogInterface(ProfileActivity.this,
-                                "No Data Found!",
-                                "Try to refresh or Contact to administration",
+                                getResources().getString(R.string.no_data_found),
+                                getResources().getString(R.string.no_data_message),
                                 R.drawable.ic_app_icon);
                         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                         dialog.setCancelable(false);
@@ -168,7 +168,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<InfoResponse> call, Throwable t) {
-                Toast.makeText(ProfileActivity.this, "Server response failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivity.this, R.string.server_response_failed_message, Toast.LENGTH_SHORT).show();
             }
         });
 
